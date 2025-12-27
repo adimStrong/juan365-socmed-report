@@ -26,6 +26,42 @@ function filterByDateRange(data, startDate, endDate, dateField = 'date') {
   });
 }
 
+// Merge Videos and Reels into a single category
+function mergeVideoReels(postTypes) {
+  if (!Array.isArray(postTypes)) return postTypes;
+
+  const videoIdx = postTypes.findIndex(p => p.post_type === 'Videos');
+  const reelIdx = postTypes.findIndex(p => p.post_type === 'Reels');
+
+  // If both don't exist, return as-is
+  if (videoIdx === -1 && reelIdx === -1) return postTypes;
+
+  const video = videoIdx !== -1 ? postTypes[videoIdx] : { count: 0, reactions: 0, comments: 0, shares: 0, total_engagement: 0 };
+  const reel = reelIdx !== -1 ? postTypes[reelIdx] : { count: 0, reactions: 0, comments: 0, shares: 0, total_engagement: 0 };
+
+  const combined = {
+    post_type: 'Videos/Reels',
+    count: (video.count || 0) + (reel.count || 0),
+    reactions: (video.reactions || 0) + (reel.reactions || 0),
+    comments: (video.comments || 0) + (reel.comments || 0),
+    shares: (video.shares || 0) + (reel.shares || 0),
+    total_engagement: (video.total_engagement || 0) + (reel.total_engagement || 0),
+  };
+  combined.avg_engagement = combined.count > 0 ? Math.round(combined.total_engagement / combined.count) : 0;
+
+  return postTypes
+    .filter(p => p.post_type !== 'Videos' && p.post_type !== 'Reels')
+    .concat(combined);
+}
+
+// Normalize post_type for individual posts
+function normalizePostType(post) {
+  if (post.post_type === 'Videos' || post.post_type === 'Reels') {
+    return { ...post, post_type: 'Videos/Reels' };
+  }
+  return post;
+}
+
 const api = axios.create({
   baseURL: API_URL,
   headers: {
@@ -112,10 +148,14 @@ export const getPostTypeStats = async (pageId = null) => {
   if (IS_PRODUCTION) {
     const data = await loadStaticData();
     // Support per-page post type filtering
+    let postTypes;
     if (pageId && data.postTypes.byPage && data.postTypes.byPage[pageId]) {
-      return data.postTypes.byPage[pageId];
+      postTypes = data.postTypes.byPage[pageId];
+    } else {
+      postTypes = data.postTypes.all || data.postTypes;
     }
-    return data.postTypes.all || data.postTypes;
+    // Merge Videos and Reels into single category
+    return mergeVideoReels(postTypes);
   }
   const params = pageId ? `?page=${pageId}` : '';
   return api.get(`/stats/post-types/${params}`).then(res => res.data);
@@ -131,7 +171,8 @@ export const getTopPosts = async (limit = 10, metric = 'engagement', pageId = nu
     } else {
       posts = data.topPosts.all || data.topPosts;
     }
-    return posts.slice(0, limit);
+    // Normalize post_type
+    return posts.slice(0, limit).map(normalizePostType);
   }
   const params = new URLSearchParams({ limit, metric });
   if (pageId) params.append('page', pageId);
@@ -141,7 +182,8 @@ export const getTopPosts = async (limit = 10, metric = 'engagement', pageId = nu
 export const getPosts = async (params = {}) => {
   if (IS_PRODUCTION) {
     const data = await loadStaticData();
-    let posts = data.posts || [];
+    // Normalize post_type (Videos/Reels -> Videos/Reels)
+    let posts = (data.posts || []).map(normalizePostType);
 
     // Apply filters
     if (params.post_type) {
