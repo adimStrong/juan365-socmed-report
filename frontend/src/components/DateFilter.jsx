@@ -5,6 +5,8 @@ const PRESETS = [
   { label: 'Last 30 days', days: 30 },
   { label: 'Last 60 days', days: 60 },
   { label: 'Last 90 days', days: 90 },
+  { label: 'This Month', days: 'thisMonth' },
+  { label: 'Last Month', days: 'lastMonth' },
   { label: 'All Time', days: 0 },
 ];
 
@@ -28,9 +30,26 @@ export default function DateFilter({ onDateChange, defaultDays = 0 }) {
       setStartDate('');
       setEndDate('');
       onDateChange({ startDate: null, endDate: null });
+    } else if (days === 'thisMonth') {
+      const now = new Date();
+      const start = new Date(now.getFullYear(), now.getMonth(), 1);
+      const end = new Date();
+      const startStr = start.toISOString().split('T')[0];
+      const endStr = end.toISOString().split('T')[0];
+      setStartDate(startStr);
+      setEndDate(endStr);
+      onDateChange({ startDate: startStr, endDate: endStr });
+    } else if (days === 'lastMonth') {
+      const now = new Date();
+      const start = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+      const end = new Date(now.getFullYear(), now.getMonth(), 0); // Last day of previous month
+      const startStr = start.toISOString().split('T')[0];
+      const endStr = end.toISOString().split('T')[0];
+      setStartDate(startStr);
+      setEndDate(endStr);
+      onDateChange({ startDate: startStr, endDate: endStr });
     } else {
       const end = new Date();
-      end.setDate(end.getDate() - 2); // Exclude last 2 days (incomplete data)
       const start = new Date(end);
       start.setDate(start.getDate() - days);
 

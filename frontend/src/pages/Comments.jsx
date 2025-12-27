@@ -115,14 +115,18 @@ export default function Comments() {
                 nameKey="name"
                 cx="50%"
                 cy="50%"
-                outerRadius={100}
-                label={({ name, comments }) => `${name}: ${comments.toLocaleString()}`}
+                innerRadius={40}
+                outerRadius={80}
+                paddingAngle={2}
+                label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                labelLine={{ stroke: '#666', strokeWidth: 1 }}
               >
                 {commentsByPage.map((_, index) => (
                   <Cell key={index} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
               <Tooltip formatter={(value) => value?.toLocaleString()} />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </div>

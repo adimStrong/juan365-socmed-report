@@ -13,9 +13,12 @@ export default function Layout() {
     <div className="flex min-h-screen">
       {/* Sidebar */}
       <aside className="w-64 bg-indigo-900 text-white">
-        <div className="p-6">
-          <h1 className="text-xl font-bold">Socmed Report</h1>
-          <p className="text-indigo-300 text-sm">Juan365 Analytics</p>
+        <div className="p-6 flex items-center gap-3">
+          <img src="/logo.jpg" alt="Juan365 Logo" className="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <h1 className="text-xl font-bold">Socmed Report</h1>
+            <p className="text-indigo-300 text-sm">Juan365 Analytics</p>
+          </div>
         </div>
         <nav className="mt-4">
           {navItems.map(({ path, label, icon }) => (

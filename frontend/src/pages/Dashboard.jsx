@@ -310,8 +310,11 @@ export default function Dashboard() {
                   nameKey="post_type"
                   cx="50%"
                   cy="50%"
-                  outerRadius={100}
-                  label={({ post_type, count }) => `${post_type}: ${count}`}
+                  innerRadius={40}
+                  outerRadius={80}
+                  paddingAngle={2}
+                  label={({ post_type, percent }) => `${post_type} ${(percent * 100).toFixed(0)}%`}
+                  labelLine={{ stroke: '#666', strokeWidth: 1 }}
                 >
                   {postTypes.map((_, index) => (
                     <Cell key={index} fill={COLORS[index % COLORS.length]} />
@@ -330,8 +333,11 @@ export default function Dashboard() {
                   nameKey="short_name"
                   cx="50%"
                   cy="50%"
-                  outerRadius={100}
-                  label={({ short_name, value }) => `${short_name}: ${value?.toLocaleString()}`}
+                  innerRadius={40}
+                  outerRadius={80}
+                  paddingAngle={2}
+                  label={({ short_name, percent }) => `${short_name} ${(percent * 100).toFixed(0)}%`}
+                  labelLine={{ stroke: '#666', strokeWidth: 1 }}
                 >
                   {pageComparison.map((_, index) => (
                     <Cell key={index} fill={COLORS[index % COLORS.length]} />
@@ -339,6 +345,7 @@ export default function Dashboard() {
                 </Pie>
               )}
               <Tooltip formatter={(value, name) => [value?.toLocaleString(), name]} />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </div>
