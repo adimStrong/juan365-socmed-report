@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Fetch missing posts from FB API that aren't in CSV data.
-CSV data is prioritized (has views/reach), API fills gaps for recent dates.
+CSV data is prioritized (has views/reach), API ONLY fills gaps for dates NOT in CSV.
 """
 
 import json
@@ -22,12 +22,10 @@ def get_api_to_csv_mapping():
     """Get mapping from API page_ids to CSV page_ids."""
     conn = sqlite3.connect(DATABASE_PATH)
     cursor = conn.cursor()
-    # Get CSV page_ids (615xxx format) with their names
-    cursor.execute('SELECT page_id, page_name FROM pages WHERE page_id LIKE "615%"')
-    csv_pages = {row[1]: row[0] for row in cursor.fetchall()}  # name -> csv_page_id
+    cursor.execute('SELECT page_id, page_name FROM pages WHERE page_id LIKE "615%" OR page_id LIKE "100%"')
+    csv_pages = {row[1]: row[0] for row in cursor.fetchall()}
     conn.close()
 
-    # Create API -> CSV mapping based on page_name
     mapping = {}
     for label, data in PAGE_TOKENS.items():
         api_id = data.get("page_id")
@@ -35,6 +33,20 @@ def get_api_to_csv_mapping():
         if name in csv_pages:
             mapping[api_id] = csv_pages[name]
     return mapping
+
+
+def get_csv_dates():
+    """Get all dates that have CSV data (posts with views)."""
+    conn = sqlite3.connect(DATABASE_PATH)
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT DISTINCT substr(publish_time, 1, 10) as date
+        FROM posts
+        WHERE views_count > 0
+    """)
+    dates = set(row[0] for row in cursor.fetchall())
+    conn.close()
+    return dates
 
 
 def get_existing_post_ids():
@@ -105,7 +117,6 @@ def get_post_details(token, post_id):
         comments = data.get("comments", {}).get("summary", {}).get("total_count", 0)
         shares = data.get("shares", {}).get("count", 0)
 
-        # Get post type
         attachments = data.get("attachments", {}).get("data", [])
         if attachments:
             media_type = attachments[0].get("media_type", "").lower()
@@ -157,12 +168,18 @@ def save_post(conn, page_id, post_id, post_data, reactions, comments, shares, po
 def main():
     print("=" * 60)
     print("Fetching Missing Posts from FB API")
-    print("(CSV data is prioritized, API fills gaps)")
+    print("(API ONLY for dates NOT in CSV)")
     print("=" * 60)
+
+    # Get dates that have CSV data
+    csv_dates = get_csv_dates()
+    print(f"\nDates with CSV data: {len(csv_dates)}")
+    if csv_dates:
+        print(f"  CSV range: {min(csv_dates)} to {max(csv_dates)}")
 
     # Get existing post IDs
     existing_ids = get_existing_post_ids()
-    print(f"\nExisting posts in database: {len(existing_ids)}")
+    print(f"Existing posts in database: {len(existing_ids)}")
 
     # Get API to CSV page_id mapping
     api_to_csv = get_api_to_csv_mapping()
@@ -170,6 +187,7 @@ def main():
 
     conn = sqlite3.connect(DATABASE_PATH)
     total_new = 0
+    total_skipped = 0
 
     for label, data in PAGE_TOKENS.items():
         api_page_id = data.get("page_id")
@@ -179,35 +197,49 @@ def main():
         if not token or not api_page_id:
             continue
 
-        # Use CSV page_id if mapping exists, otherwise use API page_id
         db_page_id = api_to_csv.get(api_page_id, api_page_id)
 
         print(f"\n[{page_name}] Fetching recent posts...")
 
-        # Fetch from API
         posts = fetch_posts_from_api(token, api_page_id, page_name, days_back=7)
         print(f"  Found {len(posts)} posts from API")
 
-        # Filter to only new posts
+        # Filter to only new posts NOT in database
         new_posts = [p for p in posts if p["id"] not in existing_ids]
         print(f"  New posts not in database: {len(new_posts)}")
 
-        # Get details and save new posts (using CSV page_id)
+        # Save only posts from dates NOT in CSV
+        page_new = 0
+        page_skipped = 0
         for post in new_posts:
             post_id = post["id"]
+            created_time = post.get("created_time", "")
+            post_date = created_time[:10] if created_time else ""
+
+            # SKIP if this date has CSV data
+            if post_date in csv_dates:
+                page_skipped += 1
+                continue
+
             reactions, comments, shares, post_type = get_post_details(token, post_id)
 
             if save_post(conn, db_page_id, post_id, post, reactions, comments, shares, post_type):
-                total_new += 1
-                print(f"  + Added: {post_id[:30]}...")
+                page_new += 1
+                print(f"  + Added ({post_date}): {post_id[:25]}...")
 
             time.sleep(0.2)
+
+        total_new += page_new
+        total_skipped += page_skipped
+        if page_skipped > 0:
+            print(f"  Skipped {page_skipped} posts (dates covered by CSV)")
 
     conn.commit()
     conn.close()
 
     print("\n" + "=" * 60)
     print(f"DONE! Added {total_new} new posts from API")
+    print(f"Skipped {total_skipped} posts (dates already in CSV)")
     print("=" * 60)
 
 
