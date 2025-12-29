@@ -1,20 +1,20 @@
 {
   "stats": {
     "all": {
-      "total_posts": 1721,
+      "total_posts": 1722,
       "total_pages": 6,
       "all_pages": 6,
-      "total_reactions": 756412,
+      "total_reactions": 756415,
       "total_comments": 330662,
       "total_shares": 126320,
-      "total_engagement": 1213394,
-      "total_pes": 1803224.0,
+      "total_engagement": 1213397,
+      "total_pes": 1803227.0,
       "total_views": 49370365,
       "total_reach": 29005518,
-      "avg_engagement": 705.1,
-      "avg_pes": 1047.8,
-      "avg_views": 28687.0,
-      "avg_reach": 16853.9,
+      "avg_engagement": 704.6,
+      "avg_pes": 1047.2,
+      "avg_views": 28670.4,
+      "avg_reach": 16844.1,
       "date_range_start": "2025-06-01",
       "date_range_end": "2025-12-29"
     },
@@ -74,20 +74,20 @@
         "date_range_end": "2025-12-29"
       },
       "61578179424678": {
-        "total_posts": 73,
+        "total_posts": 74,
         "total_pages": 1,
         "all_pages": 1,
-        "total_reactions": 2610,
+        "total_reactions": 2613,
         "total_comments": 933,
         "total_shares": 720,
-        "total_engagement": 4263,
-        "total_pes": 6927.0,
+        "total_engagement": 4266,
+        "total_pes": 6930.0,
         "total_views": 90342,
         "total_reach": 46086,
-        "avg_engagement": 58.4,
-        "avg_pes": 94.9,
-        "avg_views": 1237.6,
-        "avg_reach": 631.3,
+        "avg_engagement": 57.6,
+        "avg_pes": 93.6,
+        "avg_views": 1220.8,
+        "avg_reach": 622.8,
         "date_range_start": "2025-12-04",
         "date_range_end": "2025-12-29"
       },
@@ -180,13 +180,13 @@
       "page_name": "Juan365 Studios",
       "fan_count": null,
       "followers_count": null,
-      "post_count": 73,
-      "total_reactions": 2610,
+      "post_count": 74,
+      "total_reactions": 2613,
       "total_comments": 933,
       "total_shares": 720,
-      "total_engagement": 4263,
-      "avg_engagement": 58.4,
-      "avg_reach": 631.3,
+      "total_engagement": 4266,
+      "avg_engagement": 57.6,
+      "avg_reach": 622.8,
       "total_views": 90342,
       "total_reach": 46086
     },
@@ -220,13 +220,13 @@
       },
       {
         "post_type": "Videos",
-        "count": 349,
-        "reactions": 422292,
+        "count": 350,
+        "reactions": 422295,
         "comments": 115779,
         "shares": 63020,
-        "total_engagement": 601091,
-        "avg_engagement": 1722.3,
-        "avg_pes": 2428.8
+        "total_engagement": 601094,
+        "avg_engagement": 1717.4,
+        "avg_pes": 2421.9
       },
       {
         "post_type": "Reels",
@@ -359,13 +359,13 @@
         },
         {
           "post_type": "Videos",
-          "count": 24,
-          "reactions": 1092,
+          "count": 25,
+          "reactions": 1095,
           "comments": 311,
           "shares": 242,
-          "total_engagement": 1645,
-          "avg_engagement": 68.5,
-          "avg_pes": 110.1
+          "total_engagement": 1648,
+          "avg_engagement": 65.9,
+          "avg_pes": 105.8
         },
         {
           "post_type": "Text",
@@ -2662,12 +2662,12 @@
       },
       {
         "date": "2025-12-29",
-        "posts": 21,
-        "reactions": 396,
+        "posts": 22,
+        "reactions": 399,
         "comments": 116,
         "shares": 139,
-        "engagement": 651,
-        "pes": 1045.0,
+        "engagement": 654,
+        "pes": 1048.0,
         "views": 0,
         "reach": 0
       }
@@ -5993,12 +5993,12 @@
         },
         {
           "date": "2025-12-29",
-          "posts": 7,
-          "reactions": 63,
+          "posts": 8,
+          "reactions": 66,
           "comments": 21,
           "shares": 16,
-          "engagement": 100,
-          "pes": 153.0,
+          "engagement": 103,
+          "pes": 156.0,
           "views": 0,
           "reach": 0
         }
@@ -7656,6 +7656,22 @@
     }
   },
   "posts": [
+    {
+      "post_id": "708878528972997_122148244664939314",
+      "page_id": "61578179424678",
+      "page_name": "Juan365 Studios",
+      "title": "Juankada Host Lance just hit x50 sa wheel! \ud83d\udd25\nTake note \u2014 up to 150x ang wheel natin, Juankada!\nBaka next spin, sa\u2019yo na! \ud83c\udfaf\n\n#Juan365Studios #Juan365 #ALLINJUANLIVE #JuankadaHosts #Juankada",
+      "post_type": "Videos",
+      "publish_time": "2025-12-29T17:40:29+0000",
+      "permalink": "https://www.facebook.com/reel/746483727896767/",
+      "reactions": 3,
+      "comments": 0,
+      "shares": 0,
+      "views": 0,
+      "reach": 0,
+      "engagement": 3,
+      "pes": 3.0
+    },
     {
       "post_id": "708878528972997_122148221510939314",
       "page_id": "61578179424678",
@@ -35198,14 +35214,14 @@
     "monthly": [
       {
         "month": "2025-12",
-        "posts": 474,
-        "reactions": 119374,
+        "posts": 475,
+        "reactions": 119377,
         "comments": 76155,
         "shares": 28461,
         "views": 6436510,
         "reach": 4112559,
-        "engagement": 223990,
-        "avg_engagement": 472.6,
+        "engagement": 223993,
+        "avg_engagement": 471.6,
         "mom_change": -22.2
       },
       {
@@ -35274,14 +35290,14 @@
         "week": "2025-52",
         "week_start": "2025-12-29",
         "week_end": "2025-12-29",
-        "posts": 21,
-        "reactions": 396,
+        "posts": 22,
+        "reactions": 399,
         "comments": 116,
         "shares": 139,
         "views": 0,
         "reach": 0,
-        "engagement": 651,
-        "avg_engagement": 31.0,
+        "engagement": 654,
+        "avg_engagement": 29.7,
         "wow_change": -97.2
       },
       {
@@ -35341,9 +35357,9 @@
       {
         "day": "Mon",
         "day_num": 1,
-        "posts": 245,
-        "total_engagement": 151538,
-        "avg_engagement": 618.5,
+        "posts": 246,
+        "total_engagement": 151541,
+        "avg_engagement": 616.0,
         "views": 7266245,
         "reach": 4366881,
         "is_best": false
@@ -35434,11 +35450,11 @@
         "rank": 4,
         "page_id": "61578179424678",
         "page_name": "Juan365 Studios",
-        "posts": 73,
+        "posts": 74,
         "views": 90342,
         "reach": 46086,
-        "engagement": 4263,
-        "avg_engagement": 58.4
+        "engagement": 4266,
+        "avg_engagement": 57.6
       },
       {
         "rank": 5,
@@ -35463,12 +35479,12 @@
       },
       {
         "type": "Videos",
-        "count": 349,
+        "count": 350,
         "views": 11837945,
         "reach": 8749290,
-        "engagement": 601091,
-        "avg_engagement": 1722.3,
-        "avg_views": 33919.6
+        "engagement": 601094,
+        "avg_engagement": 1717.4,
+        "avg_views": 33822.7
       },
       {
         "type": "Reels",
@@ -35732,15 +35748,15 @@
         "page_id": "61578179424678",
         "page_name": "Juan365 Studios",
         "fan_count": null,
-        "posts": 73,
-        "engagement": 4263,
-        "avg_engagement": 58.4,
+        "posts": 74,
+        "engagement": 4266,
+        "avg_engagement": 57.6,
         "views": 90342,
         "reach": 46086,
-        "reactions": 2610,
+        "reactions": 2613,
         "comments": 933,
         "shares": 720,
-        "avg_pes": 94.9,
+        "avg_pes": 93.6,
         "rank": 4,
         "engagement_share": 0.4
       },
@@ -35849,9 +35865,9 @@
         },
         {
           "type": "Videos",
-          "count": 24,
-          "engagement": 1645,
-          "avg_engagement": 68.5
+          "count": 25,
+          "engagement": 1648,
+          "avg_engagement": 65.9
         },
         {
           "type": "Text",
@@ -35902,7 +35918,7 @@
       },
       "61578179424678": {
         "type": "Photos",
-        "percentage": 63.0
+        "percentage": 62.2
       },
       "61580653561998": {
         "type": "Photos",
