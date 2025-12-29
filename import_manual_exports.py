@@ -7,7 +7,7 @@ import os
 from datetime import datetime
 from glob import glob
 
-DATABASE_PATH = "data/juanbabes_analytics.db"
+DATABASE_PATH = "data/juan365_socmed.db"
 EXPORTS_FOLDER = "exports/from content manual Export"
 
 

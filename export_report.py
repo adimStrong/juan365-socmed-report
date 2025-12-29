@@ -6,7 +6,7 @@ import csv
 import os
 from datetime import datetime
 
-DATABASE_PATH = "data/juanbabes_analytics.db"
+DATABASE_PATH = "data/juan365_socmed.db"
 OUTPUT_DIR = "reports"
 
 def export_pages():

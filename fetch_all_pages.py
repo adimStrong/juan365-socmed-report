@@ -34,7 +34,7 @@ def classify_post_type(post):
 with open("page_tokens.json", "r") as f:
     PAGE_TOKENS = json.load(f)
 
-DATABASE_PATH = "data/juanbabes_analytics.db"
+DATABASE_PATH = "data/juan365_socmed.db"
 
 
 def init_database():

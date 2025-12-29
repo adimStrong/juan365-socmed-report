@@ -34,7 +34,7 @@ import os
 import sys
 
 # Configuration
-DATABASE_PATH = "data/juanbabes_analytics.db"
+DATABASE_PATH = "data/juan365_socmed.db"
 TOKENS_FILE = "page_tokens.json"
 GRAPH_API_VERSION = "v18.0"
 GRAPH_API_BASE = f"https://graph.facebook.com/{GRAPH_API_VERSION}"
