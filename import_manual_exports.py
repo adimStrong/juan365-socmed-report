@@ -60,11 +60,11 @@ def import_csv(filepath):
             # Track pages
             if page_id not in pages_seen:
                 pages_seen.add(page_id)
-                # Save page info
+                # Save/update page info (use REPLACE to ensure page_name is updated)
                 cursor.execute("""
-                    INSERT OR IGNORE INTO pages (page_id, page_name, created_at, updated_at)
-                    VALUES (?, ?, ?, ?)
-                """, (page_id, page_name, datetime.now().isoformat(), datetime.now().isoformat()))
+                    INSERT OR REPLACE INTO pages (page_id, page_name, created_at, updated_at)
+                    VALUES (?, ?, COALESCE((SELECT created_at FROM pages WHERE page_id = ?), ?), ?)
+                """, (page_id, page_name, page_id, datetime.now().isoformat(), datetime.now().isoformat()))
 
             # Parse post data
             title = row.get("Title", "")[:200] if row.get("Title") else ""

@@ -8,9 +8,13 @@ echo ============================================
 echo Juan365 Socmed Report Update - %date% %time%
 echo ============================================
 echo.
+echo Workflow: CSV data is PRIORITY (has views/reach)
+echo           FB API fills gaps for missing dates
+echo ============================================
+echo.
 
 REM Step 1: Import all CSVs from manual export folder
-echo [1/4] Importing CSV data...
+echo [1/5] Importing CSV data (priority)...
 python csv_importer.py import-all "exports\from content manual Export" --mode merge
 if %errorlevel% neq 0 (
     echo ERROR: CSV import failed!
@@ -18,9 +22,17 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-REM Step 2: Export static data for frontend
+REM Step 2: Fetch missing posts from FB API
 echo.
-echo [2/4] Exporting analytics data...
+echo [2/5] Fetching missing posts from FB API (fills gaps)...
+python fetch_missing_posts.py
+if %errorlevel% neq 0 (
+    echo WARNING: Missing posts fetch failed (tokens may be expired)
+)
+
+REM Step 3: Export static data for frontend
+echo.
+echo [3/5] Exporting analytics data...
 python export_static_data.py
 if %errorlevel% neq 0 (
     echo ERROR: Export failed!
@@ -28,9 +40,9 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-REM Step 3: Git commit and push
+REM Step 4: Git commit and push
 echo.
-echo [3/4] Pushing to GitHub...
+echo [4/5] Pushing to GitHub...
 git add -A
 git commit -m "Report update: %date% - CSV import and analytics refresh"
 git push origin main
@@ -39,9 +51,9 @@ if %errorlevel% neq 0 (
     git push origin main
 )
 
-REM Step 4: Notify user
+REM Step 5: Notify user
 echo.
-echo [4/4] Complete!
+echo [5/5] Complete!
 echo.
 echo ============================================
 echo DONE! Socmed Report updated and pushed.
