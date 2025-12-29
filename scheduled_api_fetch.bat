@@ -22,13 +22,13 @@ python export_static_data.py
 
 echo.
 echo [3/3] Pushing to GitHub...
-git add -A
-git commit -m "Scheduled update: %date% %time%"
-git push origin main
+set GIT=C:\Users\us\AppData\Local\Programs\Git\bin\git.exe
+"%GIT%" add frontend/public/data/analytics.json
+"%GIT%" commit -m "Scheduled update: %date% %time%"
+"%GIT%" push origin main
 
 echo.
 echo ============================================
-echo DONE! Next run in 1 hour.
+echo DONE!
 echo ============================================
 echo.
-pause
