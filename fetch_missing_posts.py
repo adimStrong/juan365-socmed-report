@@ -18,6 +18,25 @@ with open("page_tokens.json", "r") as f:
     PAGE_TOKENS = json.load(f)
 
 
+def get_api_to_csv_mapping():
+    """Get mapping from API page_ids to CSV page_ids."""
+    conn = sqlite3.connect(DATABASE_PATH)
+    cursor = conn.cursor()
+    # Get CSV page_ids (615xxx format) with their names
+    cursor.execute('SELECT page_id, page_name FROM pages WHERE page_id LIKE "615%"')
+    csv_pages = {row[1]: row[0] for row in cursor.fetchall()}  # name -> csv_page_id
+    conn.close()
+
+    # Create API -> CSV mapping based on page_name
+    mapping = {}
+    for label, data in PAGE_TOKENS.items():
+        api_id = data.get("page_id")
+        name = data.get("page_name")
+        if name in csv_pages:
+            mapping[api_id] = csv_pages[name]
+    return mapping
+
+
 def get_existing_post_ids():
     """Get all post IDs already in database."""
     conn = sqlite3.connect(DATABASE_PATH)
@@ -145,33 +164,40 @@ def main():
     existing_ids = get_existing_post_ids()
     print(f"\nExisting posts in database: {len(existing_ids)}")
 
+    # Get API to CSV page_id mapping
+    api_to_csv = get_api_to_csv_mapping()
+    print(f"Page ID mappings: {len(api_to_csv)}")
+
     conn = sqlite3.connect(DATABASE_PATH)
     total_new = 0
 
     for label, data in PAGE_TOKENS.items():
-        page_id = data.get("page_id")
+        api_page_id = data.get("page_id")
         page_name = data.get("page_name", label)
         token = data.get("page_access_token")
 
-        if not token or not page_id:
+        if not token or not api_page_id:
             continue
+
+        # Use CSV page_id if mapping exists, otherwise use API page_id
+        db_page_id = api_to_csv.get(api_page_id, api_page_id)
 
         print(f"\n[{page_name}] Fetching recent posts...")
 
         # Fetch from API
-        posts = fetch_posts_from_api(token, page_id, page_name, days_back=7)
+        posts = fetch_posts_from_api(token, api_page_id, page_name, days_back=7)
         print(f"  Found {len(posts)} posts from API")
 
         # Filter to only new posts
         new_posts = [p for p in posts if p["id"] not in existing_ids]
         print(f"  New posts not in database: {len(new_posts)}")
 
-        # Get details and save new posts
+        # Get details and save new posts (using CSV page_id)
         for post in new_posts:
             post_id = post["id"]
             reactions, comments, shares, post_type = get_post_details(token, post_id)
 
-            if save_post(conn, page_id, post_id, post, reactions, comments, shares, post_type):
+            if save_post(conn, db_page_id, post_id, post, reactions, comments, shares, post_type):
                 total_new += 1
                 print(f"  + Added: {post_id[:30]}...")
 
