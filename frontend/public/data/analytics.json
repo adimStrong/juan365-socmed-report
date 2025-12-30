@@ -1,39 +1,39 @@
 {
   "stats": {
     "all": {
-      "total_posts": 1733,
+      "total_posts": 1734,
       "total_pages": 6,
       "all_pages": 6,
-      "total_reactions": 756601,
-      "total_comments": 330712,
-      "total_shares": 126406,
-      "total_engagement": 1213719,
-      "total_pes": 1803771.0,
+      "total_reactions": 756652,
+      "total_comments": 330737,
+      "total_shares": 126412,
+      "total_engagement": 1213801,
+      "total_pes": 1803890.0,
       "total_views": 49370365,
       "total_reach": 29005518,
-      "avg_engagement": 700.4,
-      "avg_pes": 1040.8,
-      "avg_views": 28488.4,
-      "avg_reach": 16737.2,
+      "avg_engagement": 700.0,
+      "avg_pes": 1040.3,
+      "avg_views": 28472.0,
+      "avg_reach": 16727.5,
       "date_range_start": "2025-06-01",
       "date_range_end": "2025-12-30"
     },
     "byPage": {
       "100069911784904": {
-        "total_posts": 215,
+        "total_posts": 216,
         "total_pages": 1,
         "all_pages": 1,
-        "total_reactions": 27918,
-        "total_comments": 13952,
-        "total_shares": 6504,
-        "total_engagement": 48374,
-        "total_pes": 76188.0,
+        "total_reactions": 27969,
+        "total_comments": 13977,
+        "total_shares": 6510,
+        "total_engagement": 48456,
+        "total_pes": 76307.0,
         "total_views": 804383,
         "total_reach": 431749,
-        "avg_engagement": 225.0,
-        "avg_pes": 354.4,
-        "avg_views": 3741.3,
-        "avg_reach": 2008.1,
+        "avg_engagement": 224.3,
+        "avg_pes": 353.3,
+        "avg_views": 3724.0,
+        "avg_reach": 1998.8,
         "date_range_start": "2025-09-13",
         "date_range_end": "2025-12-30"
       },
@@ -150,13 +150,13 @@
       "page_name": "JuanBingo",
       "fan_count": null,
       "followers_count": null,
-      "post_count": 215,
-      "total_reactions": 27918,
-      "total_comments": 13952,
-      "total_shares": 6504,
-      "total_engagement": 48374,
-      "avg_engagement": 225.0,
-      "avg_reach": 2008.1,
+      "post_count": 216,
+      "total_reactions": 27969,
+      "total_comments": 13977,
+      "total_shares": 6510,
+      "total_engagement": 48456,
+      "avg_engagement": 224.3,
+      "avg_reach": 1998.8,
       "total_views": 804383,
       "total_reach": 431749
     },
@@ -210,13 +210,13 @@
     "all": [
       {
         "post_type": "Photos",
-        "count": 1316,
-        "reactions": 296309,
-        "comments": 185404,
-        "shares": 54916,
-        "total_engagement": 536629,
-        "avg_engagement": 407.8,
-        "avg_pes": 633.5
+        "count": 1317,
+        "reactions": 296360,
+        "comments": 185429,
+        "shares": 54922,
+        "total_engagement": 536711,
+        "avg_engagement": 407.5,
+        "avg_pes": 633.1
       },
       {
         "post_type": "Videos",
@@ -263,13 +263,13 @@
       "100069911784904": [
         {
           "post_type": "Photos",
-          "count": 152,
-          "reactions": 20193,
-          "comments": 10569,
-          "shares": 5000,
-          "total_engagement": 35762,
-          "avg_engagement": 235.3,
-          "avg_pes": 373.4
+          "count": 153,
+          "reactions": 20244,
+          "comments": 10594,
+          "shares": 5006,
+          "total_engagement": 35844,
+          "avg_engagement": 234.3,
+          "avg_pes": 371.8
         },
         {
           "post_type": "Videos",
@@ -2673,12 +2673,12 @@
       },
       {
         "date": "2025-12-30",
-        "posts": 11,
-        "reactions": 186,
-        "comments": 50,
-        "shares": 86,
-        "engagement": 322,
-        "pes": 544.0,
+        "posts": 12,
+        "reactions": 237,
+        "comments": 75,
+        "shares": 92,
+        "engagement": 404,
+        "pes": 663.0,
         "views": 0,
         "reach": 0
       }
@@ -3512,12 +3512,12 @@
         },
         {
           "date": "2025-12-30",
-          "posts": 2,
-          "reactions": 17,
-          "comments": 4,
-          "shares": 3,
-          "engagement": 24,
-          "pes": 34.0,
+          "posts": 3,
+          "reactions": 68,
+          "comments": 29,
+          "shares": 9,
+          "engagement": 106,
+          "pes": 153.0,
           "views": 0,
           "reach": 0
         }
@@ -7711,6 +7711,22 @@
     }
   },
   "posts": [
+    {
+      "post_id": "101968408687724_1169517525388629",
+      "page_id": "100069911784904",
+      "page_name": "JuanBingo",
+      "title": "\ud835\udc02\ud835\udc0e\ud835\udc0d\ud835\udc06\ud835\udc11\ud835\udc00\ud835\udc13\ud835\udc14\ud835\udc0b\ud835\udc00\ud835\udc13\ud835\udc08\ud835\udc0e\ud835\udc0d\ud835\udc12! Enjoy your 200 FREE JuanBingo Credits!\n\nFollow JuanBingo para updated ka sa mga susunod na ganap!\n\n#JuanBingo #BingoJuanNgBayan",
+      "post_type": "Photos",
+      "publish_time": "2025-12-30T10:00:13+0000",
+      "permalink": "https://www.facebook.com/1168661315474250/posts/1169517525388629",
+      "reactions": 51,
+      "comments": 25,
+      "shares": 6,
+      "views": 0,
+      "reach": 0,
+      "engagement": 82,
+      "pes": 119.0
+    },
     {
       "post_id": "708878528972997_122148322922939314",
       "page_id": "61578179424678",
@@ -35445,14 +35461,14 @@
     "monthly": [
       {
         "month": "2025-12",
-        "posts": 486,
-        "reactions": 119563,
-        "comments": 76205,
-        "shares": 28547,
+        "posts": 487,
+        "reactions": 119614,
+        "comments": 76230,
+        "shares": 28553,
         "views": 6436510,
         "reach": 4112559,
-        "engagement": 224315,
-        "avg_engagement": 461.6,
+        "engagement": 224397,
+        "avg_engagement": 460.8,
         "mom_change": -22.0
       },
       {
@@ -35521,15 +35537,15 @@
         "week": "2025-52",
         "week_start": "2025-12-29",
         "week_end": "2025-12-30",
-        "posts": 33,
-        "reactions": 585,
-        "comments": 166,
-        "shares": 225,
+        "posts": 34,
+        "reactions": 636,
+        "comments": 191,
+        "shares": 231,
         "views": 0,
         "reach": 0,
-        "engagement": 976,
-        "avg_engagement": 29.6,
-        "wow_change": -95.8
+        "engagement": 1058,
+        "avg_engagement": 31.1,
+        "wow_change": -95.5
       },
       {
         "week": "2025-51",
@@ -35598,9 +35614,9 @@
       {
         "day": "Tue",
         "day_num": 2,
-        "posts": 251,
-        "total_engagement": 401930,
-        "avg_engagement": 1601.3,
+        "posts": 252,
+        "total_engagement": 402012,
+        "avg_engagement": 1595.3,
         "views": 8622790,
         "reach": 4693252,
         "is_best": true
@@ -35661,11 +35677,11 @@
         "rank": 2,
         "page_id": "100069911784904",
         "page_name": "JuanBingo",
-        "posts": 215,
+        "posts": 216,
         "views": 804383,
         "reach": 431749,
-        "engagement": 48374,
-        "avg_engagement": 225.0
+        "engagement": 48456,
+        "avg_engagement": 224.3
       },
       {
         "rank": 3,
@@ -35728,12 +35744,12 @@
       },
       {
         "type": "Photos",
-        "count": 1316,
+        "count": 1317,
         "views": 35779394,
         "reach": 19016650,
-        "engagement": 536629,
-        "avg_engagement": 407.8,
-        "avg_views": 27188.0
+        "engagement": 536711,
+        "avg_engagement": 407.5,
+        "avg_views": 27167.3
       },
       {
         "type": "Text",
@@ -35754,7 +35770,7 @@
       {
         "type": "best_day",
         "title": "Tue is Best",
-        "text": "Tue generates 1601 avg engagement - \ud83d\udcc8 optimal for posting"
+        "text": "Tue generates 1595 avg engagement - \ud83d\udcc8 optimal for posting"
       },
       {
         "type": "content_type",
@@ -35770,11 +35786,11 @@
   },
   "commentAnalysis": {
     "summary": {
-      "total_posts_with_comments": 1514,
-      "posts_analyzed": 1514,
+      "total_posts_with_comments": 1515,
+      "posts_analyzed": 1515,
       "posts_with_self_comment": 195,
       "total_self_comments": 262,
-      "total_organic_comments": 330450,
+      "total_organic_comments": 330475,
       "self_comment_rate": 0.1,
       "posts_with_self_pct": 12.9
     },
@@ -35791,9 +35807,9 @@
       {
         "page_name": "JuanBingo",
         "page_id": "100069911784904",
-        "posts_with_comments": 214,
+        "posts_with_comments": 215,
         "self_comments": 40,
-        "organic_comments": 13912,
+        "organic_comments": 13937,
         "posts_with_self": 32,
         "self_rate": 0.3
       },
@@ -35827,10 +35843,10 @@
     ],
     "effectivity": {
       "avg_engagement_with_self": 1985.5,
-      "avg_engagement_without_self": 625.6,
-      "engagement_boost_pct": 217.4,
+      "avg_engagement_without_self": 625.2,
+      "engagement_boost_pct": 217.6,
       "avg_reactions_with": 1291.6,
-      "avg_reactions_without": 381.6
+      "avg_reactions_without": 381.4
     },
     "topSelfCommented": [
       {
@@ -35947,15 +35963,15 @@
         "page_id": "100069911784904",
         "page_name": "JuanBingo",
         "fan_count": null,
-        "posts": 215,
-        "engagement": 48374,
-        "avg_engagement": 225.0,
+        "posts": 216,
+        "engagement": 48456,
+        "avg_engagement": 224.3,
         "views": 804383,
         "reach": 431749,
-        "reactions": 27918,
-        "comments": 13952,
-        "shares": 6504,
-        "avg_pes": 354.4,
+        "reactions": 27969,
+        "comments": 13977,
+        "shares": 6510,
+        "avg_pes": 353.3,
         "rank": 2,
         "engagement_share": 4.0
       },
@@ -36028,9 +36044,9 @@
       "100069911784904": [
         {
           "type": "Photos",
-          "count": 152,
-          "engagement": 35762,
-          "avg_engagement": 235.3
+          "count": 153,
+          "engagement": 35844,
+          "avg_engagement": 234.3
         },
         {
           "type": "Videos",
@@ -36133,7 +36149,7 @@
     "dominantTypes": {
       "100069911784904": {
         "type": "Photos",
-        "percentage": 70.7
+        "percentage": 70.8
       },
       "101968408687724": {
         "type": "Photos",
