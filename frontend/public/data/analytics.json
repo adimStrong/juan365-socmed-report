@@ -37731,21 +37731,48 @@
     "summary": {
       "total_posts_with_comments": 1614,
       "posts_analyzed": 1614,
-      "posts_with_self_comment": 0,
-      "total_self_comments": 0,
-      "total_organic_comments": 336355,
-      "self_comment_rate": 0.0,
-      "posts_with_self_pct": 0.0
+      "posts_with_self_comment": 225,
+      "total_self_comments": 308,
+      "total_organic_comments": 336047,
+      "self_comment_rate": 0.1,
+      "posts_with_self_pct": 13.9
     },
     "byPage": [
+      {
+        "page_name": "Juan365",
+        "page_id": "61572881214141",
+        "posts_with_comments": 1004,
+        "self_comments": 179,
+        "organic_comments": 317663,
+        "posts_with_self": 122,
+        "self_rate": 0.1
+      },
       {
         "page_name": "JuanBingo",
         "page_id": "100069911784904",
         "posts_with_comments": 221,
-        "self_comments": 0,
-        "organic_comments": 14384,
-        "posts_with_self": 0,
-        "self_rate": 0.0
+        "self_comments": 51,
+        "organic_comments": 14333,
+        "posts_with_self": 36,
+        "self_rate": 0.4
+      },
+      {
+        "page_name": "Juan365 Studios",
+        "page_id": "61578179424678",
+        "posts_with_comments": 81,
+        "self_comments": 39,
+        "organic_comments": 1135,
+        "posts_with_self": 37,
+        "self_rate": 3.3
+      },
+      {
+        "page_name": "JuanSports",
+        "page_id": "61582036535912",
+        "posts_with_comments": 304,
+        "self_comments": 39,
+        "organic_comments": 2740,
+        "posts_with_self": 30,
+        "self_rate": 1.4
       },
       {
         "page_name": null,
@@ -37755,43 +37782,107 @@
         "organic_comments": 176,
         "posts_with_self": 0,
         "self_rate": 0.0
-      },
-      {
-        "page_name": "Juan365",
-        "page_id": "61572881214141",
-        "posts_with_comments": 1004,
-        "self_comments": 0,
-        "organic_comments": 317842,
-        "posts_with_self": 0,
-        "self_rate": 0.0
-      },
-      {
-        "page_name": "Juan365 Studios",
-        "page_id": "61578179424678",
-        "posts_with_comments": 81,
-        "self_comments": 0,
-        "organic_comments": 1174,
-        "posts_with_self": 0,
-        "self_rate": 0.0
-      },
-      {
-        "page_name": "JuanSports",
-        "page_id": "61582036535912",
-        "posts_with_comments": 304,
-        "self_comments": 0,
-        "organic_comments": 2779,
-        "posts_with_self": 0,
-        "self_rate": 0.0
       }
     ],
     "effectivity": {
-      "avg_engagement_with_self": 0,
-      "avg_engagement_without_self": 766.6,
-      "engagement_boost_pct": -100.0,
-      "avg_reactions_with": 0,
-      "avg_reactions_without": 478.6
+      "avg_engagement_with_self": 1114.6,
+      "avg_engagement_without_self": 710.2,
+      "engagement_boost_pct": 56.9,
+      "avg_reactions_with": 625.6,
+      "avg_reactions_without": 454.9
     },
-    "topSelfCommented": []
+    "topSelfCommented": [
+      {
+        "post_id": "122151145172762707",
+        "page_name": "Juan365",
+        "title": "\ud83d\udea7 System Maintenance Notice \ud83d\udea7\n\nAng Juan365 ay kasa",
+        "self_comments": 5,
+        "total_comments": 544,
+        "engagement": 1064,
+        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02hEXSSfaTkWo6QP45KYRYDCD1jJdM6aRrMvKLpknpzFz1MtDLsZxVziizmYWBGqPjl"
+      },
+      {
+        "post_id": "122170816208762707",
+        "page_name": "Juan365",
+        "title": "Si Ninong Juan paparating na...\nKung Ninong mo si ",
+        "self_comments": 5,
+        "total_comments": 776,
+        "engagement": 1867,
+        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02hQaJqVDEMqnUfQvP6j3gwMgyG2azm2sHf894YL4puxnUdQrUc6HLcpSyBkHnfjhNl"
+      },
+      {
+        "post_id": "122173232216762707",
+        "page_name": "Juan365",
+        "title": "\ud835\udfcf,\ud835\udfce\ud835\udfce\ud835\udfce \ud835\udc29\ud835\udc1a\ud835\udc2b\ud835\udc1a \ud835\udc2c\ud835\udc1a \ud835\udfd3\ud835\udfce \ud835\udc25\ud835\udc2e\ud835\udc1c\ud835\udc24\ud835\udc32 \ud835\udc1c\ud835\udc28\ud835\udc27\ud835\udc2d\ud835\udc2b\ud835\udc22\ud835\udc1b\ud835\udc2e\ud835\udc2d\ud835\udc28\ud835\udc2b\ud835\udc2c?!\nJuankada, tu",
+        "self_comments": 4,
+        "total_comments": 90,
+        "engagement": 425,
+        "permalink": "https://www.facebook.com/reel/2989461134580936/"
+      },
+      {
+        "post_id": "122170277450762707",
+        "page_name": "Juan365",
+        "title": "\ud835\udddc\ud835\ude01\u2019\ud835\ude00 \ud835\ude01\ud835\uddf6\ud835\uddfa\ud835\uddf2 \ud835\uddf3\ud835\uddfc\ud835\uddff \ud835\uddd4\ud835\udddf\ud835\udddf \ud835\udddc\ud835\udde1 \ud835\udde6\ud835\uddd4 \ud835\udde6\ud835\uddee\ud835\ude06\ud835\uddee\ud835\udddd\ud835\udde8\ud835\uddd4\ud835\udde1: \ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\udddd\ud835\ude02\ud835\uddee\ud835\uddfb365 \ud835\uddd7\ud835\uddee\ud835\uddfb\ud835\uddf0",
+        "self_comments": 4,
+        "total_comments": 6554,
+        "engagement": 35603,
+        "permalink": "https://www.facebook.com/reel/1390174352607271/"
+      },
+      {
+        "post_id": "1168125218861193",
+        "page_name": "JuanBingo",
+        "title": "Join the JuanBingo Telegram channel para sa latest",
+        "self_comments": 4,
+        "total_comments": 70,
+        "engagement": 209,
+        "permalink": "https://www.facebook.com/Juan365Bingo/posts/pfbid0JMQbFF8rqK8M8GL4iTusLJdYF62ZPp3A73sb6qiQpiNsdoudQLMorbe2S79xYL7yl"
+      },
+      {
+        "post_id": "122173379834762707",
+        "page_name": "Juan365",
+        "title": "Guess na JuanKada!\n\nHow To Join:\n1\ufe0f\u20e3 Like & Follow",
+        "self_comments": 3,
+        "total_comments": 305,
+        "engagement": 737,
+        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid021Q5X1CbxMvw3t9meZsJzmEWfCspFzZmLoH2VDFwYnQ9NhrC6oHQ7c9aGchp1iLVpl"
+      },
+      {
+        "post_id": "122173284320762707",
+        "page_name": "Juan365",
+        "title": "Huwag palampasin ang chance mo for fun at exciteme",
+        "self_comments": 3,
+        "total_comments": 126,
+        "engagement": 454,
+        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02cgtqXbr1s6gHgh68BHNAjWjsmhRcCRpdQJgs4BFbo529AxpQGh3URE4ZzG6kTV55l"
+      },
+      {
+        "post_id": "122173266602762707",
+        "page_name": "Juan365",
+        "title": "Team Snatch or Team Catch ka, Juankada? \ud83d\udc40\nI-commen",
+        "self_comments": 3,
+        "total_comments": 120,
+        "engagement": 369,
+        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02kbMkYQDuAADsG6rfraWX8GBYXRPdwUma5VCQr5ceteaYjUEKj2nT7A3iVNy2YQP5l"
+      },
+      {
+        "post_id": "122173064582762707",
+        "page_name": "Juan365",
+        "title": "Huwag palampasin ang chance mo! Mabilis. Masaya. E",
+        "self_comments": 3,
+        "total_comments": 133,
+        "engagement": 411,
+        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0ueDwCt22B6Mr3ZbZkRAnk9QFJgFkv7kA3FF8H2PTdq4pS2tCy8WCEgTY9zgkvfiul"
+      },
+      {
+        "post_id": "122172319772762707",
+        "page_name": "Juan365",
+        "title": "Sending you warm wishes and all the joys of the se",
+        "self_comments": 3,
+        "total_comments": 356,
+        "engagement": 960,
+        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0AL4eYurGtgbmSdsoCFRSgUoADfJ2AWaPjmAKLLLnuWayZPdP8mHgRHm3iimqmhGcl"
+      }
+    ]
   },
   "pageComparison": {
     "pages": [
