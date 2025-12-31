@@ -1,20 +1,20 @@
 {
   "stats": {
     "all": {
-      "total_posts": 1861,
+      "total_posts": 1862,
       "total_pages": 6,
       "all_pages": 6,
-      "total_reactions": 774856,
-      "total_comments": 336798,
-      "total_shares": 128721,
-      "total_engagement": 1240375,
-      "total_pes": 1844864.0,
+      "total_reactions": 774903,
+      "total_comments": 336819,
+      "total_shares": 128726,
+      "total_engagement": 1240448,
+      "total_pes": 1844968.0,
       "total_views": 49637515,
       "total_reach": 29623334,
-      "avg_engagement": 666.5,
-      "avg_pes": 991.3,
-      "avg_views": 26672.5,
-      "avg_reach": 15918.0,
+      "avg_engagement": 666.2,
+      "avg_pes": 990.9,
+      "avg_views": 26658.2,
+      "avg_reach": 15909.4,
       "date_range_start": "2025-06-01",
       "date_range_end": "2025-12-31"
     },
@@ -23,15 +23,15 @@
         "total_posts": 223,
         "total_pages": 1,
         "all_pages": 1,
-        "total_reactions": 29096,
-        "total_comments": 14519,
-        "total_shares": 6838,
-        "total_engagement": 50453,
-        "total_pes": 79674.0,
+        "total_reactions": 29103,
+        "total_comments": 14527,
+        "total_shares": 6839,
+        "total_engagement": 50469,
+        "total_pes": 79700.0,
         "total_views": 821456,
         "total_reach": 440790,
-        "avg_engagement": 226.2,
-        "avg_pes": 357.3,
+        "avg_engagement": 226.3,
+        "avg_pes": 357.4,
         "avg_views": 3683.7,
         "avg_reach": 1976.6,
         "date_range_start": "2025-09-13",
@@ -56,20 +56,20 @@
         "date_range_end": "2025-12-29"
       },
       "61572881214141": {
-        "total_posts": 1006,
+        "total_posts": 1007,
         "total_pages": 1,
         "all_pages": 1,
-        "total_reactions": 732661,
-        "total_comments": 318141,
-        "total_shares": 119530,
-        "total_engagement": 1170332,
-        "total_pes": 1736339.0,
+        "total_reactions": 732698,
+        "total_comments": 318154,
+        "total_shares": 119534,
+        "total_engagement": 1170386,
+        "total_pes": 1736414.0,
         "total_views": 47750935,
         "total_reach": 28562751,
-        "avg_engagement": 1163.4,
-        "avg_pes": 1726.0,
-        "avg_views": 47466.1,
-        "avg_reach": 28392.4,
+        "avg_engagement": 1162.3,
+        "avg_pes": 1724.3,
+        "avg_views": 47419.0,
+        "avg_reach": 28364.2,
         "date_range_start": "2025-06-01",
         "date_range_end": "2025-12-31"
       },
@@ -77,15 +77,15 @@
         "total_posts": 100,
         "total_pages": 1,
         "all_pages": 1,
-        "total_reactions": 3438,
+        "total_reactions": 3439,
         "total_comments": 1179,
         "total_shares": 892,
-        "total_engagement": 5509,
-        "total_pes": 8814.0,
+        "total_engagement": 5510,
+        "total_pes": 8815.0,
         "total_views": 101181,
         "total_reach": 52094,
         "avg_engagement": 55.1,
-        "avg_pes": 88.1,
+        "avg_pes": 88.2,
         "avg_views": 1011.8,
         "avg_reach": 520.9,
         "date_range_start": "2025-12-04",
@@ -113,11 +113,11 @@
         "total_posts": 527,
         "total_pages": 1,
         "all_pages": 1,
-        "total_reactions": 9179,
+        "total_reactions": 9181,
         "total_comments": 2781,
         "total_shares": 1366,
-        "total_engagement": 13326,
-        "total_pes": 18914.0,
+        "total_engagement": 13328,
+        "total_pes": 18916.0,
         "total_views": 963249,
         "total_reach": 567343,
         "avg_engagement": 25.3,
@@ -134,15 +134,15 @@
       "page_id": "61572881214141",
       "name": "Juan365",
       "page_name": "Juan365",
-      "fan_count": 2229632,
-      "followers_count": 2229632,
-      "post_count": 1006,
-      "total_reactions": 732661,
-      "total_comments": 318141,
-      "total_shares": 119530,
-      "total_engagement": 1170332,
-      "avg_engagement": 1163.4,
-      "avg_reach": 28392.4,
+      "fan_count": 2229711,
+      "followers_count": 2229711,
+      "post_count": 1007,
+      "total_reactions": 732698,
+      "total_comments": 318154,
+      "total_shares": 119534,
+      "total_engagement": 1170386,
+      "avg_engagement": 1162.3,
+      "avg_reach": 28364.2,
       "total_views": 47750935,
       "total_reach": 28562751
     },
@@ -150,14 +150,14 @@
       "page_id": "100069911784904",
       "name": "JuanBingo",
       "page_name": "JuanBingo",
-      "fan_count": 104648,
-      "followers_count": 104648,
+      "fan_count": 104666,
+      "followers_count": 104666,
       "post_count": 223,
-      "total_reactions": 29096,
-      "total_comments": 14519,
-      "total_shares": 6838,
-      "total_engagement": 50453,
-      "avg_engagement": 226.2,
+      "total_reactions": 29103,
+      "total_comments": 14527,
+      "total_shares": 6839,
+      "total_engagement": 50469,
+      "avg_engagement": 226.3,
       "avg_reach": 1976.6,
       "total_views": 821456,
       "total_reach": 440790
@@ -169,10 +169,10 @@
       "fan_count": 1652,
       "followers_count": 1652,
       "post_count": 527,
-      "total_reactions": 9179,
+      "total_reactions": 9181,
       "total_comments": 2781,
       "total_shares": 1366,
-      "total_engagement": 13326,
+      "total_engagement": 13328,
       "avg_engagement": 25.3,
       "avg_reach": 1076.6,
       "total_views": 963249,
@@ -182,13 +182,13 @@
       "page_id": "61578179424678",
       "name": "Juan365 Studios",
       "page_name": "Juan365 Studios",
-      "fan_count": 574,
-      "followers_count": 574,
+      "fan_count": 575,
+      "followers_count": 575,
       "post_count": 100,
-      "total_reactions": 3438,
+      "total_reactions": 3439,
       "total_comments": 1179,
       "total_shares": 892,
-      "total_engagement": 5509,
+      "total_engagement": 5510,
       "avg_engagement": 55.1,
       "avg_reach": 520.9,
       "total_views": 101181,
@@ -216,22 +216,22 @@
       {
         "post_type": "Photos",
         "count": 1363,
-        "reactions": 300217,
-        "comments": 187418,
-        "shares": 56118,
-        "total_engagement": 543753,
-        "avg_engagement": 398.9,
-        "avg_pes": 620.5
+        "reactions": 300233,
+        "comments": 187435,
+        "shares": 56121,
+        "total_engagement": 543789,
+        "avg_engagement": 399.0,
+        "avg_pes": 620.6
       },
       {
         "post_type": "Videos",
-        "count": 387,
-        "reactions": 428379,
-        "comments": 117574,
-        "shares": 64077,
-        "total_engagement": 610030,
-        "avg_engagement": 1576.3,
-        "avg_pes": 2231.6
+        "count": 388,
+        "reactions": 428410,
+        "comments": 117578,
+        "shares": 64079,
+        "total_engagement": 610067,
+        "avg_engagement": 1572.3,
+        "avg_pes": 2225.9
       },
       {
         "post_type": "Text",
@@ -269,12 +269,12 @@
         {
           "post_type": "Photos",
           "count": 159,
-          "reactions": 21150,
-          "comments": 11051,
-          "shares": 5275,
-          "total_engagement": 37476,
-          "avg_engagement": 235.7,
-          "avg_pes": 374.9
+          "reactions": 21157,
+          "comments": 11059,
+          "shares": 5276,
+          "total_engagement": 37492,
+          "avg_engagement": 235.8,
+          "avg_pes": 375.1
         },
         {
           "post_type": "Videos",
@@ -303,22 +303,22 @@
         {
           "post_type": "Photos",
           "count": 641,
-          "reactions": 268480,
-          "comments": 172821,
-          "shares": 48902,
-          "total_engagement": 490203,
-          "avg_engagement": 764.7,
-          "avg_pes": 1189.5
+          "reactions": 268488,
+          "comments": 172830,
+          "shares": 48904,
+          "total_engagement": 490222,
+          "avg_engagement": 764.8,
+          "avg_pes": 1189.6
         },
         {
           "post_type": "Videos",
-          "count": 263,
-          "reactions": 418026,
-          "comments": 113524,
-          "shares": 62112,
-          "total_engagement": 593662,
-          "avg_engagement": 2257.3,
-          "avg_pes": 3188.4
+          "count": 264,
+          "reactions": 418055,
+          "comments": 113528,
+          "shares": 62114,
+          "total_engagement": 593697,
+          "avg_engagement": 2248.9,
+          "avg_pes": 3176.4
         },
         {
           "post_type": "Text",
@@ -365,12 +365,12 @@
         {
           "post_type": "Videos",
           "count": 32,
-          "reactions": 1400,
+          "reactions": 1401,
           "comments": 354,
           "shares": 263,
-          "total_engagement": 2017,
-          "avg_engagement": 63.0,
-          "avg_pes": 97.7
+          "total_engagement": 2018,
+          "avg_engagement": 63.1,
+          "avg_pes": 97.8
         },
         {
           "post_type": "Text",
@@ -399,22 +399,22 @@
         {
           "post_type": "Photos",
           "count": 499,
-          "reactions": 8172,
+          "reactions": 8173,
           "comments": 2553,
           "shares": 1227,
-          "total_engagement": 11952,
+          "total_engagement": 11953,
           "avg_engagement": 24.0,
           "avg_pes": 34.1
         },
         {
           "post_type": "Videos",
           "count": 28,
-          "reactions": 1007,
+          "reactions": 1008,
           "comments": 228,
           "shares": 139,
-          "total_engagement": 1374,
+          "total_engagement": 1375,
           "avg_engagement": 49.1,
-          "avg_pes": 67.5
+          "avg_pes": 67.6
         }
       ]
     }
@@ -2657,44 +2657,44 @@
       {
         "date": "2025-12-28",
         "posts": 51,
-        "reactions": 4100,
+        "reactions": 4101,
         "comments": 1697,
         "shares": 1255,
-        "engagement": 7052,
-        "pes": 11259.0,
+        "engagement": 7053,
+        "pes": 11260.0,
         "views": 145694,
         "reach": 116376
       },
       {
         "date": "2025-12-29",
         "posts": 46,
-        "reactions": 3467,
+        "reactions": 3469,
         "comments": 1103,
         "shares": 1005,
-        "engagement": 5575,
-        "pes": 8688.0,
+        "engagement": 5577,
+        "pes": 8690.0,
         "views": 89063,
         "reach": 73826
       },
       {
         "date": "2025-12-30",
         "posts": 20,
-        "reactions": 1775,
-        "comments": 779,
+        "reactions": 1783,
+        "comments": 783,
         "shares": 576,
-        "engagement": 3130,
-        "pes": 5061.0,
+        "engagement": 3142,
+        "pes": 5077.0,
         "views": 0,
         "reach": 0
       },
       {
         "date": "2025-12-31",
-        "posts": 13,
-        "reactions": 607,
-        "comments": 380,
-        "shares": 203,
-        "engagement": 1190,
-        "pes": 1976.0,
+        "posts": 14,
+        "reactions": 643,
+        "comments": 397,
+        "shares": 208,
+        "engagement": 1248,
+        "pes": 2061.0,
         "views": 0,
         "reach": 0
       }
@@ -3540,22 +3540,22 @@
         {
           "date": "2025-12-30",
           "posts": 3,
-          "reactions": 413,
-          "comments": 172,
+          "reactions": 415,
+          "comments": 174,
           "shares": 108,
-          "engagement": 693,
-          "pes": 1081.0,
+          "engagement": 697,
+          "pes": 1087.0,
           "views": 0,
           "reach": 0
         },
         {
           "date": "2025-12-31",
           "posts": 3,
-          "reactions": 209,
-          "comments": 151,
-          "shares": 108,
-          "engagement": 468,
-          "pes": 835.0,
+          "reactions": 214,
+          "comments": 157,
+          "shares": 109,
+          "engagement": 480,
+          "pes": 855.0,
           "views": 0,
           "reach": 0
         }
@@ -5832,33 +5832,33 @@
         {
           "date": "2025-12-29",
           "posts": 12,
-          "reactions": 2552,
+          "reactions": 2554,
           "comments": 818,
           "shares": 827,
-          "engagement": 4197,
-          "pes": 6669.0,
+          "engagement": 4199,
+          "pes": 6671.0,
           "views": 78460,
           "reach": 67198
         },
         {
           "date": "2025-12-30",
           "posts": 5,
-          "reactions": 1184,
-          "comments": 554,
+          "reactions": 1190,
+          "comments": 556,
           "shares": 398,
-          "engagement": 2136,
-          "pes": 3486.0,
+          "engagement": 2144,
+          "pes": 3496.0,
           "views": 0,
           "reach": 0
         },
         {
           "date": "2025-12-31",
-          "posts": 3,
-          "reactions": 352,
-          "comments": 221,
-          "shares": 92,
-          "engagement": 665,
-          "pes": 1070.0,
+          "posts": 4,
+          "reactions": 381,
+          "comments": 232,
+          "shares": 96,
+          "engagement": 709,
+          "pes": 1133.0,
           "views": 0,
           "reach": 0
         }
@@ -6098,11 +6098,11 @@
         {
           "date": "2025-12-31",
           "posts": 4,
-          "reactions": 29,
+          "reactions": 30,
           "comments": 7,
           "shares": 2,
-          "engagement": 38,
-          "pes": 49.0,
+          "engagement": 39,
+          "pes": 50.0,
           "views": 0,
           "reach": 0
         }
@@ -6949,11 +6949,11 @@
         {
           "date": "2025-12-28",
           "posts": 15,
-          "reactions": 168,
+          "reactions": 169,
           "comments": 45,
           "shares": 36,
-          "engagement": 249,
-          "pes": 366.0,
+          "engagement": 250,
+          "pes": 367.0,
           "views": 6873,
           "reach": 4675
         },
@@ -6982,11 +6982,11 @@
         {
           "date": "2025-12-31",
           "posts": 3,
-          "reactions": 17,
+          "reactions": 18,
           "comments": 1,
           "shares": 1,
-          "engagement": 19,
-          "pes": 22.0,
+          "engagement": 20,
+          "pes": 23.0,
           "views": 0,
           "reach": 0
         }
@@ -7783,6 +7783,22 @@
   },
   "posts": [
     {
+      "post_id": "580104038511364_122173851446762707",
+      "page_id": "61572881214141",
+      "page_name": "Juan365",
+      "title": "Isang taon ng pag-asa, isang taon ng pagkalinga. \u2764\ufe0f\u200d\ud83e\ude79\n\nSa pagtatapos ng 2025, muling binalikan ng Juan365 Cares Foundation ang mga kwentong binigyang-liwanag ng ating pagkakaisa. Hindi lang ito basta ",
+      "post_type": "Videos",
+      "publish_time": "2025-12-31T11:21:20+0000",
+      "permalink": "https://www.facebook.com/reel/1943734719544565/",
+      "reactions": 23,
+      "comments": 4,
+      "shares": 2,
+      "views": 0,
+      "reach": 0,
+      "engagement": 29,
+      "pes": 37.0
+    },
+    {
       "post_id": "839729525890738_122115082191067884",
       "page_id": "61582036535912",
       "page_name": "JuanSports",
@@ -7790,13 +7806,13 @@
       "post_type": "Videos",
       "publish_time": "2025-12-31T10:01:17+0000",
       "permalink": "https://www.facebook.com/reel/1592058865546010/",
-      "reactions": 9,
+      "reactions": 10,
       "comments": 1,
       "shares": 1,
       "views": 0,
       "reach": 0,
-      "engagement": 11,
-      "pes": 14.0
+      "engagement": 12,
+      "pes": 15.0
     },
     {
       "post_id": "101968408687724_1170214095318972",
@@ -7806,13 +7822,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-31T10:00:13+0000",
       "permalink": "https://www.facebook.com/1168661315474250/posts/1170214095318972",
-      "reactions": 26,
-      "comments": 11,
-      "shares": 4,
+      "reactions": 29,
+      "comments": 16,
+      "shares": 5,
       "views": 0,
       "reach": 0,
-      "engagement": 41,
-      "pes": 60.0
+      "engagement": 50,
+      "pes": 76.0
     },
     {
       "post_id": "580104038511364_122173826798762707",
@@ -7822,13 +7838,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-31T08:00:08+0000",
       "permalink": "https://www.facebook.com/122171931452762707/posts/122173826798762707",
-      "reactions": 49,
-      "comments": 19,
+      "reactions": 54,
+      "comments": 23,
       "shares": 13,
       "views": 0,
       "reach": 0,
-      "engagement": 81,
-      "pes": 126.0
+      "engagement": 90,
+      "pes": 139.0
     },
     {
       "post_id": "101968408687724_1170129495327432",
@@ -7838,13 +7854,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-31T07:02:18+0000",
       "permalink": "https://www.facebook.com/1168661315474250/posts/1170129495327432",
-      "reactions": 43,
-      "comments": 25,
+      "reactions": 44,
+      "comments": 26,
       "shares": 14,
       "views": 0,
       "reach": 0,
-      "engagement": 82,
-      "pes": 135.0
+      "engagement": 84,
+      "pes": 138.0
     },
     {
       "post_id": "708878528972997_122148574988939314",
@@ -7854,13 +7870,13 @@
       "post_type": "Videos",
       "publish_time": "2025-12-31T07:00:56+0000",
       "permalink": "https://www.facebook.com/reel/1645354269964432/",
-      "reactions": 9,
+      "reactions": 10,
       "comments": 2,
       "shares": 0,
       "views": 0,
       "reach": 0,
-      "engagement": 11,
-      "pes": 13.0
+      "engagement": 12,
+      "pes": 14.0
     },
     {
       "post_id": "708878528972997_122148569186939314",
@@ -7918,13 +7934,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-31T04:00:15+0000",
       "permalink": "https://www.facebook.com/122171931452762707/posts/122173800704762707",
-      "reactions": 161,
-      "comments": 109,
-      "shares": 32,
+      "reactions": 162,
+      "comments": 111,
+      "shares": 33,
       "views": 0,
       "reach": 0,
-      "engagement": 302,
-      "pes": 475.0
+      "engagement": 306,
+      "pes": 483.0
     },
     {
       "post_id": "708878528972997_122148541124939314",
@@ -7950,13 +7966,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-31T02:00:17+0000",
       "permalink": "https://www.facebook.com/1168661315474250/posts/1169983992008649",
-      "reactions": 140,
+      "reactions": 141,
       "comments": 115,
       "shares": 90,
       "views": 0,
       "reach": 0,
-      "engagement": 345,
-      "pes": 640.0
+      "engagement": 346,
+      "pes": 641.0
     },
     {
       "post_id": "580104038511364_122173768256762707",
@@ -7967,12 +7983,12 @@
       "publish_time": "2025-12-31T01:00:09+0000",
       "permalink": "https://www.facebook.com/122171931452762707/posts/122173768256762707",
       "reactions": 142,
-      "comments": 93,
-      "shares": 47,
+      "comments": 94,
+      "shares": 48,
       "views": 0,
       "reach": 0,
-      "engagement": 282,
-      "pes": 469.0
+      "engagement": 284,
+      "pes": 474.0
     },
     {
       "post_id": "708878528972997_122148459158939314",
@@ -8014,13 +8030,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-30T14:00:02+0000",
       "permalink": "https://www.facebook.com/122171931452762707/posts/122173699310762707",
-      "reactions": 158,
-      "comments": 104,
+      "reactions": 159,
+      "comments": 105,
       "shares": 42,
       "views": 0,
       "reach": 0,
-      "engagement": 304,
-      "pes": 492.0
+      "engagement": 306,
+      "pes": 495.0
     },
     {
       "post_id": "708878528972997_122148360206939314",
@@ -8078,13 +8094,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-30T10:00:13+0000",
       "permalink": "https://www.facebook.com/1168661315474250/posts/1169517525388629",
-      "reactions": 152,
-      "comments": 78,
+      "reactions": 153,
+      "comments": 79,
       "shares": 39,
       "views": 0,
       "reach": 0,
-      "engagement": 269,
-      "pes": 425.0
+      "engagement": 271,
+      "pes": 428.0
     },
     {
       "post_id": "708878528972997_122148322922939314",
@@ -8110,13 +8126,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-30T08:05:14+0000",
       "permalink": "https://www.facebook.com/1168661315474250/posts/1169463338727381",
-      "reactions": 130,
-      "comments": 64,
+      "reactions": 131,
+      "comments": 65,
       "shares": 45,
       "views": 0,
       "reach": 0,
-      "engagement": 239,
-      "pes": 393.0
+      "engagement": 241,
+      "pes": 396.0
     },
     {
       "post_id": "580104038511364_122173658132762707",
@@ -8127,12 +8143,12 @@
       "publish_time": "2025-12-30T08:00:04+0000",
       "permalink": "https://www.facebook.com/122171931452762707/posts/122173658132762707",
       "reactions": 199,
-      "comments": 151,
+      "comments": 152,
       "shares": 75,
       "views": 0,
       "reach": 0,
-      "engagement": 425,
-      "pes": 726.0
+      "engagement": 426,
+      "pes": 728.0
     },
     {
       "post_id": "839729525890738_122114957919067884",
@@ -8254,13 +8270,13 @@
       "post_type": "Videos",
       "publish_time": "2025-12-30T04:00:42+0000",
       "permalink": "https://www.facebook.com/reel/3375069642650740/",
-      "reactions": 317,
+      "reactions": 321,
       "comments": 76,
       "shares": 125,
       "views": 0,
       "reach": 0,
-      "engagement": 518,
-      "pes": 844.0
+      "engagement": 522,
+      "pes": 848.0
     },
     {
       "post_id": "708878528972997_122148283922939314",
@@ -8302,13 +8318,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-30T01:00:11+0000",
       "permalink": "https://www.facebook.com/122171931452762707/posts/122173624586762707",
-      "reactions": 321,
+      "reactions": 322,
       "comments": 108,
       "shares": 108,
       "views": 0,
       "reach": 0,
-      "engagement": 537,
-      "pes": 861.0
+      "engagement": 538,
+      "pes": 862.0
     },
     {
       "post_id": "122114957919067884",
@@ -8574,13 +8590,13 @@
       "post_type": "Videos",
       "publish_time": "2025-12-29T11:01:05+0000",
       "permalink": "https://www.facebook.com/reel/1558759311841757/",
-      "reactions": 195,
+      "reactions": 196,
       "comments": 45,
       "shares": 67,
       "views": 0,
       "reach": 0,
-      "engagement": 307,
-      "pes": 486.0
+      "engagement": 308,
+      "pes": 487.0
     },
     {
       "post_id": "708878528972997_122148192620939314",
@@ -8718,13 +8734,13 @@
       "post_type": "Videos",
       "publish_time": "2025-12-29T07:00:29+0000",
       "permalink": "https://www.facebook.com/reel/1173928164459606/",
-      "reactions": 406,
+      "reactions": 407,
       "comments": 49,
       "shares": 67,
       "views": 0,
       "reach": 0,
-      "engagement": 522,
-      "pes": 705.0
+      "engagement": 523,
+      "pes": 706.0
     },
     {
       "post_id": "122148221510939314",
@@ -9294,13 +9310,13 @@
       "post_type": "Photos",
       "publish_time": "2025-12-28T14:33:48+0000",
       "permalink": "https://www.facebook.com/122114841477067884/posts/122114776533067884",
-      "reactions": 9,
+      "reactions": 10,
       "comments": 1,
       "shares": 0,
       "views": 0,
       "reach": 0,
-      "engagement": 10,
-      "pes": 11.0
+      "engagement": 11,
+      "pes": 12.0
     },
     {
       "post_id": "580104038511364_122173431518762707",
@@ -37564,14 +37580,14 @@
     "monthly": [
       {
         "month": "2025-12",
-        "posts": 585,
-        "reactions": 132935,
-        "comments": 80891,
-        "shares": 30778,
+        "posts": 586,
+        "reactions": 132982,
+        "comments": 80912,
+        "shares": 30783,
         "views": 6703660,
         "reach": 4550108,
-        "engagement": 244604,
-        "avg_engagement": 418.1,
+        "engagement": 244677,
+        "avg_engagement": 417.5,
         "mom_change": -16.2
       },
       {
@@ -37640,27 +37656,27 @@
         "week": "2025-52",
         "week_start": "2025-12-29",
         "week_end": "2025-12-31",
-        "posts": 79,
-        "reactions": 5849,
-        "comments": 2262,
-        "shares": 1784,
+        "posts": 80,
+        "reactions": 5895,
+        "comments": 2283,
+        "shares": 1789,
         "views": 89063,
         "reach": 73826,
-        "engagement": 9895,
-        "avg_engagement": 125.3,
-        "wow_change": -65.5
+        "engagement": 9967,
+        "avg_engagement": 124.6,
+        "wow_change": -65.3
       },
       {
         "week": "2025-51",
         "week_start": "2025-12-22",
         "week_end": "2025-12-28",
         "posts": 167,
-        "reactions": 16340,
+        "reactions": 16341,
         "comments": 7889,
         "shares": 4479,
         "views": 991859,
         "reach": 696485,
-        "engagement": 28708,
+        "engagement": 28709,
         "avg_engagement": 171.9,
         "wow_change": -23.6
       },
@@ -37698,8 +37714,8 @@
         "day": "Sun",
         "day_num": 0,
         "posts": 293,
-        "total_engagement": 113786,
-        "avg_engagement": 388.3,
+        "total_engagement": 113787,
+        "avg_engagement": 388.4,
         "views": 6387403,
         "reach": 4016557,
         "is_best": false
@@ -37708,7 +37724,7 @@
         "day": "Mon",
         "day_num": 1,
         "posts": 275,
-        "total_engagement": 157189,
+        "total_engagement": 157191,
         "avg_engagement": 571.6,
         "views": 7355308,
         "reach": 4466781,
@@ -37718,8 +37734,8 @@
         "day": "Tue",
         "day_num": 2,
         "posts": 267,
-        "total_engagement": 406467,
-        "avg_engagement": 1522.3,
+        "total_engagement": 406479,
+        "avg_engagement": 1522.4,
         "views": 8622790,
         "reach": 4747696,
         "is_best": true
@@ -37727,9 +37743,9 @@
       {
         "day": "Wed",
         "day_num": 3,
-        "posts": 263,
-        "total_engagement": 118144,
-        "avg_engagement": 449.2,
+        "posts": 264,
+        "total_engagement": 118202,
+        "avg_engagement": 447.7,
         "views": 6661309,
         "reach": 3889598,
         "is_best": false
@@ -37771,11 +37787,11 @@
         "page_id": "61572881214141",
         "name": "Juan365",
         "page_name": "Juan365",
-        "posts": 1006,
+        "posts": 1007,
         "views": 47750935,
         "reach": 28562751,
-        "engagement": 1170332,
-        "avg_engagement": 1163.4
+        "engagement": 1170386,
+        "avg_engagement": 1162.3
       },
       {
         "rank": 2,
@@ -37785,8 +37801,8 @@
         "posts": 223,
         "views": 821456,
         "reach": 440790,
-        "engagement": 50453,
-        "avg_engagement": 226.2
+        "engagement": 50469,
+        "avg_engagement": 226.3
       },
       {
         "rank": 3,
@@ -37796,7 +37812,7 @@
         "posts": 527,
         "views": 963249,
         "reach": 567343,
-        "engagement": 13326,
+        "engagement": 13328,
         "avg_engagement": 25.3
       },
       {
@@ -37807,7 +37823,7 @@
         "posts": 100,
         "views": 101181,
         "reach": 52094,
-        "engagement": 5509,
+        "engagement": 5510,
         "avg_engagement": 55.1
       },
       {
@@ -37834,12 +37850,12 @@
       },
       {
         "type": "Videos",
-        "count": 387,
+        "count": 388,
         "views": 11948056,
         "reach": 8936957,
-        "engagement": 610030,
-        "avg_engagement": 1576.3,
-        "avg_views": 30873.5
+        "engagement": 610067,
+        "avg_engagement": 1572.3,
+        "avg_views": 30794.0
       },
       {
         "type": "Reels",
@@ -37855,8 +37871,8 @@
         "count": 1363,
         "views": 35936433,
         "reach": 19106786,
-        "engagement": 543753,
-        "avg_engagement": 398.9,
+        "engagement": 543789,
+        "avg_engagement": 399.0,
         "avg_views": 26365.7
       },
       {
@@ -37888,17 +37904,17 @@
       {
         "type": "top_page",
         "title": "Juan365 Leads",
-        "text": "Top performer with 1,170,332 total engagement (1163/post)"
+        "text": "Top performer with 1,170,386 total engagement (1162/post)"
       }
     ]
   },
   "commentAnalysis": {
     "summary": {
-      "total_posts_with_comments": 1621,
-      "posts_analyzed": 1621,
+      "total_posts_with_comments": 1622,
+      "posts_analyzed": 1622,
       "posts_with_self_comment": 225,
       "total_self_comments": 308,
-      "total_organic_comments": 336490,
+      "total_organic_comments": 336511,
       "self_comment_rate": 0.1,
       "posts_with_self_pct": 13.9
     },
@@ -37906,9 +37922,9 @@
       {
         "page_name": "Juan365",
         "page_id": "61572881214141",
-        "posts_with_comments": 1006,
+        "posts_with_comments": 1007,
         "self_comments": 179,
-        "organic_comments": 317962,
+        "organic_comments": 317975,
         "posts_with_self": 122,
         "self_rate": 0.1
       },
@@ -37917,7 +37933,7 @@
         "page_id": "100069911784904",
         "posts_with_comments": 223,
         "self_comments": 51,
-        "organic_comments": 14468,
+        "organic_comments": 14476,
         "posts_with_self": 36,
         "self_rate": 0.4
       },
@@ -37951,10 +37967,10 @@
     ],
     "effectivity": {
       "avg_engagement_with_self": 1114.6,
-      "avg_engagement_without_self": 707.7,
-      "engagement_boost_pct": 57.5,
+      "avg_engagement_without_self": 707.2,
+      "engagement_boost_pct": 57.6,
       "avg_reactions_with": 625.6,
-      "avg_reactions_without": 453.1
+      "avg_reactions_without": 452.8
     },
     "topSelfCommented": [
       {
@@ -38055,16 +38071,16 @@
         "page_id": "61572881214141",
         "name": "Juan365",
         "page_name": "Juan365",
-        "fan_count": 2229632,
-        "posts": 1007,
-        "engagement": 1170332,
-        "avg_engagement": 1162.2,
+        "fan_count": 2229711,
+        "posts": 1008,
+        "engagement": 1170386,
+        "avg_engagement": 1161.1,
         "views": 47750935,
         "reach": 28562751,
-        "reactions": 732661,
-        "comments": 318141,
-        "shares": 119530,
-        "avg_pes": 1724.3,
+        "reactions": 732698,
+        "comments": 318154,
+        "shares": 119534,
+        "avg_pes": 1722.6,
         "rank": 1,
         "engagement_share": 94.4
       },
@@ -38072,16 +38088,16 @@
         "page_id": "100069911784904",
         "name": "JuanBingo",
         "page_name": "JuanBingo",
-        "fan_count": 104648,
+        "fan_count": 104666,
         "posts": 223,
-        "engagement": 50453,
-        "avg_engagement": 226.2,
+        "engagement": 50469,
+        "avg_engagement": 226.3,
         "views": 821456,
         "reach": 440790,
-        "reactions": 29096,
-        "comments": 14519,
-        "shares": 6838,
-        "avg_pes": 357.3,
+        "reactions": 29103,
+        "comments": 14527,
+        "shares": 6839,
+        "avg_pes": 357.4,
         "rank": 2,
         "engagement_share": 4.1
       },
@@ -38091,11 +38107,11 @@
         "page_name": "JuanSports",
         "fan_count": 1652,
         "posts": 529,
-        "engagement": 13326,
+        "engagement": 13328,
         "avg_engagement": 25.2,
         "views": 963279,
         "reach": 567356,
-        "reactions": 9179,
+        "reactions": 9181,
         "comments": 2781,
         "shares": 1366,
         "avg_pes": 35.8,
@@ -38106,16 +38122,16 @@
         "page_id": "61578179424678",
         "name": "Juan365 Studios",
         "page_name": "Juan365 Studios",
-        "fan_count": 574,
+        "fan_count": 575,
         "posts": 100,
-        "engagement": 5509,
+        "engagement": 5510,
         "avg_engagement": 55.1,
         "views": 101181,
         "reach": 52094,
-        "reactions": 3438,
+        "reactions": 3439,
         "comments": 1179,
         "shares": 892,
-        "avg_pes": 88.1,
+        "avg_pes": 88.2,
         "rank": 4,
         "engagement_share": 0.4
       },
@@ -38159,8 +38175,8 @@
         {
           "type": "Photos",
           "count": 159,
-          "engagement": 37476,
-          "avg_engagement": 235.7
+          "engagement": 37492,
+          "avg_engagement": 235.8
         },
         {
           "type": "Videos",
@@ -38181,14 +38197,14 @@
         {
           "type": "Photos",
           "count": 641,
-          "engagement": 490203,
-          "avg_engagement": 764.7
+          "engagement": 490222,
+          "avg_engagement": 764.8
         },
         {
           "type": "Videos",
-          "count": 263,
-          "engagement": 593662,
-          "avg_engagement": 2257.3
+          "count": 264,
+          "engagement": 593697,
+          "avg_engagement": 2248.9
         },
         {
           "type": "Text",
@@ -38227,8 +38243,8 @@
         {
           "type": "Videos",
           "count": 32,
-          "engagement": 2017,
-          "avg_engagement": 63.0
+          "engagement": 2018,
+          "avg_engagement": 63.1
         },
         {
           "type": "Text",
@@ -38249,13 +38265,13 @@
         {
           "type": "Photos",
           "count": 501,
-          "engagement": 11952,
+          "engagement": 11953,
           "avg_engagement": 23.9
         },
         {
           "type": "Videos",
           "count": 28,
-          "engagement": 1374,
+          "engagement": 1375,
           "avg_engagement": 49.1
         }
       ]
@@ -38271,7 +38287,7 @@
       },
       "61572881214141": {
         "type": "Photos",
-        "percentage": 63.7
+        "percentage": 63.6
       },
       "61577902179538": {
         "type": "Photos",
