@@ -209,15 +209,12 @@ def send_daily_report():
     # Build message
     message = f"""<b>DAILY REPORT - {yesterday}</b>
 
-<i>Note: Views/Reach data has 2-3 days delay (manual CSV export from Meta)</i>
-
 <b>YESTERDAY'S SUMMARY</b>
+<i>(API data - no views/reach available)</i>
 Posts: {yesterday_stats['post_count']}
 Reactions: {yesterday_stats['total_reactions']:,}
 Comments: {yesterday_stats['total_comments']:,}
 Shares: {yesterday_stats['total_shares']:,}
-Views: {yesterday_stats['total_views']:,}
-Reach: {yesterday_stats['total_reach']:,}
 Total Engagement: {yesterday_stats['total_engagement']:,}
 vs This Month Avg: {vs_avg_str}
 
