@@ -170,6 +170,7 @@ def export_pages():
         total_engagement = row[8]
         result.append({
             "page_id": row[0],
+            "name": row[1],  # For frontend compatibility
             "page_name": row[1],
             "fan_count": row[2],
             "followers_count": row[3],
@@ -534,6 +535,7 @@ def export_time_series():
         page_rankings.append({
             "rank": i + 1,
             "page_id": row[0],
+            "name": row[1],  # For frontend compatibility
             "page_name": row[1],
             "posts": row[2],
             "views": row[3],
@@ -683,6 +685,7 @@ def export_page_comparison():
         total_engagement += row[4]
         pages.append({
             "page_id": row[0],
+            "name": row[1],  # For frontend compatibility
             "page_name": row[1],
             "fan_count": row[2],
             "posts": row[3],

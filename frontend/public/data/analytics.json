@@ -132,6 +132,7 @@
   "pages": [
     {
       "page_id": "61572881214141",
+      "name": "Juan365",
       "page_name": "Juan365",
       "fan_count": 2228938,
       "followers_count": 2228938,
@@ -147,6 +148,7 @@
     },
     {
       "page_id": "100069911784904",
+      "name": "JuanBingo",
       "page_name": "JuanBingo",
       "fan_count": 104418,
       "followers_count": 104418,
@@ -162,6 +164,7 @@
     },
     {
       "page_id": "61582036535912",
+      "name": "JuanSports",
       "page_name": "JuanSports",
       "fan_count": 1652,
       "followers_count": 1652,
@@ -177,6 +180,7 @@
     },
     {
       "page_id": "61578179424678",
+      "name": "Juan365 Studios",
       "page_name": "Juan365 Studios",
       "fan_count": 572,
       "followers_count": 572,
@@ -192,6 +196,7 @@
     },
     {
       "page_id": "61580653561998",
+      "name": "Juan365 LiveStream",
       "page_name": "Juan365 LiveStream",
       "fan_count": 514,
       "followers_count": 514,
@@ -37609,6 +37614,7 @@
       {
         "rank": 1,
         "page_id": "61572881214141",
+        "name": "Juan365",
         "page_name": "Juan365",
         "posts": 1004,
         "views": 47750935,
@@ -37619,6 +37625,7 @@
       {
         "rank": 2,
         "page_id": "100069911784904",
+        "name": "JuanBingo",
         "page_name": "JuanBingo",
         "posts": 221,
         "views": 821456,
@@ -37629,6 +37636,7 @@
       {
         "rank": 3,
         "page_id": "61582036535912",
+        "name": "JuanSports",
         "page_name": "JuanSports",
         "posts": 524,
         "views": 963249,
@@ -37639,6 +37647,7 @@
       {
         "rank": 4,
         "page_id": "61578179424678",
+        "name": "Juan365 Studios",
         "page_name": "Juan365 Studios",
         "posts": 98,
         "views": 101181,
@@ -37649,6 +37658,7 @@
       {
         "rank": 5,
         "page_id": "61580653561998",
+        "name": "Juan365 LiveStream",
         "page_name": "Juan365 LiveStream",
         "posts": 1,
         "views": 694,
@@ -37888,6 +37898,7 @@
     "pages": [
       {
         "page_id": "61572881214141",
+        "name": "Juan365",
         "page_name": "Juan365",
         "fan_count": 2228938,
         "posts": 1005,
@@ -37904,6 +37915,7 @@
       },
       {
         "page_id": "100069911784904",
+        "name": "JuanBingo",
         "page_name": "JuanBingo",
         "fan_count": 104418,
         "posts": 221,
@@ -37920,6 +37932,7 @@
       },
       {
         "page_id": "61582036535912",
+        "name": "JuanSports",
         "page_name": "JuanSports",
         "fan_count": 1652,
         "posts": 526,
@@ -37936,6 +37949,7 @@
       },
       {
         "page_id": "61578179424678",
+        "name": "Juan365 Studios",
         "page_name": "Juan365 Studios",
         "fan_count": 572,
         "posts": 98,
@@ -37952,6 +37966,7 @@
       },
       {
         "page_id": "61580653561998",
+        "name": "Juan365 LiveStream",
         "page_name": "Juan365 LiveStream",
         "fan_count": 514,
         "posts": 1,
@@ -37968,6 +37983,7 @@
       },
       {
         "page_id": "61577902179538",
+        "name": "Juan365 Cartimar",
         "page_name": "Juan365 Cartimar",
         "fan_count": null,
         "posts": 1,
