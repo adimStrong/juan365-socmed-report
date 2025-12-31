@@ -224,6 +224,7 @@ def send_daily_report():
 
     # Build message
     message = f"""<b>DAILY REPORT - {yesterday}</b>
+<i>Note: Views/Reach data has 2-3 days delay (manual CSV export from Meta)</i>
 
 <b>YESTERDAY'S SUMMARY</b>
 <i>(API data - no views/reach available)</i>
@@ -242,7 +243,8 @@ vs This Month Avg: {vs_avg_str}
             title_short = (post['title'][:30] + "...") if post['title'] and len(post['title']) > 30 else (post['title'] or "No caption")
             post_type_display = get_post_type_display(post['post_type'])
             permalink = post['permalink'] or ""
-            message += f"{i}. [{post_type_display}] {title_short}\n"
+            message += f"{i}. <b>{post['page_name']}</b> [{post_type_display}]\n"
+            message += f"   {title_short}\n"
             message += f"   {post['total_engagement']:,} eng"
             if permalink:
                 message += f" - <a href=\"{permalink}\">View</a>"
@@ -258,8 +260,6 @@ Views: {this_month['total_views']:,}
 Reach: {this_month['total_reach']:,}
 Total Engagement: {this_month['total_engagement']:,}
 vs {last_month_name}: {month_change_str}
-
-<i>Note: Views/Reach data has 2-3 days delay (manual CSV export from Meta)</i>
 
 <b>MONTHLY BREAKDOWN BY PAGE</b>
 """
@@ -279,7 +279,8 @@ vs {last_month_name}: {month_change_str}
         title_short = (post['title'][:30] + "...") if post['title'] and len(post['title']) > 30 else (post['title'] or "No caption")
         post_type_display = get_post_type_display(post['post_type'])
         permalink = post['permalink'] or ""
-        message += f"{i}. [{post_type_display}] {title_short}\n"
+        message += f"{i}. <b>{post['page_name']}</b> [{post_type_display}]\n"
+        message += f"   {title_short}\n"
         message += f"   {post['total_engagement']:,} eng"
         if permalink:
             message += f" - <a href=\"{permalink}\">View</a>"
