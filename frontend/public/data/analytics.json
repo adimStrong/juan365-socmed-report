@@ -16,7 +16,7 @@
       "avg_views": 28390.1,
       "avg_reach": 16679.4,
       "date_range_start": "2025-06-01",
-      "date_range_end": "2025-12-30"
+      "date_range_end": "2025-12-31"
     },
     "byPage": {
       "100069911784904": {
@@ -89,7 +89,7 @@
         "avg_views": 1129.3,
         "avg_reach": 576.1,
         "date_range_start": "2025-12-04",
-        "date_range_end": "2025-12-30"
+        "date_range_end": "2025-12-31"
       },
       "61580653561998": {
         "total_posts": 1,
@@ -36075,15 +36075,15 @@
         "page_id": "61578179424678",
         "page_name": "Juan365 Studios",
         "fan_count": null,
-        "posts": 80,
+        "posts": 81,
         "engagement": 4326,
-        "avg_engagement": 54.1,
+        "avg_engagement": 53.4,
         "views": 90342,
         "reach": 46086,
         "reactions": 2650,
         "comments": 940,
         "shares": 736,
-        "avg_pes": 87.9,
+        "avg_pes": 86.8,
         "rank": 4,
         "engagement_share": 0.4
       },
@@ -36198,9 +36198,9 @@
         },
         {
           "type": "Text",
-          "count": 6,
+          "count": 7,
           "engagement": 40,
-          "avg_engagement": 6.7
+          "avg_engagement": 5.7
         }
       ],
       "61580653561998": [
@@ -36245,7 +36245,7 @@
       },
       "61578179424678": {
         "type": "Photos",
-        "percentage": 61.3
+        "percentage": 60.5
       },
       "61580653561998": {
         "type": "Photos",
