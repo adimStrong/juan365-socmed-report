@@ -34,9 +34,11 @@ def send_message(text, parse_mode="HTML"):
 def get_time_ago(publish_time_str):
     """Convert publish time to 'X mins ago' or 'X hrs ago' format."""
     try:
-        # Handle various datetime formats
+        # Handle various datetime formats - FB API returns UTC time
         if 'T' in publish_time_str:
-            publish_time = datetime.fromisoformat(publish_time_str.replace('Z', '+00:00').split('+')[0])
+            # Parse ISO format and add 8 hours for Philippines timezone (UTC+8)
+            publish_time = datetime.fromisoformat(publish_time_str.replace('Z', '').split('+')[0])
+            publish_time = publish_time + timedelta(hours=8)  # Convert UTC to PHT
         else:
             publish_time = datetime.strptime(publish_time_str, '%Y-%m-%d %H:%M:%S')
 
@@ -110,6 +112,8 @@ def send_daily_report():
             COALESCE(SUM(reactions_total), 0) as total_reactions,
             COALESCE(SUM(comments_count), 0) as total_comments,
             COALESCE(SUM(shares_count), 0) as total_shares,
+            COALESCE(SUM(views_count), 0) as total_views,
+            COALESCE(SUM(reach_count), 0) as total_reach,
             COALESCE(SUM(total_engagement), 0) as total_engagement
         FROM posts
         WHERE DATE(publish_time) = ?
@@ -124,6 +128,8 @@ def send_daily_report():
             COALESCE(SUM(reactions_total), 0) as total_reactions,
             COALESCE(SUM(comments_count), 0) as total_comments,
             COALESCE(SUM(shares_count), 0) as total_shares,
+            COALESCE(SUM(views_count), 0) as total_views,
+            COALESCE(SUM(reach_count), 0) as total_reach,
             COALESCE(SUM(total_engagement), 0) as total_engagement,
             COUNT(DISTINCT DATE(publish_time)) as days_with_posts
         FROM posts
@@ -208,6 +214,8 @@ Posts: {yesterday_stats['post_count']}
 Reactions: {yesterday_stats['total_reactions']:,}
 Comments: {yesterday_stats['total_comments']:,}
 Shares: {yesterday_stats['total_shares']:,}
+Views: {yesterday_stats['total_views']:,}
+Reach: {yesterday_stats['total_reach']:,}
 Total Engagement: {yesterday_stats['total_engagement']:,}
 vs This Month Avg: {vs_avg_str}
 
@@ -216,6 +224,8 @@ Posts: {this_month['post_count']}
 Reactions: {this_month['total_reactions']:,}
 Comments: {this_month['total_comments']:,}
 Shares: {this_month['total_shares']:,}
+Views: {this_month['total_views']:,}
+Reach: {this_month['total_reach']:,}
 Total Engagement: {this_month['total_engagement']:,}
 vs {last_month_name}: {month_change_str}
 
@@ -235,7 +245,12 @@ vs {last_month_name}: {month_change_str}
     for i, post in enumerate(top_posts, 1):
         title_short = (post['title'][:30] + "...") if post['title'] and len(post['title']) > 30 else (post['title'] or "No caption")
         post_type_display = get_post_type_display(post['post_type'])
-        message += f"{i}. [{post_type_display}] {title_short} - {post['total_engagement']:,} eng\n"
+        permalink = post['permalink'] or ""
+        message += f"{i}. [{post_type_display}] {title_short}\n"
+        message += f"   {post['total_engagement']:,} eng"
+        if permalink:
+            message += f" - <a href=\"{permalink}\">View</a>"
+        message += "\n"
 
     if not top_posts:
         message += "No posts this month\n"
