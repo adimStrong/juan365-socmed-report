@@ -11,6 +11,14 @@ import time
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+# Telegram notifications
+try:
+    from telegram_notifier import send_new_post_alert
+    TELEGRAM_ENABLED = True
+except ImportError:
+    TELEGRAM_ENABLED = False
+    print("Warning: telegram_notifier not found, notifications disabled")
+
 DATABASE_PATH = "data/juan365_socmed.db"
 
 # Load tokens
@@ -226,6 +234,20 @@ def main():
             if save_post(conn, db_page_id, post_id, post, reactions, comments, shares, post_type):
                 page_new += 1
                 print(f"  + Added ({post_date}): {post_id[:25]}...")
+
+                # Send Telegram notification for new post
+                if TELEGRAM_ENABLED:
+                    try:
+                        send_new_post_alert(
+                            page_name=page_name,
+                            post_type=post_type,
+                            title=post.get("message", ""),
+                            permalink=post.get("permalink_url", ""),
+                            publish_time=created_time
+                        )
+                        print(f"  -> Telegram alert sent!")
+                    except Exception as e:
+                        print(f"  -> Telegram error: {e}")
 
             time.sleep(0.2)
 
