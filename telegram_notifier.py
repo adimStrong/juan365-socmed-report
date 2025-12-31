@@ -116,7 +116,7 @@ def send_daily_report():
             COALESCE(SUM(reach_count), 0) as total_reach,
             COALESCE(SUM(total_engagement), 0) as total_engagement
         FROM posts
-        WHERE DATE(publish_time) = ?
+        WHERE substr(publish_time, 1, 10) = ?
     """, (yesterday,))
     yesterday_stats = cursor.fetchone()
 
@@ -131,9 +131,9 @@ def send_daily_report():
             COALESCE(SUM(views_count), 0) as total_views,
             COALESCE(SUM(reach_count), 0) as total_reach,
             COALESCE(SUM(total_engagement), 0) as total_engagement,
-            COUNT(DISTINCT DATE(publish_time)) as days_with_posts
+            COUNT(DISTINCT substr(publish_time, 1, 10)) as days_with_posts
         FROM posts
-        WHERE DATE(publish_time) >= ?
+        WHERE substr(publish_time, 1, 10) >= ?
     """, (this_month_start,))
     this_month = cursor.fetchone()
 
@@ -148,7 +148,7 @@ def send_daily_report():
             COUNT(*) as post_count,
             COALESCE(SUM(total_engagement), 0) as total_engagement
         FROM posts
-        WHERE DATE(publish_time) BETWEEN ? AND ?
+        WHERE substr(publish_time, 1, 10) BETWEEN ? AND ?
     """, (last_month_start, last_month_end_str))
     last_month = cursor.fetchone()
 
@@ -165,7 +165,7 @@ def send_daily_report():
             COALESCE(SUM(posts.total_engagement), 0) as engagement
         FROM posts
         JOIN pages p ON posts.page_id = p.page_id
-        WHERE DATE(posts.publish_time) >= ?
+        WHERE substr(posts.publish_time, 1, 10) >= ?
         GROUP BY p.page_name
         ORDER BY engagement DESC
     """, (this_month_start,))
@@ -181,7 +181,7 @@ def send_daily_report():
             posts.permalink
         FROM posts
         JOIN pages p ON posts.page_id = p.page_id
-        WHERE DATE(posts.publish_time) >= ?
+        WHERE substr(posts.publish_time, 1, 10) >= ?
         ORDER BY posts.total_engagement DESC
         LIMIT 5
     """, (this_month_start,))
@@ -285,7 +285,7 @@ def send_monthly_report():
             COALESCE(SUM(views_count), 0) as total_views,
             COALESCE(SUM(total_engagement), 0) as total_engagement
         FROM posts
-        WHERE DATE(publish_time) BETWEEN ? AND ?
+        WHERE substr(publish_time, 1, 10) BETWEEN ? AND ?
     """, (last_month_start.strftime('%Y-%m-%d'), last_month_end.strftime('%Y-%m-%d')))
     month_stats = cursor.fetchone()
 
@@ -295,7 +295,7 @@ def send_monthly_report():
             COUNT(*) as post_count,
             COALESCE(SUM(total_engagement), 0) as total_engagement
         FROM posts
-        WHERE DATE(publish_time) BETWEEN ? AND ?
+        WHERE substr(publish_time, 1, 10) BETWEEN ? AND ?
     """, (prev_month_start.strftime('%Y-%m-%d'), prev_month_end.strftime('%Y-%m-%d')))
     prev_month = cursor.fetchone()
 
@@ -307,7 +307,7 @@ def send_monthly_report():
             COALESCE(SUM(posts.total_engagement), 0) as engagement
         FROM posts
         JOIN pages p ON posts.page_id = p.page_id
-        WHERE DATE(posts.publish_time) BETWEEN ? AND ?
+        WHERE substr(posts.publish_time, 1, 10) BETWEEN ? AND ?
         GROUP BY p.page_name
         ORDER BY engagement DESC
     """, (last_month_start.strftime('%Y-%m-%d'), last_month_end.strftime('%Y-%m-%d')))
@@ -323,7 +323,7 @@ def send_monthly_report():
             posts.permalink
         FROM posts
         JOIN pages p ON posts.page_id = p.page_id
-        WHERE DATE(posts.publish_time) BETWEEN ? AND ?
+        WHERE substr(posts.publish_time, 1, 10) BETWEEN ? AND ?
         ORDER BY posts.total_engagement DESC
         LIMIT 10
     """, (last_month_start.strftime('%Y-%m-%d'), last_month_end.strftime('%Y-%m-%d')))
