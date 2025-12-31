@@ -160,6 +160,8 @@ def send_daily_report():
             COALESCE(SUM(posts.reactions_total), 0) as reactions,
             COALESCE(SUM(posts.comments_count), 0) as comments,
             COALESCE(SUM(posts.shares_count), 0) as shares,
+            COALESCE(SUM(posts.views_count), 0) as views,
+            COALESCE(SUM(posts.reach_count), 0) as reach,
             COALESCE(SUM(posts.total_engagement), 0) as engagement
         FROM posts
         JOIN pages p ON posts.page_id = p.page_id
@@ -233,7 +235,8 @@ vs {last_month_name}: {month_change_str}
 """
 
     for page in page_breakdown:
-        message += f"• {page['page_name']}: {page['post_count']} posts, {page['engagement']:,} eng\n"
+        message += f"• {page['page_name']}\n"
+        message += f"  {page['post_count']} posts | {page['views']:,} views | {page['reach']:,} reach | {page['engagement']:,} eng\n"
 
     if not page_breakdown:
         message += "No posts this month\n"
