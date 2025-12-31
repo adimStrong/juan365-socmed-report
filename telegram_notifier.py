@@ -101,6 +101,7 @@ def send_daily_report():
 
     yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
     today = datetime.now().strftime('%Y-%m-%d')
+    this_month_name = datetime.now().strftime('%B %Y')
 
     # Get yesterday's stats
     cursor.execute("""
@@ -120,6 +121,9 @@ def send_daily_report():
     cursor.execute("""
         SELECT
             COUNT(*) as post_count,
+            COALESCE(SUM(reactions_total), 0) as total_reactions,
+            COALESCE(SUM(comments_count), 0) as total_comments,
+            COALESCE(SUM(shares_count), 0) as total_shares,
             COALESCE(SUM(total_engagement), 0) as total_engagement,
             COUNT(DISTINCT DATE(publish_time)) as days_with_posts
         FROM posts
@@ -131,6 +135,7 @@ def send_daily_report():
     last_month_end = (datetime.now().replace(day=1) - timedelta(days=1))
     last_month_start = last_month_end.replace(day=1).strftime('%Y-%m-%d')
     last_month_end_str = last_month_end.strftime('%Y-%m-%d')
+    last_month_name = last_month_end.strftime('%B')
 
     cursor.execute("""
         SELECT
@@ -141,7 +146,7 @@ def send_daily_report():
     """, (last_month_start, last_month_end_str))
     last_month = cursor.fetchone()
 
-    # Get page breakdown for yesterday
+    # Get page breakdown for THIS MONTH
     cursor.execute("""
         SELECT
             p.page_name,
@@ -152,13 +157,13 @@ def send_daily_report():
             COALESCE(SUM(posts.total_engagement), 0) as engagement
         FROM posts
         JOIN pages p ON posts.page_id = p.page_id
-        WHERE DATE(posts.publish_time) = ?
+        WHERE DATE(posts.publish_time) >= ?
         GROUP BY p.page_name
         ORDER BY engagement DESC
-    """, (yesterday,))
+    """, (this_month_start,))
     page_breakdown = cursor.fetchall()
 
-    # Get top 5 posts yesterday
+    # Get top 5 posts THIS MONTH
     cursor.execute("""
         SELECT
             p.page_name,
@@ -168,10 +173,10 @@ def send_daily_report():
             posts.permalink
         FROM posts
         JOIN pages p ON posts.page_id = p.page_id
-        WHERE DATE(posts.publish_time) = ?
+        WHERE DATE(posts.publish_time) >= ?
         ORDER BY posts.total_engagement DESC
         LIMIT 5
-    """, (yesterday,))
+    """, (this_month_start,))
     top_posts = cursor.fetchall()
 
     conn.close()
@@ -194,8 +199,9 @@ def send_daily_report():
         vs_avg_str = "N/A"
 
     # Build message
-    message = f"""
-<b>DAILY REPORT - {yesterday}</b>
+    message = f"""<b>DAILY REPORT - {yesterday}</b>
+
+<i>Note: Views/Reach data has 2-3 days delay (manual CSV export from Meta)</i>
 
 <b>YESTERDAY'S SUMMARY</b>
 Posts: {yesterday_stats['post_count']}
@@ -203,25 +209,27 @@ Reactions: {yesterday_stats['total_reactions']:,}
 Comments: {yesterday_stats['total_comments']:,}
 Shares: {yesterday_stats['total_shares']:,}
 Total Engagement: {yesterday_stats['total_engagement']:,}
+vs This Month Avg: {vs_avg_str}
 
-<b>vs This Month Avg:</b> {vs_avg_str}
+<b>MONTHLY OVERVIEW ({this_month_name})</b>
+Posts: {this_month['post_count']}
+Reactions: {this_month['total_reactions']:,}
+Comments: {this_month['total_comments']:,}
+Shares: {this_month['total_shares']:,}
+Total Engagement: {this_month['total_engagement']:,}
+vs {last_month_name}: {month_change_str}
 
-<b>PAGE BREAKDOWN</b>
+<b>MONTHLY BREAKDOWN BY PAGE</b>
 """
 
     for page in page_breakdown:
         message += f"• {page['page_name']}: {page['post_count']} posts, {page['engagement']:,} eng\n"
 
     if not page_breakdown:
-        message += "No posts yesterday\n"
+        message += "No posts this month\n"
 
     message += f"""
-<b>MONTHLY OVERVIEW</b>
-This Month: {this_month['total_engagement']:,} engagement
-Last Month: {last_month['total_engagement']:,} engagement
-Change: {month_change_str}
-
-<b>TOP 5 POSTS YESTERDAY</b>
+<b>TOP 5 POSTS THIS MONTH</b>
 """
 
     for i, post in enumerate(top_posts, 1):
@@ -230,7 +238,7 @@ Change: {month_change_str}
         message += f"{i}. [{post_type_display}] {title_short} - {post['total_engagement']:,} eng\n"
 
     if not top_posts:
-        message += "No posts yesterday\n"
+        message += "No posts this month\n"
 
     return send_message(message.strip())
 
