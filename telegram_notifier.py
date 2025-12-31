@@ -203,6 +203,17 @@ def send_daily_report():
     """, (yesterday,))
     top_yesterday = cursor.fetchall()
 
+    # Get comment analysis for THIS MONTH
+    cursor.execute("""
+        SELECT
+            COALESCE(SUM(comments_count), 0) as total_comments,
+            COALESCE(SUM(page_comments), 0) as self_comments
+        FROM posts
+        WHERE substr(publish_time, 1, 10) >= ?
+          AND page_comments IS NOT NULL
+    """, (this_month_start,))
+    comment_stats = cursor.fetchone()
+
     conn.close()
 
     # Calculate month comparison
@@ -270,6 +281,20 @@ vs {last_month_name}: {month_change_str}
 
     if not page_breakdown:
         message += "No posts this month\n"
+
+    # Add comment analysis section
+    total_comments = comment_stats['total_comments'] if comment_stats else 0
+    self_comments = comment_stats['self_comments'] if comment_stats else 0
+    organic_comments = total_comments - self_comments
+    self_rate = (self_comments / total_comments * 100) if total_comments > 0 else 0
+    organic_rate = (organic_comments / total_comments * 100) if total_comments > 0 else 0
+
+    message += f"""
+<b>COMMENT ANALYSIS (This Month)</b>
+Total Comments: {total_comments:,}
+Self-Comments: {self_comments:,} ({self_rate:.1f}%)
+Organic Comments: {organic_comments:,} ({organic_rate:.1f}%)
+"""
 
     message += f"""
 <b>TOP 5 POSTS THIS MONTH</b>
