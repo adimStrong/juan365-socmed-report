@@ -79,7 +79,7 @@ export default function Posts() {
               placeholder="Search posts..."
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
-              className="border rounded-l-lg px-4 py-2 w-48 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+              className="border rounded-l-lg px-4 py-2 w-full sm:w-48 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
             <button
               type="submit"

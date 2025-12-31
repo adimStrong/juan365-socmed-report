@@ -64,24 +64,19 @@ def update_fan_counts():
             print(f"  Fans: {fan_count:,}" if fan_count else "  Fans: N/A")
             print(f"  Followers: {followers_count:,}" if followers_count else "  Followers: N/A")
 
-            # Update database
+            # Update database by page_name (case-insensitive, since DB uses old page_ids)
+            db_page_name = page_data.get("page_name", page_name)
             cursor.execute("""
                 UPDATE pages
                 SET fan_count = ?, followers_count = ?, updated_at = ?
-                WHERE page_id = ?
-            """, (fan_count, followers_count, datetime.now().isoformat(), page_id))
+                WHERE LOWER(page_name) = LOWER(?)
+            """, (fan_count, followers_count, datetime.now().isoformat(), db_page_name))
 
             if cursor.rowcount > 0:
                 print(f"  [OK] Updated in database")
                 updated += 1
             else:
-                # Page might not exist, try inserting
-                cursor.execute("""
-                    INSERT OR REPLACE INTO pages (page_id, page_name, fan_count, followers_count, updated_at)
-                    VALUES (?, ?, ?, ?, ?)
-                """, (page_id, info.get("name", page_name), fan_count, followers_count, datetime.now().isoformat()))
-                print(f"  [OK] Inserted into database")
-                updated += 1
+                print(f"  [SKIP] Page not found in database: {db_page_name}")
         else:
             print(f"  [FAIL] Could not fetch page info")
 

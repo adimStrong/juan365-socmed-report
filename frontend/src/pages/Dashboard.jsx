@@ -626,7 +626,7 @@ export default function Dashboard() {
       {timeSeries?.dayOfWeek?.length > 0 && (
         <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-lg font-semibold mb-4">Best Days to Post</h2>
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
             {timeSeries.dayOfWeek.map((day) => (
               <div
                 key={day.day}
