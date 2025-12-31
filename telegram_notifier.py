@@ -187,6 +187,22 @@ def send_daily_report():
     """, (this_month_start,))
     top_posts = cursor.fetchall()
 
+    # Get top 2 posts from YESTERDAY
+    cursor.execute("""
+        SELECT
+            p.page_name,
+            posts.title,
+            posts.post_type,
+            posts.total_engagement,
+            posts.permalink
+        FROM posts
+        JOIN pages p ON posts.page_id = p.page_id
+        WHERE substr(posts.publish_time, 1, 10) = ?
+        ORDER BY posts.total_engagement DESC
+        LIMIT 2
+    """, (yesterday,))
+    top_yesterday = cursor.fetchall()
+
     conn.close()
 
     # Calculate month comparison
@@ -217,7 +233,22 @@ Comments: {yesterday_stats['total_comments']:,}
 Shares: {yesterday_stats['total_shares']:,}
 Total Engagement: {yesterday_stats['total_engagement']:,}
 vs This Month Avg: {vs_avg_str}
+"""
 
+    # Add top 2 yesterday posts
+    if top_yesterday:
+        message += "\n<b>TOP 2 POSTS YESTERDAY</b>\n"
+        for i, post in enumerate(top_yesterday, 1):
+            title_short = (post['title'][:30] + "...") if post['title'] and len(post['title']) > 30 else (post['title'] or "No caption")
+            post_type_display = get_post_type_display(post['post_type'])
+            permalink = post['permalink'] or ""
+            message += f"{i}. [{post_type_display}] {title_short}\n"
+            message += f"   {post['total_engagement']:,} eng"
+            if permalink:
+                message += f" - <a href=\"{permalink}\">View</a>"
+            message += "\n"
+
+    message += f"""
 <b>MONTHLY OVERVIEW ({this_month_name})</b>
 Posts: {this_month['post_count']}
 Reactions: {this_month['total_reactions']:,}
@@ -227,6 +258,8 @@ Views: {this_month['total_views']:,}
 Reach: {this_month['total_reach']:,}
 Total Engagement: {this_month['total_engagement']:,}
 vs {last_month_name}: {month_change_str}
+
+<i>Note: Views/Reach data has 2-3 days delay (manual CSV export from Meta)</i>
 
 <b>MONTHLY BREAKDOWN BY PAGE</b>
 """
