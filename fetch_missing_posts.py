@@ -143,7 +143,7 @@ def get_post_details(token, post_id):
 
 
 def save_post(conn, page_id, post_id, post_data, reactions, comments, shares, post_type):
-    """Save a post to database."""
+    """Save a NEW post to database."""
     cursor = conn.cursor()
     now = datetime.now().isoformat()
 
@@ -170,6 +170,29 @@ def save_post(conn, page_id, post_id, post_data, reactions, comments, shares, po
         total_engagement,
         now
     ))
+    return cursor.rowcount > 0
+
+
+def update_post_engagement(conn, post_id, reactions, comments, shares):
+    """Update engagement data for existing API posts (no views/reach)."""
+    cursor = conn.cursor()
+    now = datetime.now().isoformat()
+
+    total_engagement = reactions + comments + shares
+    pes = (reactions * 1.0) + (comments * 2.0) + (shares * 3.0)
+
+    # Only update posts that have NO views data (API posts, not CSV)
+    cursor.execute("""
+        UPDATE posts
+        SET reactions_total = ?,
+            comments_count = ?,
+            shares_count = ?,
+            pes = ?,
+            total_engagement = ?,
+            fetched_at = ?
+        WHERE post_id = ?
+        AND (views_count IS NULL OR views_count = 0)
+    """, (reactions, comments, shares, pes, total_engagement, now, post_id))
     return cursor.rowcount > 0
 
 
@@ -250,6 +273,19 @@ def main():
                         print(f"  -> Telegram error: {e}")
 
             time.sleep(0.2)
+
+        # Update existing API posts (refresh engagement data)
+        existing_posts = [p for p in posts if p["id"] in existing_ids]
+        page_updated = 0
+        for post in existing_posts:
+            post_id = post["id"]
+            reactions, comments, shares, post_type = get_post_details(token, post_id)
+            if update_post_engagement(conn, post_id, reactions, comments, shares):
+                page_updated += 1
+            time.sleep(0.1)
+
+        if page_updated > 0:
+            print(f"  ~ Updated {page_updated} existing posts")
 
         total_new += page_new
         total_skipped += page_skipped
