@@ -577,6 +577,8 @@ class CsvImportView(APIView):
                     reactions = safe_int(row.get('Reactions', 0))
                     comments = safe_int(row.get('Comments', 0))
                     shares = safe_int(row.get('Shares', 0))
+                    views = safe_int(row.get('Views', 0))
+                    reach = safe_int(row.get('Reach', 0))
 
                     total_engagement = reactions + comments + shares
                     pes = (reactions * 1.0) + (comments * 2.0) + (shares * 3.0)
@@ -586,11 +588,13 @@ class CsvImportView(APIView):
                         INSERT OR REPLACE INTO posts
                         (post_id, page_id, title, permalink, post_type, publish_time,
                          reactions_total, comments_count, shares_count,
+                         views_count, reach_count,
                          pes, total_engagement, fetched_at)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """, (
                         post_id, page_id, title, permalink, post_type, publish_time,
-                        reactions, comments, shares, pes, total_engagement,
+                        reactions, comments, shares, views, reach,
+                        pes, total_engagement,
                         datetime.now().isoformat()
                     ))
                     imported += 1
