@@ -5,7 +5,7 @@ const navItems = [
   { path: '/', label: 'Dashboard', icon: '📊' },
   { path: '/posts', label: 'Posts', icon: '📝' },
   { path: '/pages', label: 'Pages', icon: '📄' },
-  { path: '/comments', label: 'Comments', icon: '💬' },
+  // { path: '/comments', label: 'Comments', icon: '💬' }, // Disabled temporarily
   { path: '/overlap', label: 'Comparison', icon: '📈' },
 ];
 
