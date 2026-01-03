@@ -43,5 +43,12 @@
         "followers_count": 98533,
         "expires_in_days": 60,
         "converted_at": "2025-12-27"
+    },
+    "Juan365Cares": {
+        "page_id": "718958694640884",
+        "page_name": "Juan365 Cares",
+        "page_access_token": "EAAgellFQ7RYBQQOYDRNPdqVBKMy1raw4So3wVGwEnlVuI9Vh9ksVxbu9u4KeZAPSoLUgOv3cfvJMV9TwhdWOP7XJhEEJSwsymKERNOBlOz7zIqWmCFOybBAfXamfga2HdUpAZCiBaYV4tXkdqPtxZAFPN3CYvueZAfLtfTs540dknqGyP6PgX1PKKAQMtvHrnolUQy5musBWgDYTbaF9",
+        "expires_in_days": 60,
+        "converted_at": "2026-01-03"
     }
 }
