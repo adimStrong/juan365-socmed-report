@@ -314,6 +314,7 @@ def send_monthly_report():
             COALESCE(SUM(comments_count), 0) as total_comments,
             COALESCE(SUM(shares_count), 0) as total_shares,
             COALESCE(SUM(views_count), 0) as total_views,
+            COALESCE(SUM(reach_count), 0) as total_reach,
             COALESCE(SUM(total_engagement), 0) as total_engagement
         FROM posts
         WHERE substr(publish_time, 1, 10) BETWEEN ? AND ?
@@ -330,28 +331,33 @@ def send_monthly_report():
     """, (prev_month_start.strftime('%Y-%m-%d'), prev_month_end.strftime('%Y-%m-%d')))
     prev_month = cursor.fetchone()
 
-    # Get page ranking
+    # Get page ranking with page_url, views, reach
     cursor.execute("""
         SELECT
             p.page_name,
+            p.page_url,
             COUNT(*) as post_count,
+            COALESCE(SUM(posts.views_count), 0) as views,
+            COALESCE(SUM(posts.reach_count), 0) as reach,
             COALESCE(SUM(posts.total_engagement), 0) as engagement
         FROM posts
         JOIN pages p ON posts.page_id = p.page_id
         WHERE substr(posts.publish_time, 1, 10) BETWEEN ? AND ?
-        GROUP BY p.page_name
+        GROUP BY p.page_name, p.page_url
         ORDER BY engagement DESC
     """, (last_month_start.strftime('%Y-%m-%d'), last_month_end.strftime('%Y-%m-%d')))
     page_ranking = cursor.fetchall()
 
-    # Get top 10 posts
+    # Get top 10 posts with views and reach
     cursor.execute("""
         SELECT
             p.page_name,
             posts.title,
             posts.post_type,
             posts.total_engagement,
-            posts.permalink
+            posts.permalink,
+            COALESCE(posts.views_count, 0) as views,
+            COALESCE(posts.reach_count, 0) as reach
         FROM posts
         JOIN pages p ON posts.page_id = p.page_id
         WHERE substr(posts.publish_time, 1, 10) BETWEEN ? AND ?
@@ -379,6 +385,7 @@ Total Reactions: {month_stats['total_reactions']:,}
 Total Comments: {month_stats['total_comments']:,}
 Total Shares: {month_stats['total_shares']:,}
 Total Views: {month_stats['total_views']:,}
+Total Reach: {month_stats['total_reach']:,}
 Total Engagement: {month_stats['total_engagement']:,}
 
 <b>vs Previous Month:</b> {growth_str}
@@ -387,17 +394,27 @@ Total Engagement: {month_stats['total_engagement']:,}
 """
 
     for i, page in enumerate(page_ranking, 1):
-        medal = ["1.", "2.", "3."][i-1] if i <= 3 else f"{i}."
-        message += f"{medal} {page['page_name']}: {page['post_count']} posts, {page['engagement']:,} eng\n"
+        medal = ["🥇", "🥈", "🥉"][i-1] if i <= 3 else f"{i}."
+        page_url = page['page_url'] or ""
+        page_link = f"<a href=\"{page_url}\">{page['page_name']}</a>" if page_url else page['page_name']
+        message += f"{medal} {page_link}\n"
+        message += f"   {page['post_count']} posts | {page['views']:,} views | {page['reach']:,} reach | {page['engagement']:,} eng\n"
 
     message += f"""
 <b>TOP 10 POSTS</b>
+<i>(0 views = not yet in Meta CSV export)</i>
 """
 
     for i, post in enumerate(top_posts, 1):
         title_short = (post['title'][:25] + "...") if post['title'] and len(post['title']) > 25 else (post['title'] or "No caption")
         post_type_display = get_post_type_display(post['post_type'])
-        message += f"{i}. [{post_type_display}] {title_short} - {post['total_engagement']:,}\n"
+        permalink = post['permalink'] or ""
+        message += f"{i}. <b>{post['page_name']}</b> [{post_type_display}]\n"
+        message += f"   {title_short}\n"
+        message += f"   {post['views']:,} views | {post['reach']:,} reach | {post['total_engagement']:,} eng"
+        if permalink:
+            message += f" - <a href=\"{permalink}\">View</a>"
+        message += "\n"
 
     return send_message(message.strip())
 
