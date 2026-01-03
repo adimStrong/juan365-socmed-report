@@ -132,7 +132,7 @@ export default function Dashboard() {
       </div>
 
       {/* Stats Cards - Row 2 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         <StatCard
           title="Total Reactions"
           value={stats?.total_reactions?.toLocaleString()}
@@ -157,6 +157,18 @@ export default function Dashboard() {
           subtitle="Pages with engagement data"
           icon="📄"
           color="teal"
+        />
+        <StatCard
+          title="Total Followers"
+          value={(() => {
+            const total = pageComparison.reduce((sum, p) => sum + (p.followers_count || 0), 0);
+            if (total >= 1000000) return (total / 1000000).toFixed(1) + 'M';
+            if (total >= 1000) return (total / 1000).toFixed(1) + 'K';
+            return total.toLocaleString();
+          })()}
+          subtitle={`across ${pageComparison.length} pages`}
+          icon="👥"
+          color="rose"
         />
       </div>
 
