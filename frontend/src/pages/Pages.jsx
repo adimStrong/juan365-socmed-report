@@ -69,6 +69,7 @@ export default function Pages() {
         <div className="bg-white rounded-lg shadow p-4">
           <p className="text-sm text-gray-500">Total Followers</p>
           <p className="text-2xl font-bold text-rose-600">{formatNumber(totals.followers)}</p>
+          <p className="text-xs text-gray-400 mt-1">Current count</p>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
           <p className="text-sm text-gray-500">Total Views</p>
@@ -98,7 +99,10 @@ export default function Pages() {
 
       {/* Followers Comparison Chart */}
       <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">👥 Followers by Page</h2>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-semibold">👥 Followers by Page</h2>
+          <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">Current count only</span>
+        </div>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={sortedByFollowers} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" />
@@ -120,7 +124,10 @@ export default function Pages() {
 
       {/* Followers Ranking Table */}
       <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">🏆 Followers Ranking</h2>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-semibold">🏆 Followers Ranking</h2>
+          <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">Current count only</span>
+        </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -272,6 +279,7 @@ export default function Pages() {
                 <p className="text-lg font-bold text-rose-600">
                   {formatNumber(page.followers_count)}
                 </p>
+                <p className="text-[10px] text-rose-400">current</p>
               </div>
             </div>
 
