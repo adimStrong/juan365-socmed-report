@@ -197,12 +197,13 @@ export default function Dashboard() {
 
       {/* Page Stats Table */}
       <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">5 Pages Performance Summary</h2>
+        <h2 className="text-lg font-semibold mb-4">{pageComparison.length} Pages Performance Summary</h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm min-w-[900px]">
+          <table className="w-full text-sm min-w-[1000px]">
             <thead>
               <tr className="text-left text-gray-500 border-b">
                 <th className="pb-3 font-medium whitespace-nowrap">Page</th>
+                <th className="pb-3 font-medium text-right whitespace-nowrap">Followers</th>
                 <th className="pb-3 font-medium text-right whitespace-nowrap">Posts</th>
                 <th className="pb-3 font-medium text-right whitespace-nowrap">Views</th>
                 <th className="pb-3 font-medium text-right whitespace-nowrap">Reach</th>
@@ -225,6 +226,15 @@ export default function Dashboard() {
                         TOP
                       </span>
                     )}
+                  </td>
+                  <td className="py-3 text-right whitespace-nowrap font-semibold text-rose-600">
+                    {(() => {
+                      const num = page.followers_count;
+                      if (!num) return '0';
+                      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+                      if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+                      return num.toLocaleString();
+                    })()}
                   </td>
                   <td className="py-3 text-right whitespace-nowrap">{page.post_count?.toLocaleString()}</td>
                   <td className="py-3 text-right whitespace-nowrap text-purple-600">{page.total_views?.toLocaleString()}</td>
