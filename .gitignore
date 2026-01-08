@@ -25,6 +25,11 @@ data/*.sqlite3
 exports/
 reports/
 
+# Secrets
+page_tokens.json
+page_tokens_raw.json
+short_lived_tokens.json
+
 # Keep static JSON data for frontend
 !frontend/public/data/
 
