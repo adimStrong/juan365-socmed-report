@@ -5,7 +5,7 @@ import {
 } from 'recharts';
 import StatCard from '../components/StatCard';
 import DateFilter from '../components/DateFilter';
-import { getStats, getDailyEngagement, getPostTypeStats, getTopPosts, getPages, getTimeSeries, getDailyByPage } from '../services/api';
+import { getStats, getDailyEngagement, getPostTypeStats, getTopPosts, getPages, getTimeSeries, getDailyByPage, getDateBoundaries } from '../services/api';
 
 const COLORS = ['#6366f1', '#22c55e', '#f59e0b', '#ef4444', '#8b5cf6'];
 
@@ -21,12 +21,18 @@ export default function Dashboard() {
   const [distributionView, setDistributionView] = useState('type'); // 'type' or 'page'
   const [pageMetric, setPageMetric] = useState('posts'); // posts, views, reach, engagement
   const [dateRange, setDateRange] = useState({ startDate: null, endDate: null });
+  const [dateBoundaries, setDateBoundaries] = useState({ minDate: null, maxDate: null });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const handleDateChange = (newDateRange) => {
-    setDateRange(newDateRange);
-  };
+  // Fetch date boundaries once on mount
+  useEffect(() => {
+    async function fetchBoundaries() {
+      const boundaries = await getDateBoundaries();
+      setDateBoundaries(boundaries);
+    }
+    fetchBoundaries();
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -97,7 +103,12 @@ export default function Dashboard() {
             </select>
           </div>
         </div>
-        <DateFilter onDateChange={handleDateChange} />
+        <DateFilter
+          onDateChange={setDateRange}
+          defaultDays={0}
+          minDate={dateBoundaries.minDate}
+          maxDate={dateBoundaries.maxDate}
+        />
       </div>
 
       {/* Stats Cards - Row 1 */}
@@ -324,51 +335,39 @@ export default function Dashboard() {
             </div>
           </div>
           <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              {distributionView === 'type' ? (
-                <Pie
-                  data={postTypes}
-                  dataKey="count"
-                  nameKey="post_type"
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={40}
-                  outerRadius={80}
-                  paddingAngle={2}
-                  label={({ post_type, percent }) => `${post_type} ${(percent * 100).toFixed(0)}%`}
-                  labelLine={{ stroke: '#666', strokeWidth: 1 }}
-                >
+            {distributionView === 'type' ? (
+              <BarChart data={postTypes}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="post_type" fontSize={12} />
+                <YAxis fontSize={12} tickFormatter={(val) => val?.toLocaleString()} />
+                <Tooltip formatter={(value) => value?.toLocaleString()} />
+                <Legend />
+                <Bar dataKey="count" name="Posts">
                   {postTypes.map((_, index) => (
                     <Cell key={index} fill={COLORS[index % COLORS.length]} />
                   ))}
-                </Pie>
-              ) : (
-                <Pie
-                  data={pageComparison.map(p => ({
-                    ...p,
-                    short_name: p.page_name?.replace('Juana Babe ', ''),
-                    value: pageMetric === 'posts' ? p.post_count :
-                           pageMetric === 'views' ? p.total_views :
-                           pageMetric === 'reach' ? p.total_reach : p.total_engagement
-                  }))}
-                  dataKey="value"
-                  nameKey="short_name"
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={40}
-                  outerRadius={80}
-                  paddingAngle={2}
-                  label={({ short_name, percent }) => `${short_name} ${(percent * 100).toFixed(0)}%`}
-                  labelLine={{ stroke: '#666', strokeWidth: 1 }}
-                >
+                </Bar>
+              </BarChart>
+            ) : (
+              <BarChart data={pageComparison.map(p => ({
+                ...p,
+                short_name: p.page_name?.replace('Juana Babe ', ''),
+                value: pageMetric === 'posts' ? p.post_count :
+                       pageMetric === 'views' ? p.total_views :
+                       pageMetric === 'reach' ? p.total_reach : p.total_engagement
+              }))}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="short_name" fontSize={11} />
+                <YAxis fontSize={12} tickFormatter={(val) => val?.toLocaleString()} />
+                <Tooltip formatter={(value) => value?.toLocaleString()} />
+                <Legend />
+                <Bar dataKey="value" name={pageMetric.charAt(0).toUpperCase() + pageMetric.slice(1)}>
                   {pageComparison.map((_, index) => (
                     <Cell key={index} fill={COLORS[index % COLORS.length]} />
                   ))}
-                </Pie>
-              )}
-              <Tooltip formatter={(value, name) => [value?.toLocaleString(), name]} />
-              <Legend />
-            </PieChart>
+                </Bar>
+              </BarChart>
+            )}
           </ResponsiveContainer>
         </div>
       </div>

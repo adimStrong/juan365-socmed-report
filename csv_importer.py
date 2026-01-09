@@ -13,7 +13,8 @@ from typing import Optional, List, Dict, Any, Tuple
 
 from database import (
     ensure_initialized, db_connection, upsert_page, upsert_post,
-    insert_metrics, record_import, get_import_history, get_database_stats
+    insert_metrics, record_import, get_import_history, get_database_stats,
+    execute_query
 )
 from models import ImportResult
 from config import COLUMN_MAPPING, EXPORTS_DIR, CSV_DOWNLOADS_DIR
@@ -218,8 +219,8 @@ def import_csv(
                         # Check if exists (for mode handling)
                         existing = None
                         if mode != 'replace' and not dry_run:
-                            cursor = conn.execute(
-                                "SELECT post_id FROM posts WHERE post_id = ?",
+                            cursor = execute_query(
+                                conn, "SELECT post_id FROM posts WHERE post_id = ?",
                                 (post_id,)
                             )
                             existing = cursor.fetchone()

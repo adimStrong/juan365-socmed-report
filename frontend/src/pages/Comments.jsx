@@ -3,7 +3,8 @@ import {
   PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, Legend
 } from 'recharts';
-import { getPages, getPostTypeStats, getTopPosts, getCommentAnalysis } from '../services/api';
+import { getPages, getPostTypeStats, getTopPosts, getCommentAnalysis, getDateBoundaries } from '../services/api';
+import DateFilter from '../components/DateFilter';
 
 const COLORS = ['#6366f1', '#22c55e', '#f59e0b', '#ef4444', '#8b5cf6'];
 
@@ -13,12 +14,24 @@ export default function Comments() {
   const [topCommented, setTopCommented] = useState([]);
   const [commentAnalysis, setCommentAnalysis] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [dateRange, setDateRange] = useState({ startDate: null, endDate: null });
+  const [dateBoundaries, setDateBoundaries] = useState({ minDate: null, maxDate: null });
+
+  // Fetch date boundaries once on mount
+  useEffect(() => {
+    async function fetchBoundaries() {
+      const boundaries = await getDateBoundaries();
+      setDateBoundaries(boundaries);
+    }
+    fetchBoundaries();
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
+      setLoading(true);
       try {
         const [pageData, postTypeData, topPostsData, analysisData] = await Promise.all([
-          getPages(),
+          getPages(dateRange),
           getPostTypeStats(),
           getTopPosts(20, 'engagement'),
           getCommentAnalysis(),
@@ -36,7 +49,11 @@ export default function Comments() {
       }
     }
     fetchData();
-  }, []);
+  }, [dateRange]);
+
+  const handleDateChange = (newDateRange) => {
+    setDateRange(newDateRange);
+  };
 
   if (loading) {
     return (
@@ -57,7 +74,7 @@ export default function Comments() {
 
   // Prepare chart data
   const commentsByPage = pages.map(p => ({
-    name: p.page_name?.replace('Juana Babe ', ''),
+    name: p.page_name,
     comments: p.total_comments || 0,
     posts: p.post_count || 0,
     avgPerPost: p.post_count > 0 ? Math.round((p.total_comments || 0) / p.post_count) : 0
@@ -79,6 +96,16 @@ export default function Comments() {
         </div>
       </div>
 
+      {/* Date Filter */}
+      <div className="bg-white rounded-lg shadow p-4">
+        <DateFilter
+          onDateChange={handleDateChange}
+          defaultDays={0}
+          minDate={dateBoundaries.minDate}
+          maxDate={dateBoundaries.maxDate}
+        />
+      </div>
+
       {/* Summary Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white rounded-lg shadow p-6">
@@ -96,7 +123,7 @@ export default function Comments() {
         <div className="bg-white rounded-lg shadow p-6">
           <p className="text-sm text-gray-500">Top Page</p>
           <p className="text-xl font-bold text-purple-600">
-            {topPage?.page_name?.replace('Juana Babe ', '')}
+            {topPage?.page_name}
           </p>
           <p className="text-sm text-gray-500">{topPage?.total_comments?.toLocaleString()} comments</p>
         </div>
@@ -180,14 +207,14 @@ export default function Comments() {
                   </td>
                   <td className="py-3 text-right text-green-600">{page.avgPerPost}</td>
                   <td className="py-3 text-right">
-                    {((page.comments / totalComments) * 100).toFixed(1)}%
+                    {totalComments > 0 ? ((page.comments / totalComments) * 100).toFixed(1) : 0}%
                   </td>
                   <td className="py-3">
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div
                         className="h-2 rounded-full"
                         style={{
-                          width: `${(page.comments / totalComments) * 100}%`,
+                          width: `${totalComments > 0 ? (page.comments / totalComments) * 100 : 0}%`,
                           backgroundColor: COLORS[index % COLORS.length]
                         }}
                       />
@@ -221,7 +248,7 @@ export default function Comments() {
                 <tr key={post.post_id} className="border-b hover:bg-gray-50">
                   <td className="py-3 text-gray-500">{index + 1}</td>
                   <td className="py-3 text-xs">
-                    {post.page_name?.replace('Juana Babe ', '')}
+                    {post.page_name}
                   </td>
                   <td className="py-3">
                     <a
@@ -357,7 +384,7 @@ export default function Comments() {
                     {commentAnalysis.byPage.map((page, index) => (
                       <tr key={page.page_id} className="border-b">
                         <td className="py-3 font-medium">
-                          {page.page_name?.replace('Juana Babe ', '')}
+                          {page.page_name}
                         </td>
                         <td className="py-3 text-right">{page.posts_with_comments}</td>
                         <td className="py-3 text-right text-orange-600 font-semibold">
@@ -416,7 +443,7 @@ export default function Comments() {
                       <tr key={post.post_id} className="border-b hover:bg-gray-50">
                         <td className="py-3 text-gray-500">{index + 1}</td>
                         <td className="py-3 text-xs">
-                          {post.page_name?.replace('Juana Babe ', '')}
+                          {post.page_name}
                         </td>
                         <td className="py-3">
                           <a

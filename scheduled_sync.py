@@ -83,8 +83,8 @@ def check_token_validity(page_id, token):
         return False, None
 
 
-def fetch_page_posts(page_id, token, days=7):
-    """Fetch posts from a page for the last N days."""
+def fetch_page_posts(page_id, token, days=30):
+    """Fetch posts from a page for the last N days (default 30 days)."""
     since = datetime.now() - timedelta(days=days)
     since_ts = int(since.timestamp())
 
@@ -223,9 +223,9 @@ def run_sync(check_only=False):
         if check_only:
             continue
 
-        # Fetch and save posts
-        print(f"   Fetching posts...")
-        posts = fetch_page_posts(page_id, token, days=7)
+        # Fetch and save posts (last 30 days)
+        print(f"   Fetching posts (last 30 days)...")
+        posts = fetch_page_posts(page_id, token, days=30)
 
         if posts:
             saved = save_posts_to_db(page_id, name, posts)

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getPosts, getPages } from '../services/api';
+import { getPosts, getPages, getDateBoundaries } from '../services/api';
+import DateFilter from '../components/DateFilter';
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
@@ -10,6 +11,17 @@ export default function Posts() {
   const [hasNext, setHasNext] = useState(false);
   const [filter, setFilter] = useState({ post_type: '', page_id: '', search: '' });
   const [searchInput, setSearchInput] = useState('');
+  const [dateRange, setDateRange] = useState({ startDate: null, endDate: null });
+  const [dateBoundaries, setDateBoundaries] = useState({ minDate: null, maxDate: null });
+
+  // Fetch date boundaries once on mount
+  useEffect(() => {
+    async function fetchBoundaries() {
+      const boundaries = await getDateBoundaries();
+      setDateBoundaries(boundaries);
+    }
+    fetchBoundaries();
+  }, []);
 
   // Load pages for filter dropdown
   useEffect(() => {
@@ -28,7 +40,7 @@ export default function Posts() {
         if (filter.post_type) params.post_type = filter.post_type;
         if (filter.page_id) params.page_id = filter.page_id;
         if (filter.search) params.search = filter.search;
-        const data = await getPosts(params);
+        const data = await getPosts(params, dateRange);
         setPosts(data.results || data);
         setTotalCount(data.count || 0);
         setHasNext(!!data.next);
@@ -39,7 +51,7 @@ export default function Posts() {
       }
     }
     fetchPosts();
-  }, [page, filter]);
+  }, [page, filter, dateRange]);
 
   const formatDate = (date) => {
     if (!date) return 'N/A';
@@ -55,6 +67,11 @@ export default function Posts() {
   const handleFilterChange = (key, value) => {
     setPage(1);
     setFilter(f => ({ ...f, [key]: value }));
+  };
+
+  const handleDateChange = (newDateRange) => {
+    setDateRange(newDateRange);
+    setPage(1); // Reset pagination on date change
   };
 
   const pageSize = 20;
@@ -98,7 +115,7 @@ export default function Posts() {
             <option value="">All Pages</option>
             {pages.map((p) => (
               <option key={p.page_id} value={p.page_id}>
-                {p.page_name?.replace('Juana Babe ', '')}
+                {p.page_name}
               </option>
             ))}
           </select>
@@ -111,12 +128,21 @@ export default function Posts() {
           >
             <option value="">All Types</option>
             <option value="Photos">Photos</option>
-            <option value="Videos">Videos</option>
-            <option value="Reels">Reels</option>
+            <option value="Videos/Reels">Videos/Reels</option>
             <option value="Live">Live</option>
             <option value="Text">Text</option>
           </select>
         </div>
+      </div>
+
+      {/* Date Filter */}
+      <div className="bg-white rounded-lg shadow p-4">
+        <DateFilter
+          onDateChange={handleDateChange}
+          defaultDays={0}
+          minDate={dateBoundaries.minDate}
+          maxDate={dateBoundaries.maxDate}
+        />
       </div>
 
       <div className="bg-white rounded-lg shadow overflow-hidden">
@@ -148,7 +174,7 @@ export default function Posts() {
                 {posts.map((post) => (
                   <tr key={post.post_id} className="hover:bg-gray-50">
                     <td className="px-4 py-3 text-xs text-gray-600 whitespace-nowrap">
-                      {post.page_name?.replace('Juana Babe ', '')}
+                      {post.page_name}
                     </td>
                     <td className="px-4 py-3 max-w-xs">
                       <a
@@ -164,6 +190,7 @@ export default function Posts() {
                     </td>
                     <td className="px-4 py-3">
                       <span className={`px-2 py-1 rounded text-xs ${
+                        post.post_type === 'Videos/Reels' ? 'bg-purple-100 text-purple-800' :
                         post.post_type === 'Reels' ? 'bg-purple-100 text-purple-800' :
                         post.post_type === 'Videos' ? 'bg-blue-100 text-blue-800' :
                         post.post_type === 'Live' ? 'bg-red-100 text-red-800' :

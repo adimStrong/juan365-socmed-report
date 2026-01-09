@@ -1,18 +1,39 @@
 #!/usr/bin/env python3
 """Convert short-lived Facebook tokens to long-lived tokens."""
 
+import os
 import requests
 import json
 from datetime import datetime
 
-# Facebook App credentials - Juan365
-APP_ID = "2285430771870998"
-APP_SECRET = "20c0ffb9eb57a8742eb1720c87172d63"
+# Load environment variables
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
-# Short-lived tokens with page names (paste new short-lived token here to convert)
-SHORT_LIVED_TOKENS = {
-    "Juan365": "PASTE_NEW_SHORT_LIVED_TOKEN_HERE"
-}
+# Facebook App credentials - load from environment
+APP_ID = os.environ.get("FACEBOOK_APP_ID", "")
+APP_SECRET = os.environ.get("FACEBOOK_APP_SECRET", "")
+
+if not APP_ID or not APP_SECRET:
+    print("ERROR: FACEBOOK_APP_ID and FACEBOOK_APP_SECRET must be set in .env file")
+    print("Create a .env file with:")
+    print("  FACEBOOK_APP_ID=your_app_id")
+    print("  FACEBOOK_APP_SECRET=your_app_secret")
+    exit(1)
+
+# Short-lived tokens - load from short_lived_tokens.json file
+# Create this file with format: {"PageName": "short_token", ...}
+SHORT_LIVED_TOKENS = {}
+if os.path.exists("short_lived_tokens.json"):
+    with open("short_lived_tokens.json") as f:
+        SHORT_LIVED_TOKENS = json.load(f)
+else:
+    print("WARNING: short_lived_tokens.json not found")
+    print("Create this file with format: {\"PageName\": \"short_token\", ...}")
+    print("Or enter tokens interactively below.")
 
 
 def convert_to_long_lived_token(short_token):

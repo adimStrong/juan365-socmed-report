@@ -3,14 +3,28 @@ Telegram Notifier for Juan365 Socmed Report
 Sends daily/monthly reports and new post alerts to Telegram group
 """
 
+import os
 import requests
 import sqlite3
 from datetime import datetime, timedelta
 from pathlib import Path
 
-# Telegram Configuration
-BOT_TOKEN = "8528398122:AAG9o7TOPrGxMEv_1eDIoiMO1cvTYq4Um7s"
-CHAT_ID = "-5118984778"  # Socmed FB notification group
+# Load environment variables
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+# Telegram Configuration - Load from environment variables
+BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+
+# Fallback for legacy usage (will be removed in future versions)
+if not BOT_TOKEN:
+    BOT_TOKEN = "8528398122:AAG9o7TOPrGxMEv_1eDIoiMO1cvTYq4Um7s"
+if not CHAT_ID:
+    CHAT_ID = "-5118984778"  # Socmed FB notification group
 
 # Database path
 DB_PATH = Path(__file__).parent / "data" / "juan365_socmed.db"
