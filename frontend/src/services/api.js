@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Use static data in production, API in development
-const IS_PRODUCTION = false; // Set to true for Vercel deployment
+const IS_PRODUCTION = true; // Set to true for Vercel deployment
 const API_URL = 'http://localhost:8002/api/v1';
 
 let staticData = null;
