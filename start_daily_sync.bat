@@ -1,11 +1,11 @@
 @echo off
 color 0A
-title JUANBABES - DAILY API SYNC SCHEDULER
+title JUAN365 - DAILY API SYNC SCHEDULER
 cls
 
 echo.
 echo ============================================================
-echo JUANBABES - DAILY API SYNC SCHEDULER
+echo JUAN365 - DAILY API SYNC SCHEDULER
 echo ============================================================
 echo.
 echo This will run the API sync automatically at 8:00 AM daily:
@@ -21,7 +21,7 @@ echo  Press Ctrl+C to stop the scheduler
 echo ============================================================
 echo.
 
-cd /d "C:\Users\us\Desktop\juanbabes_project"
+cd /d "C:\Users\us\Desktop\juan365_socmed_report"
 python auto_sync_daemon.py
 
 pause
