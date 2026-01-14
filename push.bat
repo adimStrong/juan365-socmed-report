@@ -24,8 +24,8 @@ echo.
 echo ============================================================
 echo [3/3] Deploying frontend to Vercel...
 echo ============================================================
-cd frontend
-call npx vercel --prod --yes
+REM Run from project root (not frontend) to avoid path issues
+call npx vercel --prod --yes --force
 
 echo.
 echo ============================================================
