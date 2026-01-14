@@ -36,3 +36,6 @@ short_lived_tokens.json
 # Logs
 *.log
 December_Performance_Report.html
+
+.vercel
+.env*.local

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Scheduled Facebook API Sync for JuanBabes Analytics
+Scheduled Facebook API Sync for JuanStudio Analytics
 
 This script fetches the latest posts from Facebook Pages using the Graph API.
 Can be run manually or scheduled via Windows Task Scheduler / cron.
@@ -15,12 +15,12 @@ Usage:
 
 Schedule with Windows Task Scheduler:
 1. Open Task Scheduler
-2. Create Basic Task → "JuanBabes Daily Sync"
+2. Create Basic Task -> "JuanStudio Daily Sync"
 3. Trigger: Daily at 6:00 AM
 4. Action: Start Program
    - Program: python
-   - Arguments: C:\Users\us\Desktop\juanbabes_project\scheduled_sync.py
-   - Start in: C:\Users\us\Desktop\juanbabes_project
+   - Arguments: C:/Users/us/Desktop/juanstudio_project/scheduled_sync.py
+   - Start in: C:/Users/us/Desktop/juanstudio_project
 
 Or with cron (Linux/Mac):
     0 6 * * * cd /path/to/project && python scheduled_sync.py >> sync.log 2>&1
@@ -50,7 +50,7 @@ POST_FIELDS = [
 def load_tokens():
     """Load page access tokens from JSON file."""
     if not os.path.exists(TOKENS_FILE):
-        print(f"❌ Token file not found: {TOKENS_FILE}")
+        print(f"[X] Token file not found: {TOKENS_FILE}")
         print("   Create page_tokens.json with format:")
         print('   {"PAGE_ID": {"token": "ACCESS_TOKEN", "name": "Page Name"}}')
         return None
@@ -104,7 +104,7 @@ def fetch_page_posts(page_id, token, days=30):
             data = response.json()
 
             if "error" in data:
-                print(f"  ❌ API Error: {data['error'].get('message', 'Unknown')}")
+                print(f"  [X] API Error: {data['error'].get('message', 'Unknown')}")
                 break
 
             posts.extend(data.get("data", []))
@@ -115,7 +115,7 @@ def fetch_page_posts(page_id, token, days=30):
             params = {}  # Params are included in the next URL
 
         except Exception as e:
-            print(f"  ❌ Request error: {e}")
+            print(f"  [X] Request error: {e}")
             break
 
     return posts
@@ -187,7 +187,7 @@ def save_posts_to_db(page_id, page_name, posts):
 def run_sync(check_only=False):
     """Main sync function."""
     print("=" * 60)
-    print("JuanBabes Facebook API Sync")
+    print("JuanStudio Facebook API Sync")
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
 
@@ -200,27 +200,25 @@ def run_sync(check_only=False):
     all_valid = True
     total_posts = 0
 
-    for page_id, page_data in tokens.items():
-        token = page_data.get("token")
-        name = page_data.get("name", f"Page {page_id}")
+    for page_key, page_data in tokens.items():
+        page_id = page_data.get("page_id", page_key)
+        token = page_data.get("page_access_token") or page_data.get("token")
+        name = page_data.get("page_name") or page_data.get("name", f"Page {page_key}")
 
-        # Check token validity
-        is_valid, days_left = check_token_validity(page_id, token)
-
-        if not is_valid:
-            print(f"❌ {name}: Token INVALID or expired")
+        if not token:
+            print(f"[X] {name}: No token found")
             all_valid = False
             continue
 
-        status = "✅" if days_left and days_left > 14 else "⚠️"
-        days_msg = f"{days_left} days left" if days_left else "No expiry"
-        print(f"{status} {name} ({page_id}): Token valid - {days_msg}")
-
-        if days_left and days_left <= 14:
-            print(f"   ⚠️  Token expires soon! Refresh at:")
-            print(f"   https://business.facebook.com/settings/pages")
-
         if check_only:
+            # Check token validity
+            is_valid, days_left = check_token_validity(page_id, token)
+            if not is_valid:
+                print(f"[!] {name}: Token validation failed (may still work)")
+            else:
+                status = "[OK]" if days_left and days_left > 14 else "[!]"
+                days_msg = f"{days_left} days left" if days_left else "No expiry"
+                print(f"{status} {name} ({page_id}): Token valid - {days_msg}")
             continue
 
         # Fetch and save posts (last 30 days)
@@ -229,7 +227,7 @@ def run_sync(check_only=False):
 
         if posts:
             saved = save_posts_to_db(page_id, name, posts)
-            print(f"   ✅ Saved {saved} posts")
+            print(f"   [OK] Saved {saved} posts")
             total_posts += saved
         else:
             print(f"   No new posts found")
@@ -251,10 +249,10 @@ def main():
     success = run_sync(check_only=check_only)
 
     if not success:
-        print("\n⚠️  Some tokens need attention!")
+        print("\n[!]  Some tokens need attention!")
         print("   To refresh tokens:")
         print("   1. Go to https://business.facebook.com/settings/pages")
-        print("   2. Select each page → Generate new token")
+        print("   2. Select each page -> Generate new token")
         print("   3. Update page_tokens.json")
 
     sys.exit(0 if success else 1)

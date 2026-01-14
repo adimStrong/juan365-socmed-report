@@ -71,7 +71,7 @@ def run_sync():
             print("   (export_static_data.py not found, skipping)")
 
         # Step 5: Git push if changes
-        print("\n[5/5] Checking for changes to push...")
+        print("\n[5/6] Checking for changes to push...")
         result = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True)
 
         if result.stdout.strip():
@@ -79,11 +79,25 @@ def run_sync():
             subprocess.run(['git', 'add', '-A'], check=True)
             subprocess.run(['git', 'commit', '-m', f'Daily full sync: {datetime.now().strftime("%Y-%m-%d %H:%M")}'], check=True)
             subprocess.run(['git', 'push', 'origin', 'main'], check=True)
-            show_notification("Juan365 Daily Sync", "Full sync complete and deployed!")
             print("Push complete!")
         else:
             print("No changes detected.")
-            show_notification("Juan365 Daily Sync", "Sync complete - no new data.")
+
+        # Step 6: Send daily report with dashboard screenshot
+        print("\n[6/6] Sending daily report with dashboard screenshot...")
+        if os.path.exists('send_daily_report_v2.py'):
+            result = subprocess.run(
+                [sys.executable, 'send_daily_report_v2.py', '--project', 'juan365'],
+                capture_output=True, text=True, timeout=120
+            )
+            if result.returncode == 0:
+                print("   Report sent with screenshot")
+            else:
+                print(f"   Warning: {result.stderr[:100] if result.stderr else 'Report may have failed'}")
+        else:
+            print("   (send_daily_report_v2.py not found, skipping)")
+
+        show_notification("Juan365 Daily Sync", "Full sync complete!")
 
         print(f"\n{'='*60}")
         print(f"[{datetime.now().strftime('%H:%M:%S')}] FULL SYNC COMPLETE!")

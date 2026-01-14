@@ -5,7 +5,7 @@ import json
 import sqlite3
 import requests
 
-DATABASE_PATH = "data/analytics.db"
+DATABASE_PATH = "data/juan365_socmed.db"
 
 def main():
     print("Updating follower counts from Facebook API...")
