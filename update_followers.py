@@ -36,8 +36,8 @@ def main():
             
             cursor.execute('''
                 UPDATE pages SET followers_count = ?, fan_count = ?, updated_at = datetime('now')
-                WHERE LOWER(page_name) = LOWER(?)
-            ''', (followers, fans, page_name))
+                WHERE page_id = ?
+            ''', (followers, fans, api_page_id))
             
             if cursor.rowcount > 0:
                 updated += 1
