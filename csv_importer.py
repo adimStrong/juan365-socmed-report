@@ -14,7 +14,7 @@ from typing import Optional, List, Dict, Any, Tuple
 from database import (
     ensure_initialized, db_connection, upsert_page, upsert_post,
     insert_metrics, record_import, get_import_history, get_database_stats,
-    execute_query
+    execute_query, get_page_by_name
 )
 from models import ImportResult
 from config import COLUMN_MAPPING, EXPORTS_DIR, CSV_DOWNLOADS_DIR
@@ -195,8 +195,12 @@ def import_csv(
                             result.rows_skipped += 1
                             continue
 
-                        page_id = get_cell(row, column_map, 'page_id', 'unknown')
+                        csv_page_id = get_cell(row, column_map, 'page_id', 'unknown')
                         page_name = get_cell(row, column_map, 'page_name', 'Unknown Page')
+
+                        # Check if page already exists by name (prevents duplicates from CSV imports)
+                        existing_page = get_page_by_name(page_name, conn=conn)
+                        page_id = existing_page['page_id'] if existing_page else csv_page_id
 
                         # Apply page filter
                         if page_filter:
