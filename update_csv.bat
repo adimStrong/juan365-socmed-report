@@ -16,7 +16,7 @@ if not exist "csv_imports" (
 )
 
 echo Importing CSV data...
-python csv_importer.py
+python csv_importer.py import-all
 
 echo.
 echo ============================================================
