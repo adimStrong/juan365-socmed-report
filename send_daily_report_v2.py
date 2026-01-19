@@ -203,6 +203,31 @@ def get_top_posts_this_month(db_path: str, limit: int = 5) -> list:
     ]
 
 
+def get_follower_counts(db_path: str) -> list:
+    """Get follower counts for all pages (non-competitors)."""
+    conn = get_db_connection(db_path)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT page_name, followers_count
+        FROM pages
+        WHERE is_competitor = 0 OR is_competitor IS NULL
+        ORDER BY followers_count DESC
+    """)
+
+    rows = cursor.fetchall()
+    conn.close()
+
+    return [
+        {
+            "name": row["page_name"] or "Unknown",
+            "followers": row["followers_count"] or 0
+        }
+        for row in rows
+        if row["followers_count"]  # Only include pages with follower data
+    ]
+
+
 def calculate_change(current: float, average: float) -> str:
     """Calculate percentage change vs average."""
     if average == 0:
@@ -218,7 +243,8 @@ def format_summary_message(
     yesterday: dict,
     monthly_avg: dict,
     yesterday_top_posts: list = None,
-    month_top_posts: list = None
+    month_top_posts: list = None,
+    follower_counts: list = None
 ) -> str:
     """Format the text summary for Telegram."""
 
@@ -269,6 +295,23 @@ Shares: {yesterday['shares']:,} ({shares_change})
 <b>MONTHLY AVG</b> ({monthly_avg['days_count']} days)
 Posts: {monthly_avg['avg_posts']:.1f}/day | Engagement: {monthly_avg['avg_engagement']:,.0f}/day"""
 
+    # Follower counts
+    if follower_counts:
+        total_followers = sum(p["followers"] for p in follower_counts)
+        message += f"\n\n<b>FOLLOWERS</b> (Total: {total_followers:,})\n"
+        for page in follower_counts:
+            # Shorten page name for display
+            name = page["name"].replace("Juan365 ", "").replace("JuanKada ", "").replace("Juana Babe ", "")
+            message += f"• {name}: {page['followers']:,}\n"
+
+    return message
+
+
+def add_mentions_to_message(message: str, mentions: list) -> str:
+    """Add Telegram mentions to the end of message."""
+    if mentions:
+        mention_str = " ".join(mentions)
+        message += f"\n\n{mention_str}"
     return message
 
 
@@ -522,6 +565,33 @@ def run_sync_script(project_dir: str) -> bool:
     return False
 
 
+def run_update_followers(project_dir: str) -> bool:
+    """Run update_followers.py to sync follower counts from Facebook API."""
+    followers_script = os.path.join(project_dir, "update_followers.py")
+    if not os.path.exists(followers_script):
+        print(f"    Followers script not found: {followers_script}")
+        return False
+
+    try:
+        print("    Syncing follower counts from API...")
+        result = subprocess.run(
+            [sys.executable, followers_script],
+            cwd=project_dir,
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+        if result.returncode == 0:
+            print("    [OK] Follower counts updated")
+            return True
+        else:
+            print(f"    Follower sync error: {result.stderr[:200]}")
+            return False
+    except Exception as e:
+        print(f"    Follower sync error: {e}")
+        return False
+
+
 def run_export_static_data(project_dir: str) -> bool:
     """Run export_static_data.py to update JSON for Vercel."""
     export_script = os.path.join(project_dir, "export_static_data.py")
@@ -700,6 +770,10 @@ def main():
             verification_error = error_msg
             print(f"  SYNC ERROR: {error_msg}")
 
+        # Sync follower counts from API (before export)
+        if project_dir:
+            run_update_followers(project_dir)
+
         # Export to JSON and deploy to Vercel (update live website)
         if synced_stats and project_dir:
             print("  Exporting data to JSON...")
@@ -730,6 +804,9 @@ def main():
     yesterday_top_posts = get_top_posts_for_date(config["db_path"], report_date, limit=3)
     month_top_posts = get_top_posts_this_month(config["db_path"], limit=5)
 
+    print("  Fetching follower counts...")
+    follower_counts = get_follower_counts(config["db_path"])
+
     # 3. Format message
     if verification_error:
         # Send error report instead
@@ -750,8 +827,14 @@ Engagement: {yesterday_stats['engagement']:,}
             yesterday_stats,
             monthly_avg,
             yesterday_top_posts,
-            month_top_posts
+            month_top_posts,
+            follower_counts
         )
+
+    # Add mentions if configured
+    mentions = config.get("mentions", [])
+    if mentions:
+        message = add_mentions_to_message(message, mentions)
 
     # 4. Capture screenshots (skip if verification failed)
     screenshot_paths = []

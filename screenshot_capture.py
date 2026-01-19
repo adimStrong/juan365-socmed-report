@@ -230,19 +230,22 @@ DASHBOARD_CONFIGS = {
         "url": "juanstudio-analytics.vercel.app",
         "chat_id": "-5157398384",
         "db_path": r"C:\Users\us\Desktop\juanstudio_project\data\juanstudio_analytics.db",
-        "project_name": "JuanStudio"
+        "project_name": "JuanStudio",
+        "mentions": []  # Add Telegram usernames here, e.g. ["@username1", "@username2"]
     },
     "juanbabes": {
         "url": "juanbabes-analytics.vercel.app",
         "chat_id": "-5112452649",
         "db_path": r"C:\Users\us\Desktop\juanbabes_project\data\juanbabes_analytics.db",
-        "project_name": "JuanBabes"
+        "project_name": "JuanBabes",
+        "mentions": []  # Add Telegram usernames here, e.g. ["@username1", "@username2"]
     },
     "juan365": {
         "url": "juan365-socmed-report.vercel.app",
         "chat_id": "-5118984778",
         "db_path": r"C:\Users\us\Desktop\juan365_socmed_report\data\juan365_socmed.db",
-        "project_name": "Juan365"
+        "project_name": "Juan365",
+        "mentions": []  # Add Telegram usernames here, e.g. ["@username1", "@username2"]
     }
 }
 

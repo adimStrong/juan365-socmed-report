@@ -19,6 +19,7 @@ from pathlib import Path
 PROJECT_DIR = Path(__file__).parent
 DB_PATH = PROJECT_DIR / "data" / "juan365_socmed.db"
 STATE_FILE = PROJECT_DIR / "data" / "daemon_state.json"
+PID_FILE = PROJECT_DIR / "data" / "daemon.pid"
 
 # Schedule settings
 PUSH_HOUR = 6  # 6 AM
@@ -218,7 +219,53 @@ def daily_push(state):
     except Exception as e:
         log(f"Daily report error: {e}", "ERROR")
 
+def check_already_running():
+    """Check if daemon is already running using PID file."""
+    import os
+    if PID_FILE.exists():
+        try:
+            with open(PID_FILE, 'r') as f:
+                old_pid = int(f.read().strip())
+            # Check if process is still running (Windows)
+            import ctypes
+            kernel32 = ctypes.windll.kernel32
+            handle = kernel32.OpenProcess(0x1000, False, old_pid)  # PROCESS_QUERY_LIMITED_INFORMATION
+            if handle:
+                kernel32.CloseHandle(handle)
+                return True, old_pid
+        except:
+            pass
+    return False, None
+
+def write_pid():
+    """Write current PID to file."""
+    import os
+    PID_FILE.parent.mkdir(exist_ok=True)
+    with open(PID_FILE, 'w') as f:
+        f.write(str(os.getpid()))
+
+def cleanup_pid():
+    """Remove PID file on exit."""
+    try:
+        PID_FILE.unlink()
+    except:
+        pass
+
 def main():
+    # Check if already running
+    running, old_pid = check_already_running()
+    if running:
+        print(f"ERROR: Daemon already running (PID: {old_pid})")
+        print("Close the other daemon window first, or delete:")
+        print(f"  {PID_FILE}")
+        input("Press Enter to exit...")
+        return
+
+    # Write PID file
+    write_pid()
+    import atexit
+    atexit.register(cleanup_pid)
+
     print("=" * 50)
     print("JUAN365 SOCMED DAEMON")
     print("=" * 50)
