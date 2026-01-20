@@ -361,6 +361,45 @@ def load_page_tokens(project_dir: str) -> dict:
         return json.load(f)
 
 
+def fetch_video_views(page_id: str, token: str, target_date: str) -> dict:
+    """Fetch video views for a page's videos on a specific date.
+
+    Returns a dict mapping post_id (short form) -> views count.
+    The /videos endpoint returns a post_id field that matches the short form
+    of post IDs (the part after the underscore in pageid_postid format).
+    """
+    video_views = {}
+
+    try:
+        from datetime import timezone
+        target_start_utc = datetime.strptime(target_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        target_end_utc = target_start_utc + timedelta(days=1)
+
+        url = f"{GRAPH_API_BASE}/{page_id}/videos"
+        params = {
+            "access_token": token,
+            "fields": "id,created_time,views,post_id",
+            "since": int(target_start_utc.timestamp()),
+            "until": int(target_end_utc.timestamp()),
+            "limit": 100
+        }
+
+        response = requests.get(url, params=params, timeout=30)
+        data = response.json()
+
+        if "data" in data:
+            for video in data["data"]:
+                # Use post_id from video to match against posts
+                video_post_id = video.get("post_id", "")
+                views = video.get("views", 0)
+                if video_post_id and views:
+                    video_views[video_post_id] = views
+    except Exception as e:
+        pass
+
+    return video_views
+
+
 def fetch_api_posts_for_date(tokens: dict, target_date: str) -> list:
     """Fetch all posts from Facebook API for a specific date (UTC) with full data."""
     all_posts = []
@@ -382,6 +421,9 @@ def fetch_api_posts_for_date(tokens: dict, target_date: str) -> list:
         token = page_data.get("page_access_token") or page_data.get("token")
         if not token or not page_id:
             continue
+
+        # Fetch video views for this page
+        video_views = fetch_video_views(page_id, token, target_date)
 
         url = f"{GRAPH_API_BASE}/{page_id}/posts"
         params = {
@@ -413,6 +455,9 @@ def fetch_api_posts_for_date(tokens: dict, target_date: str) -> list:
                     comments = post.get("comments", {}).get("summary", {}).get("total_count", 0)
                     shares = post.get("shares", {}).get("count", 0)
 
+                    # Get video views if available
+                    views_count = video_views.get(post_id, 0)
+
                     # Determine post type from attachments
                     attachments = post.get("attachments", {}).get("data", [])
                     post_type = "Text"
@@ -436,6 +481,7 @@ def fetch_api_posts_for_date(tokens: dict, target_date: str) -> list:
                         "reactions_total": reactions,
                         "comments_count": comments,
                         "shares_count": shares,
+                        "views_count": views_count,
                         "total_engagement": reactions + comments + shares,
                         "pes": (reactions * 1.0) + (comments * 2.0) + (shares * 3.0)
                     })
@@ -489,6 +535,7 @@ def sync_t1_data_from_api(db_path: str, target_date: str, api_posts: list) -> di
                     reactions_total = ?,
                     comments_count = ?,
                     shares_count = ?,
+                    views_count = ?,
                     total_engagement = ?,
                     pes = ?,
                     fetched_at = ?
@@ -497,6 +544,7 @@ def sync_t1_data_from_api(db_path: str, target_date: str, api_posts: list) -> di
                 post["reactions_total"],
                 post["comments_count"],
                 post["shares_count"],
+                post.get("views_count", 0),
                 post["total_engagement"],
                 post["pes"],
                 datetime.now().isoformat(),
@@ -508,9 +556,9 @@ def sync_t1_data_from_api(db_path: str, target_date: str, api_posts: list) -> di
             cursor.execute("""
                 INSERT INTO posts
                 (post_id, page_id, title, permalink, post_type, publish_time,
-                 reactions_total, comments_count, shares_count, total_engagement,
-                 pes, fetched_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 reactions_total, comments_count, shares_count, views_count,
+                 total_engagement, pes, fetched_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 post["post_id"],
                 post["page_id"],
@@ -521,6 +569,7 @@ def sync_t1_data_from_api(db_path: str, target_date: str, api_posts: list) -> di
                 post["reactions_total"],
                 post["comments_count"],
                 post["shares_count"],
+                post.get("views_count", 0),
                 post["total_engagement"],
                 post["pes"],
                 datetime.now().isoformat()
@@ -830,6 +879,10 @@ Engagement: {yesterday_stats['engagement']:,}
             month_top_posts,
             follower_counts
         )
+
+    # Add dashboard link
+    dashboard_url = f"https://{config['url']}"
+    message += f"\n\n<b>Dashboard:</b> <a href=\"{dashboard_url}\">{dashboard_url}</a>"
 
     # Add mentions if configured
     mentions = config.get("mentions", [])

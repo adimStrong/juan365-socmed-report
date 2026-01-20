@@ -10,6 +10,9 @@ import tempfile
 from datetime import datetime
 from pathlib import Path
 
+# Detect if running in Docker
+IS_DOCKER = os.path.exists('/.dockerenv') or os.environ.get('DOCKER_CONTAINER')
+
 
 async def capture_dashboard_screenshot(
     url: str,
@@ -224,30 +227,55 @@ def capture_screenshots_sync(url: str, **kwargs) -> list:
     return asyncio.run(capture_dashboard_screenshots(url, **kwargs))
 
 
-# Configuration per project
-DASHBOARD_CONFIGS = {
-    "juanstudio": {
-        "url": "juanstudio-analytics.vercel.app",
-        "chat_id": "-5157398384",
-        "db_path": r"C:\Users\us\Desktop\juanstudio_project\data\juanstudio_analytics.db",
-        "project_name": "JuanStudio",
-        "mentions": []  # Add Telegram usernames here, e.g. ["@username1", "@username2"]
-    },
-    "juanbabes": {
-        "url": "juanbabes-analytics.vercel.app",
-        "chat_id": "-5112452649",
-        "db_path": r"C:\Users\us\Desktop\juanbabes_project\data\juanbabes_analytics.db",
-        "project_name": "JuanBabes",
-        "mentions": []  # Add Telegram usernames here, e.g. ["@username1", "@username2"]
-    },
-    "juan365": {
-        "url": "juan365-socmed-report.vercel.app",
-        "chat_id": "-5118984778",
-        "db_path": r"C:\Users\us\Desktop\juan365_socmed_report\data\juan365_socmed.db",
-        "project_name": "Juan365",
-        "mentions": []  # Add Telegram usernames here, e.g. ["@username1", "@username2"]
+# Configuration per project - supports both Windows and Docker paths
+if IS_DOCKER:
+    DASHBOARD_CONFIGS = {
+        "juanstudio": {
+            "url": "juanstudio-analytics.vercel.app",
+            "chat_id": "-5157398384",
+            "db_path": "/projects/juanstudio_project/data/juanstudio_analytics.db",
+            "project_name": "JuanStudio",
+            "mentions": []
+        },
+        "juanbabes": {
+            "url": "juanbabes-analytics.vercel.app",
+            "chat_id": "-5112452649",
+            "db_path": "/projects/juanbabes_project/data/juanbabes_analytics.db",
+            "project_name": "JuanBabes",
+            "mentions": []
+        },
+        "juan365": {
+            "url": "juan365-socmed-report.vercel.app",
+            "chat_id": "-5118984778",
+            "db_path": "/projects/juan365_socmed_report/data/juan365_socmed.db",
+            "project_name": "Juan365",
+            "mentions": ["@Mark_nunez", "@SkylineNexusDiego"]
+        }
     }
-}
+else:
+    DASHBOARD_CONFIGS = {
+        "juanstudio": {
+            "url": "juanstudio-analytics.vercel.app",
+            "chat_id": "-5157398384",
+            "db_path": r"C:\Users\us\Desktop\juanstudio_project\data\juanstudio_analytics.db",
+            "project_name": "JuanStudio",
+            "mentions": []
+        },
+        "juanbabes": {
+            "url": "juanbabes-analytics.vercel.app",
+            "chat_id": "-5112452649",
+            "db_path": r"C:\Users\us\Desktop\juanbabes_project\data\juanbabes_analytics.db",
+            "project_name": "JuanBabes",
+            "mentions": []
+        },
+        "juan365": {
+            "url": "juan365-socmed-report.vercel.app",
+            "chat_id": "-5118984778",
+            "db_path": r"C:\Users\us\Desktop\juan365_socmed_report\data\juan365_socmed.db",
+            "project_name": "Juan365",
+            "mentions": ["@Mark_nunez", "@SkylineNexusDiego"]
+        }
+    }
 
 
 if __name__ == "__main__":
