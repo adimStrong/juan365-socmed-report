@@ -1964,14 +1964,10 @@ def export_watch_time_analysis():
     }
 
 
-def export_deep_dive_analysis():
-    """Export deep dive analysis: weekly trends, CTA analysis, and insights."""
-    print("\n  Exporting deep dive analysis...")
+def export_deep_dive_analysis_for_page(page_id, page_name):
+    """Export deep dive analysis for a specific page: weekly trends, CTA analysis, and insights."""
     conn = get_conn()
     cursor = conn.cursor()
-
-    # Use Juan365 main page for detailed analysis
-    JUAN365_MAIN = "61572881214141"
 
     # 1. Weekly engagement trend
     cursor.execute('''
@@ -1989,7 +1985,7 @@ def export_deep_dive_analysis():
             AND publish_time <= ?
         GROUP BY week
         ORDER BY week
-    ''', (JUAN365_MAIN, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
+    ''', (page_id, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
 
     weekly_data = []
     rows = list(cursor.fetchall())
@@ -2030,7 +2026,7 @@ def export_deep_dive_analysis():
             AND publish_time <= ?
         ORDER BY total_engagement DESC
         LIMIT 10
-    ''', (JUAN365_MAIN, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
+    ''', (page_id, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
 
     viral_posts = []
     for row in cursor.fetchall():
@@ -2062,7 +2058,7 @@ def export_deep_dive_analysis():
             AND publish_time <= ?
         GROUP BY post_type
         ORDER BY dec_posts DESC
-    ''', (JUAN365_MAIN, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
+    ''', (page_id, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
 
     post_type_comparison = []
     for row in cursor.fetchall():
@@ -2088,7 +2084,7 @@ def export_deep_dive_analysis():
         WHERE page_id = ?
             AND publish_time >= ?
             AND publish_time <= ?
-    ''', (JUAN365_MAIN, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
+    ''', (page_id, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
 
     posts = cursor.fetchall()
     dec_posts = [p for p in posts if p[0] < '2026-01-01']
@@ -2141,7 +2137,7 @@ def export_deep_dive_analysis():
             AND publish_time <= ?
             AND total_engagement > 2000
         GROUP BY month
-    ''', (JUAN365_MAIN, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
+    ''', (page_id, ANALYSIS_START_DATE, ANALYSIS_END_DATE))
 
     viral_distribution = {}
     for row in cursor.fetchall():
@@ -2155,40 +2151,63 @@ def export_deep_dive_analysis():
     insights = []
 
     # Viral post insight
-    if viral_posts and viral_posts[0]["engagement"] > 20000:
+    if viral_posts and viral_posts[0]["engagement"] > 5000:
         top = viral_posts[0]
         insights.append({
             "type": "viral",
-            "title": "One Viral Video Drove December's Numbers",
-            "detail": f"The '{top['title'][:40]}...' video on {top['date']} generated {top['engagement']:,} engagement and {top['views']:,} views. This single post accounts for ~23% of December's total."
+            "title": f"Top Performer on {page_name}",
+            "detail": f"The '{top['title'][:40]}...' on {top['date']} generated {top['engagement']:,} engagement and {top['views']:,} views."
         })
 
     # CTA insight
     dec_comment = cta_analysis["december"].get("comment", {}).get("percentage", 0)
     jan_comment = cta_analysis["january"].get("comment", {}).get("percentage", 0)
-    if dec_comment > jan_comment + 10:
+    if dec_comment > jan_comment + 5:
         insights.append({
             "type": "cta",
-            "title": "Call-to-Action Usage Dropped",
-            "detail": f"December had {dec_comment}% posts with comment CTAs vs only {jan_comment}% in January. Posts asking for engagement get more engagement."
+            "title": "Call-to-Action Usage Changed",
+            "detail": f"December had {dec_comment}% posts with comment CTAs vs {jan_comment}% in January."
+        })
+    elif jan_comment > dec_comment + 5:
+        insights.append({
+            "type": "cta",
+            "title": "CTA Usage Increased",
+            "detail": f"January had {jan_comment}% posts with comment CTAs vs {dec_comment}% in December."
         })
 
-    # Post type insight
+    # Post type insight - check for significant changes
     for pt in post_type_comparison:
-        if pt["type"] == "Videos" and pt["change"] < -50:
-            insights.append({
-                "type": "content",
-                "title": "Video Performance Declined Sharply",
-                "detail": f"Video avg engagement dropped {abs(pt['change'])}% from December ({pt['decAvg']:,.0f}) to January ({pt['janAvg']:,.0f}). December had a viral dance challenge that boosted numbers."
-            })
-            break
+        if pt["decPosts"] > 0 and pt["janPosts"] > 0:
+            if pt["change"] < -30:
+                insights.append({
+                    "type": "content",
+                    "title": f"{pt['type']} Performance Declined",
+                    "detail": f"{pt['type']} avg engagement dropped {abs(pt['change'])}% from December ({pt['decAvg']:,.0f}) to January ({pt['janAvg']:,.0f})."
+                })
+                break
+            elif pt["change"] > 30:
+                insights.append({
+                    "type": "content",
+                    "title": f"{pt['type']} Performance Improved",
+                    "detail": f"{pt['type']} avg engagement increased {pt['change']}% from December ({pt['decAvg']:,.0f}) to January ({pt['janAvg']:,.0f})."
+                })
+                break
 
-    # Recommendation
-    insights.append({
-        "type": "recommendation",
-        "title": "Increase Engagement Requests",
-        "detail": "Add 'Comment', 'Share', and 'React' prompts to 35%+ of posts. Create viral-potential content like dance challenges with clear CTAs."
-    })
+    # Recommendation based on data
+    dec_total = sum(pt["decPosts"] for pt in post_type_comparison)
+    jan_total = sum(pt["janPosts"] for pt in post_type_comparison)
+    if jan_total < dec_total * 0.8:
+        insights.append({
+            "type": "recommendation",
+            "title": "Increase Posting Frequency",
+            "detail": f"January had {jan_total} posts vs December's {dec_total}. Consider maintaining consistent posting volume."
+        })
+    else:
+        insights.append({
+            "type": "recommendation",
+            "title": "Optimize Content Mix",
+            "detail": "Analyze top performing posts and replicate successful content formats with clear CTAs."
+        })
 
     conn.close()
 
@@ -2203,6 +2222,22 @@ def export_deep_dive_analysis():
             "start": ANALYSIS_START_DATE,
             "end": ANALYSIS_END_DATE
         }
+    }
+
+
+def export_deep_dive_analysis():
+    """Export deep dive analysis for both Juan365 and Live Stream pages."""
+    print("\n  Exporting deep dive analysis...")
+
+    JUAN365_MAIN = "61572881214141"
+    LIVESTREAM_MAIN = "61569634500241"
+
+    juan365_data = export_deep_dive_analysis_for_page(JUAN365_MAIN, "Juan365")
+    livestream_data = export_deep_dive_analysis_for_page(LIVESTREAM_MAIN, "Live Stream")
+
+    return {
+        "juan365": juan365_data,
+        "liveStream": livestream_data
     }
 
 

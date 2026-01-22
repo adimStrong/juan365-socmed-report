@@ -68062,10 +68062,10 @@
     "recommendation": "Videos in the 61-120s range perform best with 6431 avg engagement"
   },
   "analyticsReport": {
-    "generatedAt": "2026-01-22T14:24:57.369128",
+    "generatedAt": "2026-01-22T14:33:46.330179",
     "history": [
       {
-        "date": "2026-01-22T14:24:57.369128",
+        "date": "2026-01-22T14:33:46.330179",
         "totalPosts": 3311,
         "avgEngagement": 561.0,
         "liveHealthScore": 70,
@@ -68620,357 +68620,713 @@
     }
   },
   "deepDive": {
-    "weeklyTrend": [
-      {
-        "week": "2025-W48",
-        "weekStart": "2025-12-01",
-        "weekEnd": "2025-12-07",
-        "posts": 45,
-        "avgEngagement": 1127.0,
-        "totalEngagement": 50703,
-        "maxEngagement": 5159,
-        "wowChange": null
-      },
-      {
-        "week": "2025-W49",
-        "weekStart": "2025-12-08",
-        "weekEnd": "2025-12-14",
-        "posts": 33,
-        "avgEngagement": 2331.0,
-        "totalEngagement": 76910,
-        "maxEngagement": 42577,
-        "wowChange": 106.8
-      },
-      {
-        "week": "2025-W50",
-        "weekStart": "2025-12-15",
-        "weekEnd": "2025-12-21",
-        "posts": 39,
-        "avgEngagement": 723.0,
-        "totalEngagement": 28215,
-        "maxEngagement": 1973,
-        "wowChange": -69.0
-      },
-      {
-        "week": "2025-W51",
-        "weekStart": "2025-12-22",
-        "weekEnd": "2025-12-28",
-        "posts": 50,
-        "avgEngagement": 421.0,
-        "totalEngagement": 21069,
-        "maxEngagement": 1282,
-        "wowChange": -41.8
-      },
-      {
-        "week": "2025-W52",
-        "weekStart": "2025-12-29",
-        "weekEnd": "2025-12-31",
-        "posts": 14,
-        "avgEngagement": 439.0,
-        "totalEngagement": 6142,
-        "maxEngagement": 758,
-        "wowChange": 4.3
-      },
-      {
-        "week": "2026-W00",
-        "weekStart": "2026-01-01",
-        "weekEnd": "2026-01-04",
-        "posts": 24,
-        "avgEngagement": 424.0,
-        "totalEngagement": 10179,
-        "maxEngagement": 828,
-        "wowChange": -3.4
-      },
-      {
-        "week": "2026-W01",
-        "weekStart": "2026-01-05",
-        "weekEnd": "2026-01-11",
-        "posts": 43,
-        "avgEngagement": 504.0,
-        "totalEngagement": 21666,
-        "maxEngagement": 1541,
-        "wowChange": 18.9
-      },
-      {
-        "week": "2026-W02",
-        "weekStart": "2026-01-12",
-        "weekEnd": "2026-01-17",
-        "posts": 32,
-        "avgEngagement": 722.0,
-        "totalEngagement": 23092,
-        "maxEngagement": 4644,
-        "wowChange": 43.3
-      }
-    ],
-    "viralPosts": [
-      {
-        "date": "2025-12-08",
-        "week": "2025-W49",
-        "postType": "Videos",
-        "engagement": 42577,
-        "reactions": 30154,
-        "comments": 7709,
-        "shares": 4714,
-        "views": 437394,
-        "title": "\ud835\udddc\ud835\ude01\u2019\ud835\ude00 \ud835\ude01\ud835\uddf6\ud835\uddfa\ud835\uddf2 \ud835\uddf3\ud835\uddfc\ud835\uddff \ud835\uddd4\ud835\udddf\ud835\udddf \ud835\udddc\ud835\udde1 \ud835\udde6\ud835\uddd4 \ud835\udde6\ud835\uddee\ud835\ude06\ud835\uddee\ud835\udddd\ud835\udde8\ud835\uddd4\ud835\udde1: \ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\udddd\ud835\ude02\ud835\uddee\ud835\uddfb365 \ud835\uddd7\ud835\uddee\ud835\uddfb\ud835\uddf0\ud835\uddf2 \ud835\uddd6\ud835\uddff\ud835\uddee\ud835\ude07\ud835\uddf2 \ud835\uddd6\ud835\uddf5",
-        "postId": "122170277450762707",
-        "permalink": "https://www.facebook.com/reel/1390174352607271/"
-      },
-      {
-        "date": "2025-12-06",
-        "week": "2025-W48",
-        "postType": "Photos",
-        "engagement": 5159,
-        "reactions": 2930,
-        "comments": 1905,
-        "shares": 324,
-        "views": 215816,
-        "title": "A huge congratulations to all the winners of Surpresa ni Jua",
-        "postId": "122169933152762707",
-        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0ZYC8DpPY3iqpjKMmqMkBTWxePYJbWxShnRuJX1w9ougcisoDKz1DqbZXoroCno6yl"
-      },
-      {
-        "date": "2026-01-13",
-        "week": "2026-W02",
-        "postType": "Photos",
-        "engagement": 4644,
-        "reactions": 1476,
-        "comments": 2946,
-        "shares": 222,
-        "views": 150907,
-        "title": "\ud835\udc06\ud835\udc00\ud835\udc0c\ud835\udc04, \ud835\udc09\ud835\udc14\ud835\udc00\ud835\udc0d\ud835\udc0a\ud835\udc00\ud835\udc03\ud835\udc00!\n\nHuwag pahuli\u2014join the fun with Juan! Messag",
-        "postId": "122176045556762707",
-        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0zhuFkSQp4tRjVStN3FkMXTMwq5VZEWJ4uqvHz6CzHyJM3CQk8yhqUUeVLG8jacxNl"
-      },
-      {
-        "date": "2025-12-13",
-        "week": "2025-W49",
-        "postType": "Photos",
-        "engagement": 2410,
-        "reactions": 899,
-        "comments": 1190,
-        "shares": 321,
-        "views": 95878,
-        "title": "Sa kantang Noche Buena (Kay Sigla ng Gabi), ano nga ulit ang",
-        "postId": "122171385512762707",
-        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0VLSCNEBU5y37uLKb1tCUYy5s3bxq7qn496SarPfPPT1ZHFvAPnvjpMhNPsM7XYs5l"
-      },
-      {
-        "date": "2025-12-03",
-        "week": "2025-W48",
-        "postType": "Photos",
-        "engagement": 2410,
-        "reactions": 965,
-        "comments": 1051,
-        "shares": 394,
-        "views": 94779,
-        "title": "I-comment mo na ang wish mo and tag a Juankada! Baka wish gr",
-        "postId": "122169552842762707",
-        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0223eoLyYjdsvtPtXzdemtKDnyzC4BsAigs6ZZX5ZAHHxDyuHUe8NKsYveXmvga4ctl"
-      },
-      {
-        "date": "2025-12-07",
-        "week": "2025-W48",
-        "postType": "Photos",
-        "engagement": 2321,
-        "reactions": 1163,
-        "comments": 975,
-        "shares": 183,
-        "views": 51205,
-        "title": "Comment and react \u2018\u2764\ufe0f\u2019 + User ID kung gusto mong sumaya toda",
-        "postId": "122170192940762707",
-        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02GKgbmbwxXrvhkxSn8xFyrMd4Js6UdYeYYxZie3VrvZMcCVd7jBVnpMtBNdpMWqpbl"
-      },
-      {
-        "date": "2025-12-10",
-        "week": "2025-W49",
-        "postType": "Photos",
-        "engagement": 2225,
-        "reactions": 886,
-        "comments": 1121,
-        "shares": 218,
-        "views": 69871,
-        "title": "Christmas trivia time, Juankada! \ud83c\udf84\u2728\nAlin sa mga awitin ang n",
-        "postId": "122170851380762707",
-        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02Jny41WAGZ2cCMe9we2p2w2Nn1S6GkAJzGvMHZnLG6QfDUb9Q6TkXvn4WjacEwK1yl"
-      },
-      {
-        "date": "2025-12-18",
-        "week": "2025-W50",
-        "postType": "Photos",
-        "engagement": 1973,
-        "reactions": 799,
-        "comments": 994,
-        "shares": 180,
-        "views": 60753,
-        "title": "Samahan ng Mabibigyan ng Pamasko ni Juan? If yes, drop your ",
-        "postId": "122172081368762707",
-        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02L4MbpThiaco43bA34wHPvQj9MPGg9JhwpkaFocNWKuUJMPtfRwzi4j1vLyoRT6N8l"
-      },
-      {
-        "date": "2025-12-04",
-        "week": "2025-W48",
-        "postType": "Photos",
-        "engagement": 1922,
-        "reactions": 950,
-        "comments": 814,
-        "shares": 158,
-        "views": 64357,
-        "title": "Shoutout sa ultimate Juankada this week! \ud83d\ude4c I-flex mo na ang ",
-        "postId": "122169730604762707",
-        "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02jDK6AfgJjuv8zyj4VN5Jbm8deg8MQ5LY3VZv1P2yXMcs4CK1RVj226hwzhUs9fhCl"
-      },
-      {
-        "date": "2025-12-11",
-        "week": "2025-W49",
-        "postType": "Videos",
-        "engagement": 1916,
-        "reactions": 1111,
-        "comments": 644,
-        "shares": 161,
-        "views": 79058,
-        "title": "Congratulations sa 10 lucky Juankada! Enjoy your 200 FREE Ju",
-        "postId": "122170883792762707",
-        "permalink": "https://www.facebook.com/reel/1633158894715877/"
-      }
-    ],
-    "postTypeComparison": [
-      {
-        "type": "Photos",
-        "decPosts": 99,
-        "decAvg": 942.0,
-        "janPosts": 49,
-        "janAvg": 724.0,
-        "change": -23.1
-      },
-      {
-        "type": "Videos",
-        "decPosts": 57,
-        "decAvg": 1456.0,
-        "janPosts": 30,
-        "janAvg": 555.0,
-        "change": -61.9
-      },
-      {
-        "type": "Text",
-        "decPosts": 12,
-        "decAvg": 268.0,
-        "janPosts": 4,
-        "janAvg": 161.0,
-        "change": -39.9
-      },
-      {
-        "type": "Live",
-        "decPosts": 11,
-        "decAvg": 255.0,
-        "janPosts": 16,
-        "janAvg": 137.0,
-        "change": -46.3
-      },
-      {
-        "type": "Links",
-        "decPosts": 2,
-        "decAvg": 402.0,
-        "janPosts": 0,
-        "janAvg": 0,
-        "change": -100.0
-      }
-    ],
-    "ctaAnalysis": {
-      "december": {
-        "comment": {
-          "count": 65,
-          "percentage": 35.9,
-          "avgEngagement": 923.0
+    "juan365": {
+      "weeklyTrend": [
+        {
+          "week": "2025-W48",
+          "weekStart": "2025-12-01",
+          "weekEnd": "2025-12-07",
+          "posts": 45,
+          "avgEngagement": 1127.0,
+          "totalEngagement": 50703,
+          "maxEngagement": 5159,
+          "wowChange": null
         },
-        "react": {
-          "count": 19,
-          "percentage": 10.5,
-          "avgEngagement": 630.0
+        {
+          "week": "2025-W49",
+          "weekStart": "2025-12-08",
+          "weekEnd": "2025-12-14",
+          "posts": 33,
+          "avgEngagement": 2331.0,
+          "totalEngagement": 76910,
+          "maxEngagement": 42577,
+          "wowChange": 106.8
         },
-        "share": {
-          "count": 44,
-          "percentage": 24.3,
-          "avgEngagement": 833.0
+        {
+          "week": "2025-W50",
+          "weekStart": "2025-12-15",
+          "weekEnd": "2025-12-21",
+          "posts": 39,
+          "avgEngagement": 723.0,
+          "totalEngagement": 28215,
+          "maxEngagement": 1973,
+          "wowChange": -69.0
         },
-        "giveaway": {
-          "count": 34,
-          "percentage": 18.8,
-          "avgEngagement": 882.0
+        {
+          "week": "2025-W51",
+          "weekStart": "2025-12-22",
+          "weekEnd": "2025-12-28",
+          "posts": 50,
+          "avgEngagement": 421.0,
+          "totalEngagement": 21069,
+          "maxEngagement": 1282,
+          "wowChange": -41.8
         },
-        "question": {
-          "count": 83,
-          "percentage": 45.9,
-          "avgEngagement": 848.0
+        {
+          "week": "2025-W52",
+          "weekStart": "2025-12-29",
+          "weekEnd": "2025-12-31",
+          "posts": 14,
+          "avgEngagement": 439.0,
+          "totalEngagement": 6142,
+          "maxEngagement": 758,
+          "wowChange": 4.3
+        },
+        {
+          "week": "2026-W00",
+          "weekStart": "2026-01-01",
+          "weekEnd": "2026-01-04",
+          "posts": 24,
+          "avgEngagement": 424.0,
+          "totalEngagement": 10179,
+          "maxEngagement": 828,
+          "wowChange": -3.4
+        },
+        {
+          "week": "2026-W01",
+          "weekStart": "2026-01-05",
+          "weekEnd": "2026-01-11",
+          "posts": 43,
+          "avgEngagement": 504.0,
+          "totalEngagement": 21666,
+          "maxEngagement": 1541,
+          "wowChange": 18.9
+        },
+        {
+          "week": "2026-W02",
+          "weekStart": "2026-01-12",
+          "weekEnd": "2026-01-17",
+          "posts": 32,
+          "avgEngagement": 722.0,
+          "totalEngagement": 23092,
+          "maxEngagement": 4644,
+          "wowChange": 43.3
+        }
+      ],
+      "viralPosts": [
+        {
+          "date": "2025-12-08",
+          "week": "2025-W49",
+          "postType": "Videos",
+          "engagement": 42577,
+          "reactions": 30154,
+          "comments": 7709,
+          "shares": 4714,
+          "views": 437394,
+          "title": "\ud835\udddc\ud835\ude01\u2019\ud835\ude00 \ud835\ude01\ud835\uddf6\ud835\uddfa\ud835\uddf2 \ud835\uddf3\ud835\uddfc\ud835\uddff \ud835\uddd4\ud835\udddf\ud835\udddf \ud835\udddc\ud835\udde1 \ud835\udde6\ud835\uddd4 \ud835\udde6\ud835\uddee\ud835\ude06\ud835\uddee\ud835\udddd\ud835\udde8\ud835\uddd4\ud835\udde1: \ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\udddd\ud835\ude02\ud835\uddee\ud835\uddfb365 \ud835\uddd7\ud835\uddee\ud835\uddfb\ud835\uddf0\ud835\uddf2 \ud835\uddd6\ud835\uddff\ud835\uddee\ud835\ude07\ud835\uddf2 \ud835\uddd6\ud835\uddf5",
+          "postId": "122170277450762707",
+          "permalink": "https://www.facebook.com/reel/1390174352607271/"
+        },
+        {
+          "date": "2025-12-06",
+          "week": "2025-W48",
+          "postType": "Photos",
+          "engagement": 5159,
+          "reactions": 2930,
+          "comments": 1905,
+          "shares": 324,
+          "views": 215816,
+          "title": "A huge congratulations to all the winners of Surpresa ni Jua",
+          "postId": "122169933152762707",
+          "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0ZYC8DpPY3iqpjKMmqMkBTWxePYJbWxShnRuJX1w9ougcisoDKz1DqbZXoroCno6yl"
+        },
+        {
+          "date": "2026-01-13",
+          "week": "2026-W02",
+          "postType": "Photos",
+          "engagement": 4644,
+          "reactions": 1476,
+          "comments": 2946,
+          "shares": 222,
+          "views": 150907,
+          "title": "\ud835\udc06\ud835\udc00\ud835\udc0c\ud835\udc04, \ud835\udc09\ud835\udc14\ud835\udc00\ud835\udc0d\ud835\udc0a\ud835\udc00\ud835\udc03\ud835\udc00!\n\nHuwag pahuli\u2014join the fun with Juan! Messag",
+          "postId": "122176045556762707",
+          "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0zhuFkSQp4tRjVStN3FkMXTMwq5VZEWJ4uqvHz6CzHyJM3CQk8yhqUUeVLG8jacxNl"
+        },
+        {
+          "date": "2025-12-13",
+          "week": "2025-W49",
+          "postType": "Photos",
+          "engagement": 2410,
+          "reactions": 899,
+          "comments": 1190,
+          "shares": 321,
+          "views": 95878,
+          "title": "Sa kantang Noche Buena (Kay Sigla ng Gabi), ano nga ulit ang",
+          "postId": "122171385512762707",
+          "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0VLSCNEBU5y37uLKb1tCUYy5s3bxq7qn496SarPfPPT1ZHFvAPnvjpMhNPsM7XYs5l"
+        },
+        {
+          "date": "2025-12-03",
+          "week": "2025-W48",
+          "postType": "Photos",
+          "engagement": 2410,
+          "reactions": 965,
+          "comments": 1051,
+          "shares": 394,
+          "views": 94779,
+          "title": "I-comment mo na ang wish mo and tag a Juankada! Baka wish gr",
+          "postId": "122169552842762707",
+          "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid0223eoLyYjdsvtPtXzdemtKDnyzC4BsAigs6ZZX5ZAHHxDyuHUe8NKsYveXmvga4ctl"
+        },
+        {
+          "date": "2025-12-07",
+          "week": "2025-W48",
+          "postType": "Photos",
+          "engagement": 2321,
+          "reactions": 1163,
+          "comments": 975,
+          "shares": 183,
+          "views": 51205,
+          "title": "Comment and react \u2018\u2764\ufe0f\u2019 + User ID kung gusto mong sumaya toda",
+          "postId": "122170192940762707",
+          "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02GKgbmbwxXrvhkxSn8xFyrMd4Js6UdYeYYxZie3VrvZMcCVd7jBVnpMtBNdpMWqpbl"
+        },
+        {
+          "date": "2025-12-10",
+          "week": "2025-W49",
+          "postType": "Photos",
+          "engagement": 2225,
+          "reactions": 886,
+          "comments": 1121,
+          "shares": 218,
+          "views": 69871,
+          "title": "Christmas trivia time, Juankada! \ud83c\udf84\u2728\nAlin sa mga awitin ang n",
+          "postId": "122170851380762707",
+          "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02Jny41WAGZ2cCMe9we2p2w2Nn1S6GkAJzGvMHZnLG6QfDUb9Q6TkXvn4WjacEwK1yl"
+        },
+        {
+          "date": "2025-12-18",
+          "week": "2025-W50",
+          "postType": "Photos",
+          "engagement": 1973,
+          "reactions": 799,
+          "comments": 994,
+          "shares": 180,
+          "views": 60753,
+          "title": "Samahan ng Mabibigyan ng Pamasko ni Juan? If yes, drop your ",
+          "postId": "122172081368762707",
+          "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02L4MbpThiaco43bA34wHPvQj9MPGg9JhwpkaFocNWKuUJMPtfRwzi4j1vLyoRT6N8l"
+        },
+        {
+          "date": "2025-12-04",
+          "week": "2025-W48",
+          "postType": "Photos",
+          "engagement": 1922,
+          "reactions": 950,
+          "comments": 814,
+          "shares": 158,
+          "views": 64357,
+          "title": "Shoutout sa ultimate Juankada this week! \ud83d\ude4c I-flex mo na ang ",
+          "postId": "122169730604762707",
+          "permalink": "https://www.facebook.com/Juan365officialpage/posts/pfbid02jDK6AfgJjuv8zyj4VN5Jbm8deg8MQ5LY3VZv1P2yXMcs4CK1RVj226hwzhUs9fhCl"
+        },
+        {
+          "date": "2025-12-11",
+          "week": "2025-W49",
+          "postType": "Videos",
+          "engagement": 1916,
+          "reactions": 1111,
+          "comments": 644,
+          "shares": 161,
+          "views": 79058,
+          "title": "Congratulations sa 10 lucky Juankada! Enjoy your 200 FREE Ju",
+          "postId": "122170883792762707",
+          "permalink": "https://www.facebook.com/reel/1633158894715877/"
+        }
+      ],
+      "postTypeComparison": [
+        {
+          "type": "Photos",
+          "decPosts": 99,
+          "decAvg": 942.0,
+          "janPosts": 49,
+          "janAvg": 724.0,
+          "change": -23.1
+        },
+        {
+          "type": "Videos",
+          "decPosts": 57,
+          "decAvg": 1456.0,
+          "janPosts": 30,
+          "janAvg": 555.0,
+          "change": -61.9
+        },
+        {
+          "type": "Text",
+          "decPosts": 12,
+          "decAvg": 268.0,
+          "janPosts": 4,
+          "janAvg": 161.0,
+          "change": -39.9
+        },
+        {
+          "type": "Live",
+          "decPosts": 11,
+          "decAvg": 255.0,
+          "janPosts": 16,
+          "janAvg": 137.0,
+          "change": -46.3
+        },
+        {
+          "type": "Links",
+          "decPosts": 2,
+          "decAvg": 402.0,
+          "janPosts": 0,
+          "janAvg": 0,
+          "change": -100.0
+        }
+      ],
+      "ctaAnalysis": {
+        "december": {
+          "comment": {
+            "count": 65,
+            "percentage": 35.9,
+            "avgEngagement": 923.0
+          },
+          "react": {
+            "count": 19,
+            "percentage": 10.5,
+            "avgEngagement": 630.0
+          },
+          "share": {
+            "count": 44,
+            "percentage": 24.3,
+            "avgEngagement": 833.0
+          },
+          "giveaway": {
+            "count": 34,
+            "percentage": 18.8,
+            "avgEngagement": 882.0
+          },
+          "question": {
+            "count": 83,
+            "percentage": 45.9,
+            "avgEngagement": 848.0
+          }
+        },
+        "january": {
+          "comment": {
+            "count": 18,
+            "percentage": 18.2,
+            "avgEngagement": 573.0
+          },
+          "react": {
+            "count": 4,
+            "percentage": 4.0,
+            "avgEngagement": 715.0
+          },
+          "share": {
+            "count": 11,
+            "percentage": 11.1,
+            "avgEngagement": 525.0
+          },
+          "giveaway": {
+            "count": 13,
+            "percentage": 13.1,
+            "avgEngagement": 684.0
+          },
+          "question": {
+            "count": 40,
+            "percentage": 40.4,
+            "avgEngagement": 490.0
+          }
+        },
+        "decTotalPosts": 181,
+        "janTotalPosts": 99
+      },
+      "viralDistribution": {
+        "december": {
+          "viralPosts": 6,
+          "totalEngagement": 57102,
+          "topPost": 42577
+        },
+        "january": {
+          "viralPosts": 1,
+          "totalEngagement": 4644,
+          "topPost": 4644
         }
       },
-      "january": {
-        "comment": {
-          "count": 18,
-          "percentage": 18.2,
-          "avgEngagement": 573.0
+      "insights": [
+        {
+          "type": "viral",
+          "title": "Top Performer on Juan365",
+          "detail": "The '\ud835\udddc\ud835\ude01\u2019\ud835\ude00 \ud835\ude01\ud835\uddf6\ud835\uddfa\ud835\uddf2 \ud835\uddf3\ud835\uddfc\ud835\uddff \ud835\uddd4\ud835\udddf\ud835\udddf \ud835\udddc\ud835\udde1 \ud835\udde6\ud835\uddd4 \ud835\udde6\ud835\uddee\ud835\ude06\ud835\uddee\ud835\udddd\ud835\udde8\ud835\uddd4\ud835\udde1: \ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\udddd\ud835\ude02...' on 2025-12-08 generated 42,577 engagement and 437,394 views."
         },
-        "react": {
-          "count": 4,
-          "percentage": 4.0,
-          "avgEngagement": 715.0
+        {
+          "type": "cta",
+          "title": "Call-to-Action Usage Changed",
+          "detail": "December had 35.9% posts with comment CTAs vs 18.2% in January."
         },
-        "share": {
-          "count": 11,
-          "percentage": 11.1,
-          "avgEngagement": 525.0
+        {
+          "type": "content",
+          "title": "Videos Performance Declined",
+          "detail": "Videos avg engagement dropped 61.9% from December (1,456) to January (555)."
         },
-        "giveaway": {
-          "count": 13,
-          "percentage": 13.1,
-          "avgEngagement": 684.0
+        {
+          "type": "recommendation",
+          "title": "Increase Posting Frequency",
+          "detail": "January had 99 posts vs December's 181. Consider maintaining consistent posting volume."
+        }
+      ],
+      "period": {
+        "start": "2025-12-01",
+        "end": "2026-01-18"
+      }
+    },
+    "liveStream": {
+      "weeklyTrend": [
+        {
+          "week": "2025-W48",
+          "weekStart": "2025-12-01",
+          "weekEnd": "2025-12-07",
+          "posts": 36,
+          "avgEngagement": 245.0,
+          "totalEngagement": 8817,
+          "maxEngagement": 649,
+          "wowChange": null
         },
-        "question": {
-          "count": 40,
-          "percentage": 40.4,
-          "avgEngagement": 490.0
+        {
+          "week": "2025-W49",
+          "weekStart": "2025-12-08",
+          "weekEnd": "2025-12-14",
+          "posts": 41,
+          "avgEngagement": 1074.0,
+          "totalEngagement": 44018,
+          "maxEngagement": 10002,
+          "wowChange": 338.4
+        },
+        {
+          "week": "2025-W50",
+          "weekStart": "2025-12-15",
+          "weekEnd": "2025-12-21",
+          "posts": 33,
+          "avgEngagement": 572.0,
+          "totalEngagement": 18883,
+          "maxEngagement": 7173,
+          "wowChange": -46.7
+        },
+        {
+          "week": "2025-W51",
+          "weekStart": "2025-12-22",
+          "weekEnd": "2025-12-28",
+          "posts": 38,
+          "avgEngagement": 590.0,
+          "totalEngagement": 22424,
+          "maxEngagement": 4941,
+          "wowChange": 3.1
+        },
+        {
+          "week": "2025-W52",
+          "weekStart": "2025-12-29",
+          "weekEnd": "2025-12-31",
+          "posts": 12,
+          "avgEngagement": 471.0,
+          "totalEngagement": 5651,
+          "maxEngagement": 4046,
+          "wowChange": -20.2
+        },
+        {
+          "week": "2026-W00",
+          "weekStart": "2026-01-01",
+          "weekEnd": "2026-01-04",
+          "posts": 21,
+          "avgEngagement": 1037.0,
+          "totalEngagement": 21779,
+          "maxEngagement": 7004,
+          "wowChange": 120.2
+        },
+        {
+          "week": "2026-W01",
+          "weekStart": "2026-01-05",
+          "weekEnd": "2026-01-11",
+          "posts": 42,
+          "avgEngagement": 1127.0,
+          "totalEngagement": 47353,
+          "maxEngagement": 8077,
+          "wowChange": 8.7
+        },
+        {
+          "week": "2026-W02",
+          "weekStart": "2026-01-12",
+          "weekEnd": "2026-01-17",
+          "posts": 36,
+          "avgEngagement": 1604.0,
+          "totalEngagement": 57740,
+          "maxEngagement": 9442,
+          "wowChange": 42.3
+        }
+      ],
+      "viralPosts": [
+        {
+          "date": "2025-12-13",
+          "week": "2025-W49",
+          "postType": "Live",
+          "engagement": 10002,
+          "reactions": 2710,
+          "comments": 5961,
+          "shares": 1331,
+          "views": 16336,
+          "title": "Juana babe Sena and Juanababe Zell",
+          "postId": "1970584643487211",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/1970584643487211/"
+        },
+        {
+          "date": "2025-12-12",
+          "week": "2025-W49",
+          "postType": "Live",
+          "engagement": 9466,
+          "reactions": 2067,
+          "comments": 6135,
+          "shares": 1264,
+          "views": 17674,
+          "title": "JUANABABE SENA & JUANABABE ZELL",
+          "postId": "26381672431421803",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/26381672431421803/"
+        },
+        {
+          "date": "2026-01-16",
+          "week": "2026-W02",
+          "postType": "Live",
+          "engagement": 9442,
+          "reactions": 1794,
+          "comments": 6107,
+          "shares": 1541,
+          "views": 8317,
+          "title": "Juanababe Abi and Sena",
+          "postId": "4393408820901385",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/4393408820901385/"
+        },
+        {
+          "date": "2026-01-12",
+          "week": "2026-W02",
+          "postType": "Live",
+          "engagement": 9046,
+          "reactions": 1331,
+          "comments": 6327,
+          "shares": 1388,
+          "views": 12077,
+          "title": "Juanababe Ashley",
+          "postId": "732616852866229",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/732616852866229/"
+        },
+        {
+          "date": "2025-12-10",
+          "week": "2025-W49",
+          "postType": "Live",
+          "engagement": 8159,
+          "reactions": 1723,
+          "comments": 4777,
+          "shares": 1659,
+          "views": 15006,
+          "title": "Juanababe Abi and Sena",
+          "postId": "1823348091698434",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/1823348091698434/"
+        },
+        {
+          "date": "2026-01-11",
+          "week": "2026-W01",
+          "postType": "Live",
+          "engagement": 8077,
+          "reactions": 1187,
+          "comments": 5297,
+          "shares": 1593,
+          "views": 12131,
+          "title": "Juana babe Sena",
+          "postId": "4231339833746995",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/4231339833746995/"
+        },
+        {
+          "date": "2026-01-17",
+          "week": "2026-W02",
+          "postType": "Live",
+          "engagement": 7824,
+          "reactions": 1181,
+          "comments": 5446,
+          "shares": 1197,
+          "views": 9849,
+          "title": "Juanababe Abi,Jam,Ash and Sena",
+          "postId": "1199244058499161",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/1199244058499161/"
+        },
+        {
+          "date": "2025-12-11",
+          "week": "2025-W49",
+          "postType": "Live",
+          "engagement": 7527,
+          "reactions": 1237,
+          "comments": 4632,
+          "shares": 1658,
+          "views": 13889,
+          "title": "Juanababe Sena",
+          "postId": "1110589484339483",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/1110589484339483/"
+        },
+        {
+          "date": "2026-01-15",
+          "week": "2026-W02",
+          "postType": "Live",
+          "engagement": 7424,
+          "reactions": 1208,
+          "comments": 3906,
+          "shares": 2310,
+          "views": 8582,
+          "title": "Juanababe Abi and Jam",
+          "postId": "2634156380313382",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/2634156380313382/"
+        },
+        {
+          "date": "2026-01-13",
+          "week": "2026-W02",
+          "postType": "Live",
+          "engagement": 7372,
+          "reactions": 636,
+          "comments": 5210,
+          "shares": 1526,
+          "views": 10641,
+          "title": "Juanababe Jam and Sena",
+          "postId": "25647039848298760",
+          "permalink": "https://www.facebook.com/juan365livestream/videos/25647039848298760/"
+        }
+      ],
+      "postTypeComparison": [
+        {
+          "type": "Photos",
+          "decPosts": 134,
+          "decAvg": 218.0,
+          "janPosts": 62,
+          "janAvg": 273.0,
+          "change": 25.2
+        },
+        {
+          "type": "Live",
+          "decPosts": 12,
+          "decAvg": 5765.0,
+          "janPosts": 17,
+          "janAvg": 6280.0,
+          "change": 8.9
+        },
+        {
+          "type": "Videos",
+          "decPosts": 7,
+          "decAvg": 99.0,
+          "janPosts": 6,
+          "janAvg": 177.0,
+          "change": 78.8
+        },
+        {
+          "type": "Text",
+          "decPosts": 6,
+          "decAvg": 92.0,
+          "janPosts": 1,
+          "janAvg": 73.0,
+          "change": -20.7
+        },
+        {
+          "type": "Reels",
+          "decPosts": 1,
+          "decAvg": 127.0,
+          "janPosts": 13,
+          "janAvg": 157.0,
+          "change": 23.6
+        }
+      ],
+      "ctaAnalysis": {
+        "december": {
+          "comment": {
+            "count": 52,
+            "percentage": 32.5,
+            "avgEngagement": 228.0
+          },
+          "react": {
+            "count": 34,
+            "percentage": 21.2,
+            "avgEngagement": 219.0
+          },
+          "share": {
+            "count": 50,
+            "percentage": 31.2,
+            "avgEngagement": 184.0
+          },
+          "giveaway": {
+            "count": 40,
+            "percentage": 25.0,
+            "avgEngagement": 204.0
+          },
+          "question": {
+            "count": 65,
+            "percentage": 40.6,
+            "avgEngagement": 191.0
+          }
+        },
+        "january": {
+          "comment": {
+            "count": 7,
+            "percentage": 7.1,
+            "avgEngagement": 293.0
+          },
+          "react": {
+            "count": 16,
+            "percentage": 16.2,
+            "avgEngagement": 190.0
+          },
+          "share": {
+            "count": 7,
+            "percentage": 7.1,
+            "avgEngagement": 244.0
+          },
+          "giveaway": {
+            "count": 29,
+            "percentage": 29.3,
+            "avgEngagement": 274.0
+          },
+          "question": {
+            "count": 35,
+            "percentage": 35.4,
+            "avgEngagement": 253.0
+          }
+        },
+        "decTotalPosts": 160,
+        "janTotalPosts": 99
+      },
+      "viralDistribution": {
+        "december": {
+          "viralPosts": 11,
+          "totalEngagement": 67491,
+          "topPost": 10002
+        },
+        "january": {
+          "viralPosts": 16,
+          "totalEngagement": 106713,
+          "topPost": 9442
         }
       },
-      "decTotalPosts": 181,
-      "janTotalPosts": 99
-    },
-    "viralDistribution": {
-      "december": {
-        "viralPosts": 6,
-        "totalEngagement": 57102,
-        "topPost": 42577
-      },
-      "january": {
-        "viralPosts": 1,
-        "totalEngagement": 4644,
-        "topPost": 4644
+      "insights": [
+        {
+          "type": "viral",
+          "title": "Top Performer on Live Stream",
+          "detail": "The 'Juana babe Sena and Juanababe Zell...' on 2025-12-13 generated 10,002 engagement and 16,336 views."
+        },
+        {
+          "type": "cta",
+          "title": "Call-to-Action Usage Changed",
+          "detail": "December had 32.5% posts with comment CTAs vs 7.1% in January."
+        },
+        {
+          "type": "content",
+          "title": "Videos Performance Improved",
+          "detail": "Videos avg engagement increased 78.8% from December (99) to January (177)."
+        },
+        {
+          "type": "recommendation",
+          "title": "Increase Posting Frequency",
+          "detail": "January had 99 posts vs December's 160. Consider maintaining consistent posting volume."
+        }
+      ],
+      "period": {
+        "start": "2025-12-01",
+        "end": "2026-01-18"
       }
-    },
-    "insights": [
-      {
-        "type": "viral",
-        "title": "One Viral Video Drove December's Numbers",
-        "detail": "The '\ud835\udddc\ud835\ude01\u2019\ud835\ude00 \ud835\ude01\ud835\uddf6\ud835\uddfa\ud835\uddf2 \ud835\uddf3\ud835\uddfc\ud835\uddff \ud835\uddd4\ud835\udddf\ud835\udddf \ud835\udddc\ud835\udde1 \ud835\udde6\ud835\uddd4 \ud835\udde6\ud835\uddee\ud835\ude06\ud835\uddee\ud835\udddd\ud835\udde8\ud835\uddd4\ud835\udde1: \ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\udddd\ud835\ude02...' video on 2025-12-08 generated 42,577 engagement and 437,394 views. This single post accounts for ~23% of December's total."
-      },
-      {
-        "type": "cta",
-        "title": "Call-to-Action Usage Dropped",
-        "detail": "December had 35.9% posts with comment CTAs vs only 18.2% in January. Posts asking for engagement get more engagement."
-      },
-      {
-        "type": "content",
-        "title": "Video Performance Declined Sharply",
-        "detail": "Video avg engagement dropped 61.9% from December (1,456) to January (555). December had a viral dance challenge that boosted numbers."
-      },
-      {
-        "type": "recommendation",
-        "title": "Increase Engagement Requests",
-        "detail": "Add 'Comment', 'Share', and 'React' prompts to 35%+ of posts. Create viral-potential content like dance challenges with clear CTAs."
-      }
-    ],
-    "period": {
-      "start": "2025-12-01",
-      "end": "2026-01-18"
     }
   }
 }

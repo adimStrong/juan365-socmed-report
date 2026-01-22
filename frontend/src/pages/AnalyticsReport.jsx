@@ -27,6 +27,7 @@ export default function AnalyticsReport({ pageGroup }) {
   const groupData = pageGroup === 'juan365' ? pageGroupHealth.juan365 : pageGroupHealth.liveStream;
   const comparisonData = pageGroup === 'juan365' ? pageGroupComparison.juan365 : pageGroupComparison.liveStream;
   const watchData = pageGroup === 'juan365' ? watchTimeData.juan365 : watchTimeData.liveStream;
+  const deepDiveData = pageGroup === 'juan365' ? data?.deepDive?.juan365 : data?.deepDive?.liveStream;
 
   const isJuan365 = pageGroup === 'juan365';
   const groupName = isJuan365 ? 'Juan365' : 'Juan365 Live Stream';
@@ -440,15 +441,15 @@ export default function AnalyticsReport({ pageGroup }) {
         </div>
       )}
 
-      {/* Deep Dive Analysis - Juan365 Only */}
-      {isJuan365 && data?.deepDive && (
+      {/* Deep Dive Analysis */}
+      {deepDiveData && (
         <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
             <span>🔍</span> Deep Dive Analysis
           </h2>
 
           {/* Weekly Engagement Trend */}
-          {data.deepDive.weeklyTrend && data.deepDive.weeklyTrend.length > 0 && (
+          {deepDiveData.weeklyTrend && deepDiveData.weeklyTrend.length > 0 && (
             <div className="mb-6">
               <h3 className="font-semibold text-gray-700 mb-3">Weekly Engagement Trend</h3>
               <div className="overflow-x-auto">
@@ -464,7 +465,7 @@ export default function AnalyticsReport({ pageGroup }) {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.deepDive.weeklyTrend.map((week, i) => (
+                    {deepDiveData.weeklyTrend.map((week, i) => (
                       <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                         <td className="px-3 py-2 font-medium">{week.week}</td>
                         <td className="px-3 py-2 text-right">{week.posts}</td>
@@ -486,11 +487,11 @@ export default function AnalyticsReport({ pageGroup }) {
           )}
 
           {/* Viral Posts */}
-          {data.deepDive.viralPosts && data.deepDive.viralPosts.length > 0 && (
+          {deepDiveData.viralPosts && deepDiveData.viralPosts.length > 0 && (
             <div className="mb-6">
               <h3 className="font-semibold text-gray-700 mb-3">Top Performing Posts</h3>
               <div className="space-y-2">
-                {data.deepDive.viralPosts.slice(0, 5).map((post, i) => (
+                {deepDiveData.viralPosts.slice(0, 5).map((post, i) => (
                   <a
                     key={i}
                     href={post.permalink}
@@ -525,7 +526,7 @@ export default function AnalyticsReport({ pageGroup }) {
           )}
 
           {/* Post Type Comparison */}
-          {data.deepDive.postTypeComparison && data.deepDive.postTypeComparison.length > 0 && (
+          {deepDiveData.postTypeComparison && deepDiveData.postTypeComparison.length > 0 && (
             <div className="mb-6">
               <h3 className="font-semibold text-gray-700 mb-3">Post Type: Dec vs Jan</h3>
               <div className="overflow-x-auto">
@@ -541,7 +542,7 @@ export default function AnalyticsReport({ pageGroup }) {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.deepDive.postTypeComparison.map((pt, i) => (
+                    {deepDiveData.postTypeComparison.map((pt, i) => (
                       <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                         <td className="px-3 py-2 font-medium">{pt.type}</td>
                         <td className="px-3 py-2 text-right">{pt.decPosts}</td>
@@ -562,13 +563,13 @@ export default function AnalyticsReport({ pageGroup }) {
           )}
 
           {/* CTA Analysis */}
-          {data.deepDive.ctaAnalysis && (
+          {deepDiveData.ctaAnalysis && (
             <div className="mb-6">
               <h3 className="font-semibold text-gray-700 mb-3">Call-to-Action Usage (Dec vs Jan)</h3>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                 {['comment', 'share', 'react', 'giveaway', 'question'].map(cta => {
-                  const dec = data.deepDive.ctaAnalysis.december?.[cta] || {};
-                  const jan = data.deepDive.ctaAnalysis.january?.[cta] || {};
+                  const dec = deepDiveData.ctaAnalysis.december?.[cta] || {};
+                  const jan = deepDiveData.ctaAnalysis.january?.[cta] || {};
                   const change = dec.percentage && jan.percentage
                     ? (jan.percentage - dec.percentage).toFixed(1)
                     : null;
@@ -594,11 +595,11 @@ export default function AnalyticsReport({ pageGroup }) {
           )}
 
           {/* Key Insights */}
-          {data.deepDive.insights && data.deepDive.insights.length > 0 && (
+          {deepDiveData.insights && deepDiveData.insights.length > 0 && (
             <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
               <div className="text-sm font-semibold text-blue-800 mb-3">Key Insights & Recommendations</div>
               <div className="space-y-3">
-                {data.deepDive.insights.map((insight, i) => (
+                {deepDiveData.insights.map((insight, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span className={`text-lg ${
                       insight.type === 'viral' ? '🔥' :
