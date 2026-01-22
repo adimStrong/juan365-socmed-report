@@ -9,20 +9,25 @@ echo PUSH TO VERCEL (Juan365 SocMed)
 echo ============================================================
 echo.
 
-echo [1/3] Adding changes...
+echo [1/5] Cleaning up duplicates...
+python cleanup_duplicates.py
+
+echo.
+echo [2/5] Exporting data...
+python export_static_data.py
+
+echo.
+echo [3/5] Adding changes...
 %GIT% add -A
 
 echo.
-echo [2/3] Committing changes...
+echo [4/5] Committing and pushing to GitHub...
 %GIT% commit -m "Update data - %date% %time%"
-
-echo.
-echo Pushing to GitHub...
 %GIT% push origin main
 
 echo.
 echo ============================================================
-echo [3/3] Deploying frontend to Vercel...
+echo [5/5] Deploying frontend to Vercel...
 echo ============================================================
 REM Run from project root (not frontend) to avoid path issues
 call npx vercel --prod --yes --force
