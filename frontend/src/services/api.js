@@ -517,4 +517,13 @@ export const getDateBoundaries = async () => {
   return { minDate: null, maxDate: null };
 };
 
+export const getAnalytics = async () => {
+  if (IS_PRODUCTION) {
+    const data = await loadStaticData();
+    return data;
+  }
+  // For localhost API, fetch all analytics data
+  return api.get('/analytics/').then(res => res.data);
+};
+
 export default api;

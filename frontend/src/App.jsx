@@ -6,6 +6,8 @@ import Pages from './pages/Pages';
 import Comments from './pages/Comments';
 import Imports from './pages/Imports';
 import Overlap from './pages/Overlap';
+import AnalyticsReport from './pages/AnalyticsReport';
+import ReportSelector from './pages/ReportSelector';
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
           <Route path="comments" element={<Comments />} />
           <Route path="imports" element={<Imports />} />
           <Route path="overlap" element={<Overlap />} />
+          <Route path="report" element={<ReportSelector />} />
+          <Route path="report/juan365" element={<AnalyticsReport pageGroup="juan365" />} />
+          <Route path="report/livestream" element={<AnalyticsReport pageGroup="liveStream" />} />
         </Route>
       </Routes>
     </BrowserRouter>
