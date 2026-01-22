@@ -599,25 +599,24 @@ export default function AnalyticsReport({ pageGroup }) {
             <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
               <div className="text-sm font-semibold text-blue-800 mb-3">Key Insights & Recommendations</div>
               <div className="space-y-3">
-                {deepDiveData.insights.map((insight, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className={`text-lg ${
-                      insight.type === 'viral' ? '🔥' :
-                      insight.type === 'cta' ? '📢' :
-                      insight.type === 'content' ? '📉' :
-                      insight.type === 'recommendation' ? '💡' : '📊'
-                    }`}>{
-                      insight.type === 'viral' ? '🔥' :
-                      insight.type === 'cta' ? '📢' :
-                      insight.type === 'content' ? '📉' :
-                      insight.type === 'recommendation' ? '💡' : '📊'
-                    }</span>
-                    <div>
-                      <div className="font-medium text-gray-800">{insight.title}</div>
-                      <div className="text-sm text-gray-600">{insight.detail}</div>
+                {deepDiveData.insights.map((insight, i) => {
+                  const getEmoji = () => {
+                    if (insight.type === 'viral') return '🔥';
+                    if (insight.type === 'cta') return insight.title.includes('Increased') ? '📈' : '📉';
+                    if (insight.type === 'content') return insight.title.includes('Improved') ? '📈' : '📉';
+                    if (insight.type === 'recommendation') return '💡';
+                    return '📊';
+                  };
+                  return (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-lg">{getEmoji()}</span>
+                      <div>
+                        <div className="font-medium text-gray-800">{insight.title}</div>
+                        <div className="text-sm text-gray-600">{insight.detail}</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
