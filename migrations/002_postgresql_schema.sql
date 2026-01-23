@@ -35,6 +35,12 @@ CREATE TABLE IF NOT EXISTS posts (
     views_count INTEGER DEFAULT 0,
     reach_count INTEGER DEFAULT 0,
     total_engagement INTEGER DEFAULT 0,
+    pes REAL DEFAULT 0,
+    fetched_at TIMESTAMP,
+    avg_watch_time_ms INTEGER DEFAULT 0,
+    video_views_3sec INTEGER DEFAULT 0,
+    video_views_complete INTEGER DEFAULT 0,
+    watch_completion_rate REAL DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -57,6 +63,11 @@ CREATE TABLE IF NOT EXISTS post_metrics (
     wow_count INTEGER DEFAULT 0,
     sad_count INTEGER DEFAULT 0,
     angry_count INTEGER DEFAULT 0,
+    avg_watch_time_ms INTEGER DEFAULT 0,
+    video_views_3sec INTEGER DEFAULT 0,
+    video_views_complete INTEGER DEFAULT 0,
+    video_views_10sec INTEGER DEFAULT 0,
+    video_views_30sec INTEGER DEFAULT 0,
     source VARCHAR(20) DEFAULT 'csv',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(post_id, metric_date, source)

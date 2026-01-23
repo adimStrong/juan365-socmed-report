@@ -78,6 +78,17 @@ def import_csv(filepath):
             views = safe_int(row.get("Views", 0))
             reach = safe_int(row.get("Reach", 0))
 
+            # Video metrics from CSV
+            duration_sec = safe_int(row.get("Duration (sec)", 0))
+            avg_watch_sec = float(row.get("Average Seconds viewed", 0) or 0)
+            avg_watch_time_ms = int(avg_watch_sec * 1000)  # Convert to milliseconds
+            total_seconds_viewed = safe_int(row.get("Seconds viewed", 0))
+
+            # Calculate watch completion rate for videos
+            watch_completion_rate = 0
+            if duration_sec > 0 and avg_watch_sec > 0:
+                watch_completion_rate = round((avg_watch_sec / duration_sec) * 100, 2)
+
             # Calculate engagement metrics
             total_engagement = reactions + comments + shares
             pes = (reactions * 1.0) + (comments * 2.0) + (shares * 3.0)
@@ -87,8 +98,9 @@ def import_csv(filepath):
                 INSERT OR REPLACE INTO posts
                 (post_id, page_id, title, permalink, post_type, publish_time,
                  reactions_total, comments_count, shares_count, views_count, reach_count,
-                 pes, total_engagement, fetched_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 pes, total_engagement, fetched_at,
+                 duration_sec, avg_watch_time_ms, watch_completion_rate)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 post_id,
                 page_id,
@@ -103,7 +115,10 @@ def import_csv(filepath):
                 reach,
                 pes,
                 total_engagement,
-                datetime.now().isoformat()
+                datetime.now().isoformat(),
+                duration_sec,
+                avg_watch_time_ms,
+                watch_completion_rate
             ))
 
             imported += 1

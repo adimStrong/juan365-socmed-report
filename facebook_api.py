@@ -155,6 +155,81 @@ class FacebookAPI:
             # Insights may not be available
             return {}
 
+    def get_video_insights(self, video_id: str) -> Dict:
+        """
+        Get video-specific insights including watch time metrics.
+
+        Available metrics:
+        - total_video_views: Total views (3+ seconds)
+        - total_video_views_unique: Unique viewers
+        - total_video_avg_time_watched: Average watch time in milliseconds
+        - total_video_complete_views: Views where video was watched to 95%+
+        - total_video_10s_views: Views of 10+ seconds
+        - total_video_30s_views: Views of 30+ seconds
+        - total_video_views_autoplayed: Autoplay views
+        - total_video_views_clicked_to_play: Click-to-play views
+        """
+        try:
+            endpoint = f"{video_id}/video_insights"
+            params = {
+                "metric": ",".join([
+                    "total_video_views",
+                    "total_video_views_unique",
+                    "total_video_avg_time_watched",
+                    "total_video_complete_views",
+                    "total_video_10s_views",
+                    "total_video_30s_views",
+                    "total_video_views_autoplayed",
+                    "total_video_views_clicked_to_play"
+                ])
+            }
+            data = self._make_request(endpoint, params)
+
+            insights = {}
+            for item in data.get("data", []):
+                name = item.get("name", "")
+                values = item.get("values", [{}])
+                if values:
+                    insights[name] = values[0].get("value", 0)
+
+            return {
+                "avg_watch_time_ms": insights.get("total_video_avg_time_watched", 0),
+                "video_views_total": insights.get("total_video_views", 0),
+                "video_views_unique": insights.get("total_video_views_unique", 0),
+                "video_views_complete": insights.get("total_video_complete_views", 0),
+                "video_views_10sec": insights.get("total_video_10s_views", 0),
+                "video_views_30sec": insights.get("total_video_30s_views", 0),
+                "video_views_autoplayed": insights.get("total_video_views_autoplayed", 0),
+                "video_views_clicked": insights.get("total_video_views_clicked_to_play", 0)
+            }
+        except Exception as e:
+            # Video insights may not be available for all videos
+            return {
+                "avg_watch_time_ms": 0,
+                "video_views_total": 0,
+                "video_views_unique": 0,
+                "video_views_complete": 0,
+                "video_views_10sec": 0,
+                "video_views_30sec": 0,
+                "video_views_autoplayed": 0,
+                "video_views_clicked": 0
+            }
+
+    def get_post_video_id(self, post_id: str) -> Optional[str]:
+        """Get the video ID from a post if it's a video post."""
+        try:
+            endpoint = post_id
+            params = {"fields": "attachments{target{id}}"}
+            data = self._make_request(endpoint, params)
+
+            attachments = data.get("attachments", {}).get("data", [])
+            if attachments:
+                target = attachments[0].get("target", {})
+                return target.get("id")
+            return None
+        except Exception:
+            return None
+
 
 def classify_post_type(post: Dict) -> str:
     """Classify post type based on attachments."""

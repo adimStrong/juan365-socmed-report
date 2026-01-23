@@ -68148,7 +68148,7 @@
     "recommendation": "Videos in the 61-120s range perform best with 6431 avg engagement"
   },
   "analyticsReport": {
-    "generatedAt": "2026-01-23T09:31:40.639574",
+    "generatedAt": "2026-01-23T09:32:12.128704",
     "history": [
       {
         "date": "2026-01-22T14:33:46.330179",
@@ -68160,7 +68160,7 @@
         "videoBestBucket": "61-120s"
       },
       {
-        "date": "2026-01-23T09:31:40.639574",
+        "date": "2026-01-23T09:32:12.128704",
         "totalPosts": 3316,
         "avgEngagement": 560.4,
         "liveHealthScore": 70,

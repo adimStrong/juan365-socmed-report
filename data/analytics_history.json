@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2026-01-22T14:33:46.330179",
+    "totalPosts": 3311,
+    "avgEngagement": 561.0,
+    "liveHealthScore": 70,
+    "status": "declining",
+    "perPostTrend": -19.8,
+    "videoBestBucket": "61-120s"
+  },
+  {
+    "date": "2026-01-23T09:32:12.128704",
+    "totalPosts": 3316,
+    "avgEngagement": 560.4,
+    "liveHealthScore": 70,
+    "status": "declining",
+    "perPostTrend": -18.2,
+    "videoBestBucket": "61-120s"
+  }
+]

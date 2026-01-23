@@ -389,6 +389,11 @@ def insert_metrics(
     wow_count: int = 0,
     sad_count: int = 0,
     angry_count: int = 0,
+    avg_watch_time_ms: int = 0,
+    video_views_3sec: int = 0,
+    video_views_complete: int = 0,
+    video_views_10sec: int = 0,
+    video_views_30sec: int = 0,
     source: str = 'csv',
     conn=None
 ) -> None:
@@ -398,8 +403,10 @@ def insert_metrics(
             post_id, metric_date, reactions, comments, shares, views, reach,
             total_clicks, link_clicks, other_clicks,
             like_count, love_count, haha_count, wow_count, sad_count, angry_count,
+            avg_watch_time_ms, video_views_3sec, video_views_complete,
+            video_views_10sec, video_views_30sec,
             source
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(post_id, metric_date, source) DO UPDATE SET
             reactions = excluded.reactions,
             comments = excluded.comments,
@@ -414,12 +421,19 @@ def insert_metrics(
             haha_count = excluded.haha_count,
             wow_count = excluded.wow_count,
             sad_count = excluded.sad_count,
-            angry_count = excluded.angry_count
+            angry_count = excluded.angry_count,
+            avg_watch_time_ms = excluded.avg_watch_time_ms,
+            video_views_3sec = excluded.video_views_3sec,
+            video_views_complete = excluded.video_views_complete,
+            video_views_10sec = excluded.video_views_10sec,
+            video_views_30sec = excluded.video_views_30sec
     """
     params = (
         post_id, metric_date, reactions, comments, shares, views, reach,
         total_clicks, link_clicks, other_clicks,
         like_count, love_count, haha_count, wow_count, sad_count, angry_count,
+        avg_watch_time_ms, video_views_3sec, video_views_complete,
+        video_views_10sec, video_views_30sec,
         source
     )
 

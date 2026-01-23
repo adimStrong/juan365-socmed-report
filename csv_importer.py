@@ -41,6 +41,13 @@ COLUMN_ALIASES = {
     'duration_sec': ['Duration (sec)', 'Duration', 'duration_sec', 'Video Length'],
     'is_crosspost': ['Is crosspost', 'IsCrosspost', 'is_crosspost', 'Crosspost'],
     'is_share': ['Is share', 'IsShare', 'is_share', 'Shared'],
+    # Reaction type breakdown
+    'like_count': ['Likes', 'Like', 'like_count', 'Like count', 'Like reactions'],
+    'love_count': ['Love', 'love_count', 'Love count', 'Love reactions'],
+    'haha_count': ['Haha', 'haha_count', 'Haha count', 'Haha reactions'],
+    'wow_count': ['Wow', 'wow_count', 'Wow count', 'Wow reactions'],
+    'sad_count': ['Sad', 'sad_count', 'Sad count', 'Sad reactions'],
+    'angry_count': ['Angry', 'angry_count', 'Angry count', 'Angry reactions'],
 }
 
 
@@ -269,6 +276,12 @@ def import_csv(
                                 total_clicks=parse_int(get_cell(row, column_map, 'total_clicks')),
                                 link_clicks=parse_int(get_cell(row, column_map, 'link_clicks')),
                                 other_clicks=parse_int(get_cell(row, column_map, 'other_clicks')),
+                                like_count=parse_int(get_cell(row, column_map, 'like_count')),
+                                love_count=parse_int(get_cell(row, column_map, 'love_count')),
+                                haha_count=parse_int(get_cell(row, column_map, 'haha_count')),
+                                wow_count=parse_int(get_cell(row, column_map, 'wow_count')),
+                                sad_count=parse_int(get_cell(row, column_map, 'sad_count')),
+                                angry_count=parse_int(get_cell(row, column_map, 'angry_count')),
                                 source='csv',
                                 conn=conn
                             )
